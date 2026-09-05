@@ -9,16 +9,24 @@ using namespace std;
 #define BLINE 12
 #define BCOL 12
 
+typedef struct{
+    int size;
+    int qnt;
+    bool toggle;
+}Ship;
+
 int mainMenu();
 //Returns a number which represents the type of game that will be played;
 void cursorSetUp (int startX, int startY, int step, int size, Rectangle *cursor);
 //Initializes the cursor;
-void printBoard (int gamePhase, Rectangle visualBoard[BLINE][BCOL], int line, int col, int step, int sqSize);
+void printBoard (int gamePhase, Rectangle visualBoard[BLINE][BCOL], int startX, int startY, int step, int sqSize);
 //Prints the board differently depending on the state of the game;
 void moveCursor (int startX, int startY, int step, int size, Rectangle *cursor);
 //Moves the position of the cursor around;
-void placeShip (int shipSize, int sqSize, int step, bool rotateShip, Rectangle *cursor, int gameBoard[BLINE][BCOL]);
+void placeShip (Ship ship, int sqSize, int step, bool rotateShip, Rectangle *cursor, int gameBoard[BLINE][BCOL]);
 //Draws outlines and places ships on the actual board;
+bool checkPlace (Ship ship, Rectangle *cursor, bool rotateShip, int step);
+//checks if the place where the cursor is able to accomodade a certain ship
 
 int main (){
 
@@ -34,12 +42,9 @@ int main (){
     int startX = 190;
     int startY = 90;
 
-    const int subSize = 1;
-    bool placeSub = false;
-    const int cruizerSize = 2;
-    bool placeCruizer = false;
-    const int carrierSize = 4;
-    bool placeCarrier = false;
+    Ship sub = {1, 3, false};
+    Ship cruizer = {2, 2, false};
+    Ship carrier = {4, 2, false};
     bool rotateShip = false;
 
     Rectangle cursor;
@@ -57,20 +62,20 @@ int main (){
             printBoard(gamePhase, visualBoard, startX, startY, step, sqSize);
             moveCursor(startX, startY, step, sqSize, &cursor);
             DrawRectangleRec(cursor,GREEN);
-            if (IsKeyPressed(KEY_C)) placeCarrier = !placeCarrier;
-            if (placeCarrier){
-                placeShip(carrierSize, sqSize, step, rotateShip, &cursor, p1gameBoard);
-                placeSub = false; placeCruizer = false;
+            if (IsKeyPressed(KEY_C)) carrier.toggle = !carrier.toggle;
+            if (carrier.toggle){
+                placeShip(carrier, sqSize, step, rotateShip, &cursor, p1gameBoard);
+                sub.toggle = false; cruizer.toggle = false;
             }
-            if (IsKeyPressed(KEY_S)) placeSub = !placeSub;
-            if (placeSub){
-                placeShip(subSize, sqSize, step, rotateShip, &cursor, p1gameBoard);
-                placeCarrier = false; placeCruizer = false;
+            if (IsKeyPressed(KEY_S)) sub.toggle = !sub.toggle;
+            if (sub.toggle){
+                placeShip(sub, sqSize, step, rotateShip, &cursor, p1gameBoard);
+                carrier.toggle = false; cruizer.toggle = false;
             }
-            if (IsKeyPressed(KEY_K)) placeCruizer = !placeCruizer;
-            if (placeCruizer){
-                placeShip(cruizerSize, sqSize, step, rotateShip, &cursor, p1gameBoard);
-                placeCarrier = false; placeSub = false;
+            if (IsKeyPressed(KEY_K)) cruizer.toggle = !cruizer.toggle;
+            if (cruizer.toggle){
+                placeShip(cruizer, sqSize, step, rotateShip, &cursor, p1gameBoard);
+                carrier.toggle = false; sub.toggle = false;
             }
             if (IsKeyPressed(KEY_R)) rotateShip = !rotateShip; 
         }
@@ -81,16 +86,31 @@ int main (){
     CloseWindow(); 
 }
 
-void placeShip (int shipSize, int sqSize, int step, bool rotateShip, Rectangle *cursor, int gameBoard[BLINE][BCOL]){
-    if(rotateShip){
-        for(int i = 0; i < shipSize; i++){
-            DrawRectangle(cursor->x + step*i, cursor->y, sqSize, sqSize, BLUE);
-        }
-    } else{
-        for(int i = 0; i < shipSize; i++){
-            DrawRectangle(cursor->x, cursor->y + step*i, sqSize, sqSize, BLUE);
-        }
+bool checkPlace(Ship ship, Rectangle *cursor, bool rotateShip, int step){
 
+    if(!rotateShip){
+        if (cursor->y <= (90 + step * (BLINE-ship.size))) return true;
+    } else{
+        if (cursor->x <= (190 + step * (BCOL-ship.size))) return true;
+    } 
+    return false;
+}
+
+void placeShip (Ship ship, int sqSize, int step, bool rotateShip, Rectangle *cursor, int gameBoard[BLINE][BCOL]){
+    bool canPlace = checkPlace(ship, cursor, rotateShip, step); 
+
+    if(rotateShip){
+        for(int i = 0; i < ship.size; i++){
+            if(canPlace) DrawRectangle(cursor->x + step*i, cursor->y, sqSize, sqSize, BLUE);
+            else (DrawRectangle(cursor->x, cursor->y, sqSize, sqSize, RED));
+        }
+    }
+
+    if(!rotateShip){
+        for(int i = 0; i < ship.size; i++){
+            if(canPlace) DrawRectangle(cursor->x, cursor->y + step*i, sqSize, sqSize, BLUE);
+            else (DrawRectangle(cursor->x, cursor->y, sqSize, sqSize, RED));
+        }
     }
 }
 
