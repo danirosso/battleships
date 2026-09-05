@@ -9,6 +9,11 @@ using namespace std;
 #define BLINE 12
 #define BCOL 12
 
+#define SEA 0 
+#define SHIP 1
+#define HIT 2
+#define MISS 3
+
 typedef struct{
     int size;
     int qnt;
@@ -17,16 +22,16 @@ typedef struct{
 
 int mainMenu();
 //Returns a number which represents the type of game that will be played;
-void cursorSetUp (int startX, int startY, int step, int size, Rectangle *cursor);
+void cursorSetUp (Vector2 startPos, int step, int size, Rectangle *cursor);
 //Initializes the cursor;
-void printBoard (int gamePhase, Rectangle visualBoard[BLINE][BCOL], int startX, int startY, int step, int sqSize);
+void printBoard (int gamePhase, int gameBoard[BLINE][BCOL], Rectangle visualBoard[BLINE][BCOL], Vector2 startPos, int step, int sqSize);
 //Prints the board differently depending on the state of the game;
-void moveCursor (int startX, int startY, int step, int size, Rectangle *cursor);
+void moveCursor (Vector2 startPos, int step, int size, Rectangle *cursor);
 //Moves the position of the cursor around;
-void placeShip (Ship ship, int sqSize, int step, bool rotateShip, Rectangle *cursor, int gameBoard[BLINE][BCOL]);
+void placeShip (Ship ship, Vector2 startPos, int sqSize, int step, bool rotateShip, Rectangle *cursor, int gameBoard[BLINE][BCOL]);
 //Draws outlines and places ships on the actual board;
-bool checkPlace (Ship ship, Rectangle *cursor, bool rotateShip, int step);
-//checks if the place where the cursor is able to accomodade a certain ship
+bool checkPlace (Ship ship, Vector2 pos, Rectangle *cursor, bool rotateShip, int step);
+//Checks if the place where the cursor is able to accomodade a certain ship
 
 int main (){
 
@@ -35,12 +40,11 @@ int main (){
 
     int gamePhase = 0; 
 
-    int p1gameBoard[BLINE][BCOL] = {0};
+    int p1gameBoard[BLINE][BCOL] = {SEA};
     Rectangle visualBoard[BLINE][BCOL];
+    Vector2 startPos = {190, 90};
     int step = 35;
     int sqSize = 30;
-    int startX = 190;
-    int startY = 90;
 
     Ship sub = {1, 3, false};
     Ship cruizer = {2, 2, false};
@@ -48,7 +52,7 @@ int main (){
     bool rotateShip = false;
 
     Rectangle cursor;
-    cursorSetUp(startX, startY, step, sqSize, &cursor);
+    cursorSetUp(startPos, step, sqSize, &cursor);
 
     while(!WindowShouldClose()){
         BeginDrawing();
@@ -59,22 +63,22 @@ int main (){
         ClearBackground(BLACK);
 
         if(gamePhase == 1){ 
-            printBoard(gamePhase, visualBoard, startX, startY, step, sqSize);
-            moveCursor(startX, startY, step, sqSize, &cursor);
+            printBoard(gamePhase, p1gameBoard, visualBoard, startPos, step, sqSize);
+            moveCursor(startPos, step, sqSize, &cursor);
             DrawRectangleRec(cursor,GREEN);
             if (IsKeyPressed(KEY_C)) carrier.toggle = !carrier.toggle;
             if (carrier.toggle){
-                placeShip(carrier, sqSize, step, rotateShip, &cursor, p1gameBoard);
+                placeShip(carrier, startPos, sqSize, step, rotateShip, &cursor, p1gameBoard);
                 sub.toggle = false; cruizer.toggle = false;
             }
             if (IsKeyPressed(KEY_S)) sub.toggle = !sub.toggle;
             if (sub.toggle){
-                placeShip(sub, sqSize, step, rotateShip, &cursor, p1gameBoard);
+                placeShip(sub, startPos, sqSize, step, rotateShip, &cursor, p1gameBoard);
                 carrier.toggle = false; cruizer.toggle = false;
             }
             if (IsKeyPressed(KEY_K)) cruizer.toggle = !cruizer.toggle;
             if (cruizer.toggle){
-                placeShip(cruizer, sqSize, step, rotateShip, &cursor, p1gameBoard);
+                placeShip(cruizer, startPos, sqSize, step, rotateShip, &cursor, p1gameBoard);
                 carrier.toggle = false; sub.toggle = false;
             }
             if (IsKeyPressed(KEY_R)) rotateShip = !rotateShip; 
@@ -86,18 +90,19 @@ int main (){
     CloseWindow(); 
 }
 
-bool checkPlace(Ship ship, Rectangle *cursor, bool rotateShip, int step){
+bool checkPlace(Ship ship, Vector2 pos, Rectangle *cursor, bool rotateShip, int step){
 
     if(!rotateShip){
-        if (cursor->y <= (90 + step * (BLINE-ship.size))) return true;
+        if (cursor->y <= (pos.y + step * (BLINE-ship.size))) return true;
     } else{
-        if (cursor->x <= (190 + step * (BCOL-ship.size))) return true;
+        if (cursor->x <= (pos.x + step * (BCOL-ship.size))) return true;
     } 
     return false;
 }
 
-void placeShip (Ship ship, int sqSize, int step, bool rotateShip, Rectangle *cursor, int gameBoard[BLINE][BCOL]){
-    bool canPlace = checkPlace(ship, cursor, rotateShip, step); 
+void placeShip (Ship ship, Vector2 startPos, int sqSize, int step, bool rotateShip, Rectangle *cursor, int gameBoard[BLINE][BCOL]){
+
+    bool canPlace = checkPlace(ship, startPos, cursor, rotateShip, step); 
 
     if(rotateShip){
         for(int i = 0; i < ship.size; i++){
@@ -112,14 +117,33 @@ void placeShip (Ship ship, int sqSize, int step, bool rotateShip, Rectangle *cur
             else (DrawRectangle(cursor->x, cursor->y, sqSize, sqSize, RED));
         }
     }
+         
+        Vector2 posIndex;
+        posIndex.x = (cursor->x - startPos.x)/step;
+        posIndex.y = (cursor->y - startPos.y)/step;
+         
+        char xPos[6];
+        snprintf(xPos, 6, "X: %d", (int)(cursor->x - startPos.x)/step);
+        DrawText(xPos, 100, 100, 20, WHITE);
+        char yPos[6];
+        snprintf(yPos, 6, "Y: %d", (int)(cursor->y - startPos.y)/step);
+        DrawText(yPos, 100, 130, 20, WHITE);
+         
+    if(canPlace && IsKeyPressed(KEY_D)){
+        if(rotateShip){
+            for (int i = 0; i < ship.size; i++) gameBoard[(int)posIndex.x + i][(int)posIndex.y] = SHIP;
+        } else{
+            for (int i = 0; i < ship.size; i++) gameBoard[(int)posIndex.x][(int)posIndex.y + i] = SHIP;
+        }
+    }
 }
 
-void printBoard (int gamePhase, Rectangle visualBoard[BLINE][BCOL], int startX, int startY, int step, int sqSize){
+void printBoard (int gamePhase, int gameBoard[BLINE][BCOL], Rectangle visualBoard[BLINE][BCOL], Vector2 startPos, int step, int sqSize){
 
     for (int i = 0; i < BLINE; i++){ 
         for (int j = 0; j < BCOL; j++){ 
-            visualBoard[i][j].x = startX + step*i; 
-            visualBoard[i][j].y = startY + step*j;
+            visualBoard[i][j].x = startPos.x + step*i; 
+            visualBoard[i][j].y = startPos.y + step*j;
             visualBoard[i][j].width = sqSize;
             visualBoard[i][j].height = visualBoard[i][j].width;
         }
@@ -127,19 +151,22 @@ void printBoard (int gamePhase, Rectangle visualBoard[BLINE][BCOL], int startX, 
 
     for (int i = 0; i < BCOL; i++){
         for (int j = 0; j < BLINE; j++){
-            DrawRectangleRec(visualBoard[i][j], GRAY);
+            if (gameBoard[i][j] == SEA) DrawRectangleRec(visualBoard[i][j], GRAY);
+            if (gameBoard[i][j] == SHIP) DrawRectangleRec(visualBoard[i][j], PURPLE);
+            if (gameBoard[i][j] == HIT) DrawRectangleRec(visualBoard[i][j], ORANGE);
+            if (gameBoard[i][j] == MISS) DrawRectangleRec(visualBoard[i][j], BROWN);
         }
     }
 }
 
-void cursorSetUp (int startX, int startY, int step, int size, Rectangle *cursor){
-    cursor->x = startX;
-    cursor->y = startY;
+void cursorSetUp (Vector2 startPos, int step, int size, Rectangle *cursor){
+    cursor->x = startPos.x;
+    cursor->y = startPos.y;
     cursor->width = size;
     cursor->height = cursor->width;
 }
 
-void moveCursor (int startX, int startY, const int step, const int size, Rectangle *cursor){
+void moveCursor (Vector2 startPos, const int step, const int size, Rectangle *cursor){
     /*NGL, this took a while. */
 
     Rectangle cursorOld = *cursor; 
@@ -149,8 +176,8 @@ void moveCursor (int startX, int startY, const int step, const int size, Rectang
     if (IsKeyPressed(KEY_LEFT)) cursor->x -= step;
     if (IsKeyPressed(KEY_RIGHT)) cursor->x += step;
 
-    if (cursor->x < startX || cursor->x > startX + step * (BCOL-1)) cursor->x = cursorOld.x;
-    if (cursor->y < startY || cursor->y > startY + step * (BLINE-1)) cursor->y = cursorOld.y;
+    if (cursor->x < startPos.x || cursor->x > startPos.x + step * (BCOL-1)) cursor->x = cursorOld.x;
+    if (cursor->y < startPos.y || cursor->y > startPos.y + step * (BLINE-1)) cursor->y = cursorOld.y;
 
     //if (cursorOld.x != cursor->x || cursor->y != cursorOld.y){
     //    DrawRectangleRec(cursorOld, RED);
