@@ -28,10 +28,12 @@ void printBoard (int gamePhase, int gameBoard[BLINE][BCOL], Rectangle visualBoar
 //Prints the board differently depending on the state of the game;
 void moveCursor (Vector2 startPos, int step, int size, Rectangle *cursor);
 //Moves the position of the cursor around;
-void placeShip (Ship ship, Vector2 startPos, int sqSize, int step, bool rotateShip, Rectangle *cursor, int gameBoard[BLINE][BCOL]);
+void placeShip (Ship *ship, Vector2 startPos, int sqSize, int step, bool rotateShip, Rectangle *cursor, int gameBoard[BLINE][BCOL]);
 //Draws outlines and places ships on the actual board;
-bool checkPlace (Ship ship, Vector2 pos, Rectangle *cursor, bool rotateShip, int step);
-//Checks if the place where the cursor is able to accomodade a certain ship
+bool checkPlace(Ship *ship, Vector2 pos, Rectangle *cursor, bool rotateShip, int step, int gameBoard[BLINE][BCOL]);
+//Checks if the place where the cursor is located is  able to accomodade a certain ship
+Vector2 translateCursorToIndex(Rectangle *cursor, Vector2 pos, int step);
+//Returns a vector with the position relative to the cursor position
 
 int main (){
 
@@ -66,22 +68,34 @@ int main (){
             printBoard(gamePhase, p1gameBoard, visualBoard, startPos, step, sqSize);
             moveCursor(startPos, step, sqSize, &cursor);
             DrawRectangleRec(cursor,GREEN);
+
+            if (IsKeyPressed(KEY_R)) rotateShip = !rotateShip; 
+
             if (IsKeyPressed(KEY_C)) carrier.toggle = !carrier.toggle;
             if (carrier.toggle){
-                placeShip(carrier, startPos, sqSize, step, rotateShip, &cursor, p1gameBoard);
+                placeShip(&carrier, startPos, sqSize, step, rotateShip, &cursor, p1gameBoard);
                 sub.toggle = false; cruizer.toggle = false;
             }
             if (IsKeyPressed(KEY_S)) sub.toggle = !sub.toggle;
             if (sub.toggle){
-                placeShip(sub, startPos, sqSize, step, rotateShip, &cursor, p1gameBoard);
+                placeShip(&sub, startPos, sqSize, step, rotateShip, &cursor, p1gameBoard);
                 carrier.toggle = false; cruizer.toggle = false;
             }
-            if (IsKeyPressed(KEY_K)) cruizer.toggle = !cruizer.toggle;
+            if (IsKeyPressed(KEY_Z)) cruizer.toggle = !cruizer.toggle;
             if (cruizer.toggle){
-                placeShip(cruizer, startPos, sqSize, step, rotateShip, &cursor, p1gameBoard);
+                placeShip(&cruizer, startPos, sqSize, step, rotateShip, &cursor, p1gameBoard);
                 carrier.toggle = false; sub.toggle = false;
             }
-            if (IsKeyPressed(KEY_R)) rotateShip = !rotateShip; 
+                        
+            char guideText[100];
+            snprintf(guideText, (sizeof(guideText)/sizeof(char)), "[S]ubmarines: %d \n\nCrui[Z]ers: %d \n\n[C]arriers: %d\n\n\n"
+                                                                    "   ^\n"
+                                                                    " <   > Move\n"
+                                                                    "   v\n\n"
+                                                                    "put [D]own\n\n"
+                                                                    "[R]otate", sub.qnt, cruizer.qnt, carrier.qnt);
+            DrawText(guideText, 620, 150, 20, GRAY);
+
         }
 
         EndDrawing(); 
@@ -90,52 +104,81 @@ int main (){
     CloseWindow(); 
 }
 
-bool checkPlace(Ship ship, Vector2 pos, Rectangle *cursor, bool rotateShip, int step){
 
+bool checkPlace(Ship *ship, Vector2 pos, Rectangle *cursor, bool rotateShip, int step, int gameBoard[BLINE][BCOL]){
+
+    bool checkBorders = false;
     if(!rotateShip){
-        if (cursor->y <= (pos.y + step * (BLINE-ship.size))) return true;
+        if (pos.y <= BCOL - (ship->size)) checkBorders = true;;
     } else{
-        if (cursor->x <= (pos.x + step * (BCOL-ship.size))) return true;
+        if (pos.x <= BLINE - (ship->size)) checkBorders = true;
     } 
-    return false;
+
+    bool checkWithGameBoard = true;
+    if (checkBorders) {
+        if(!rotateShip){
+            for(int j = 0; j < ship->size; j++){
+                if (gameBoard[(int)pos.x][(int)pos.y + j] != SEA) checkWithGameBoard = false;
+            }
+        }
+
+        if (rotateShip)
+            for(int i = 0; i < ship->size; i++){
+                if (gameBoard[(int)pos.x + i][(int)pos.y] != SEA) checkWithGameBoard = false;
+            }
+    }
+
+    bool checkShipQnt = true; 
+    if (ship->qnt < 1) checkShipQnt = false;
+
+    return checkWithGameBoard && checkBorders && checkShipQnt;
+
 }
 
-void placeShip (Ship ship, Vector2 startPos, int sqSize, int step, bool rotateShip, Rectangle *cursor, int gameBoard[BLINE][BCOL]){
+Vector2 translateCursorToIndex(Rectangle *cursor, Vector2 pos, int step){
+    Vector2 posIndex;
 
-    bool canPlace = checkPlace(ship, startPos, cursor, rotateShip, step); 
+    posIndex.x = (cursor->x - pos.x)/step;
+    posIndex.y = (cursor->y - pos.y)/step;
+
+    return posIndex;
+}
+
+void placeShip (Ship *ship, Vector2 startPos, int sqSize, int step, bool rotateShip, Rectangle *cursor, int gameBoard[BLINE][BCOL]){
+
+    Vector2 posIndex = translateCursorToIndex(cursor, startPos, step);
+    bool canPlace = canPlace = checkPlace(ship, posIndex, cursor, rotateShip, step, gameBoard); 
+
 
     if(rotateShip){
-        for(int i = 0; i < ship.size; i++){
+        for(int i = 0; i < ship->size; i++){
             if(canPlace) DrawRectangle(cursor->x + step*i, cursor->y, sqSize, sqSize, BLUE);
             else (DrawRectangle(cursor->x, cursor->y, sqSize, sqSize, RED));
         }
     }
 
     if(!rotateShip){
-        for(int i = 0; i < ship.size; i++){
+        for(int i = 0; i < ship->size; i++){
             if(canPlace) DrawRectangle(cursor->x, cursor->y + step*i, sqSize, sqSize, BLUE);
             else (DrawRectangle(cursor->x, cursor->y, sqSize, sqSize, RED));
         }
     }
-         
-        Vector2 posIndex;
-        posIndex.x = (cursor->x - startPos.x)/step;
-        posIndex.y = (cursor->y - startPos.y)/step;
-         
-        char xPos[6];
-        snprintf(xPos, 6, "X: %d", (int)(cursor->x - startPos.x)/step);
-        DrawText(xPos, 100, 100, 20, WHITE);
-        char yPos[6];
-        snprintf(yPos, 6, "Y: %d", (int)(cursor->y - startPos.y)/step);
-        DrawText(yPos, 100, 130, 20, WHITE);
-         
+
     if(canPlace && IsKeyPressed(KEY_D)){
         if(rotateShip){
-            for (int i = 0; i < ship.size; i++) gameBoard[(int)posIndex.x + i][(int)posIndex.y] = SHIP;
+            for (int i = 0; i < ship->size; i++) gameBoard[(int)posIndex.x + i][(int)posIndex.y] = SHIP;
+            ship->qnt -= 1;
         } else{
-            for (int i = 0; i < ship.size; i++) gameBoard[(int)posIndex.x][(int)posIndex.y + i] = SHIP;
+            for (int i = 0; i < ship->size; i++) gameBoard[(int)posIndex.x][(int)posIndex.y + i] = SHIP;
+            ship->qnt -= 1;
         }
     }
+
+    char posInfos[20];
+    snprintf(posInfos, (sizeof(posInfos)/sizeof(char)), "X: %d\n"
+                                                        "Y: %d\n", (int)(cursor->x - startPos.x)/step, (int)(cursor->y - startPos.y)/step);
+    DrawText(posInfos, 100, 130, 30, GRAY);
+
 }
 
 void printBoard (int gamePhase, int gameBoard[BLINE][BCOL], Rectangle visualBoard[BLINE][BCOL], Vector2 startPos, int step, int sqSize){
