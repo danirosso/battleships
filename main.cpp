@@ -13,6 +13,7 @@ using namespace std;
 #define SHIP 1
 #define HIT 2
 #define MISS 3
+#define HIDDEN 4
 
 typedef struct{
     int size;
@@ -34,6 +35,8 @@ bool checkPlace(Ship *ship, Vector2 pos, Rectangle *cursor, bool rotateShip, int
 //Checks if the place where the cursor is located is  able to accomodade a certain ship
 Vector2 translateCursorToIndex(Rectangle *cursor, Vector2 pos, int step);
 //Returns a vector with the position relative to the cursor position
+void boardFull(int gameBoard[BLINE][BCOL], int *gamePhase, int shipSum, bool *cursorState);
+//returns the state of the board to the gamePhase;
 
 int main (){
 
@@ -43,6 +46,7 @@ int main (){
     int gamePhase = 0; 
 
     int p1gameBoard[BLINE][BCOL] = {SEA};
+    int botgameBoard[BLINE][BCOL] = {SEA};
     Rectangle visualBoard[BLINE][BCOL];
     Vector2 startPos = {190, 90};
     int step = 35;
@@ -52,10 +56,11 @@ int main (){
     Ship cruizer = {2, 2, false};
     Ship carrier = {4, 2, false};
     bool rotateShip = false;
+    int shipSum = sub.size * sub.qnt + cruizer.size * cruizer.qnt + carrier.size * carrier.qnt;
 
-    Rectangle cursor;
-    cursorSetUp(startPos, step, sqSize, &cursor);
-
+    bool cursorIsSetd = false;
+   Rectangle cursor;
+    
     while(!WindowShouldClose()){
         BeginDrawing();
 
@@ -66,10 +71,33 @@ int main (){
 
         if(gamePhase == 1){ 
             printBoard(gamePhase, p1gameBoard, visualBoard, startPos, step, sqSize);
+            char guideText[110];
+            snprintf(guideText, (sizeof(guideText)/sizeof(char)), "[S]ubmarines: %d \n\nCrui[Z]ers: %d \n\n[C]arriers: %d\n\n\n"
+                                                                  "   ^\n"
+                                                                  " <   > Move\n"
+                                                                  "   v\n\n"
+                                                                  "Put [D]own\n\n"
+                                                                  "[R]otate\n\n"
+                                                                  "R[E]set", sub.qnt, cruizer.qnt, carrier.qnt);
+            DrawText(guideText, 620, 150, 20, GRAY);
+             
+            if(!cursorIsSetd) {
+            cursorSetUp(startPos, step, sqSize, &cursor);
+            cursorIsSetd = true;
+            }
             moveCursor(startPos, step, sqSize, &cursor);
-            DrawRectangleRec(cursor,GREEN);
+            DrawRectangleRec(cursor,VIOLET);
 
-            if (IsKeyPressed(KEY_R)) rotateShip = !rotateShip; 
+            if (IsKeyPressed(KEY_R)) rotateShip = !rotateShip;
+
+            if (IsKeyPressed(KEY_E)){ 
+                for (int i = 0; i < BLINE; i++)
+                    for(int j = 0; j < BCOL; j++)
+                        p1gameBoard[i][j] = SEA;
+                sub = {1, 3, false};
+                cruizer = {2, 2, false};
+                carrier = {4, 2, false};
+            }
 
             if (IsKeyPressed(KEY_C)) carrier.toggle = !carrier.toggle;
             if (carrier.toggle){
@@ -86,16 +114,24 @@ int main (){
                 placeShip(&cruizer, startPos, sqSize, step, rotateShip, &cursor, p1gameBoard);
                 carrier.toggle = false; sub.toggle = false;
             }
-                        
-            char guideText[100];
-            snprintf(guideText, (sizeof(guideText)/sizeof(char)), "[S]ubmarines: %d \n\nCrui[Z]ers: %d \n\n[C]arriers: %d\n\n\n"
-                                                                    "   ^\n"
-                                                                    " <   > Move\n"
-                                                                    "   v\n\n"
-                                                                    "put [D]own\n\n"
-                                                                    "[R]otate", sub.qnt, cruizer.qnt, carrier.qnt);
-            DrawText(guideText, 620, 150, 20, GRAY);
 
+            boardFull(p1gameBoard, &gamePhase, shipSum, &cursorIsSetd);
+        }
+         
+        if (gamePhase == 2){
+            step = 30; sqSize = 28;
+            Vector2 leftPos = {step, step};
+            printBoard(gamePhase, p1gameBoard, visualBoard, leftPos, step, sqSize);
+             
+            Vector2 rightPos = {20 + (12 * step) + step, leftPos.y};
+            printBoard(gamePhase, p1gameBoard, visualBoard, rightPos, step, sqSize);
+             
+            if(!cursorIsSetd){
+            cursorSetUp(rightPos, step, sqSize, &cursor);
+            cursorIsSetd = true;
+            }
+            moveCursor(rightPos, step, sqSize, &cursor);
+            DrawRectangleRec(cursor,VIOLET);
         }
 
         EndDrawing(); 
@@ -103,7 +139,20 @@ int main (){
 
     CloseWindow(); 
 }
-
+void boardFull(int gameBoard[BLINE][BCOL], int *gamePhase, int shipSum, bool *cursorState){
+    int sum = 0;
+    for(int i = 0; i < BLINE; i++)
+        for(int j = 0; j < BCOL; j++)
+            sum += gameBoard[i][j];
+//TODO 
+    if (sum != shipSum) {
+        DrawText("Board's ready! Press [ENTER] to continue.", 180, 530, 20, GRAY);
+        if (IsKeyPressed(KEY_ENTER) || IsKeyPressed(KEY_KP_ENTER)){
+            *cursorState = false;
+            (*gamePhase)++;
+        }
+    }
+}
 
 bool checkPlace(Ship *ship, Vector2 pos, Rectangle *cursor, bool rotateShip, int step, int gameBoard[BLINE][BCOL]){
 
@@ -152,14 +201,14 @@ void placeShip (Ship *ship, Vector2 startPos, int sqSize, int step, bool rotateS
 
     if(rotateShip){
         for(int i = 0; i < ship->size; i++){
-            if(canPlace) DrawRectangle(cursor->x + step*i, cursor->y, sqSize, sqSize, BLUE);
+            if(canPlace) DrawRectangle(cursor->x + step*i, cursor->y, sqSize, sqSize, LIME);
             else (DrawRectangle(cursor->x, cursor->y, sqSize, sqSize, RED));
         }
     }
 
     if(!rotateShip){
         for(int i = 0; i < ship->size; i++){
-            if(canPlace) DrawRectangle(cursor->x, cursor->y + step*i, sqSize, sqSize, BLUE);
+            if(canPlace) DrawRectangle(cursor->x, cursor->y + step*i, sqSize, sqSize, LIME);
             else (DrawRectangle(cursor->x, cursor->y, sqSize, sqSize, RED));
         }
     }
@@ -176,7 +225,7 @@ void placeShip (Ship *ship, Vector2 startPos, int sqSize, int step, bool rotateS
 
     char posInfos[20];
     snprintf(posInfos, (sizeof(posInfos)/sizeof(char)), "X: %d\n"
-                                                        "Y: %d\n", (int)(cursor->x - startPos.x)/step, (int)(cursor->y - startPos.y)/step);
+            "Y: %d\n", (int)(cursor->x - startPos.x)/step, (int)(cursor->y - startPos.y)/step);
     DrawText(posInfos, 100, 130, 30, GRAY);
 
 }
@@ -194,10 +243,10 @@ void printBoard (int gamePhase, int gameBoard[BLINE][BCOL], Rectangle visualBoar
 
     for (int i = 0; i < BCOL; i++){
         for (int j = 0; j < BLINE; j++){
-            if (gameBoard[i][j] == SEA) DrawRectangleRec(visualBoard[i][j], GRAY);
-            if (gameBoard[i][j] == SHIP) DrawRectangleRec(visualBoard[i][j], PURPLE);
-            if (gameBoard[i][j] == HIT) DrawRectangleRec(visualBoard[i][j], ORANGE);
-            if (gameBoard[i][j] == MISS) DrawRectangleRec(visualBoard[i][j], BROWN);
+            if (gameBoard[i][j] == SEA) DrawRectangleRec(visualBoard[i][j], DARKBLUE);
+            if (gameBoard[i][j] == SHIP) DrawRectangleRec(visualBoard[i][j], DARKGRAY);
+            if (gameBoard[i][j] == HIT) DrawRectangleRec(visualBoard[i][j], MAROON);
+            if (gameBoard[i][j] == MISS) DrawRectangleRec(visualBoard[i][j], SKYBLUE);
         }
     }
 }
