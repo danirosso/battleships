@@ -14,6 +14,7 @@ using namespace std;
 #define HIT 2
 #define MISS 3
 #define HIDDEN 4
+#define ENEMYSEA 5
 
 typedef struct{
     int size;
@@ -36,7 +37,7 @@ bool checkPlace(Ship *ship, Vector2 pos, Rectangle *cursor, bool rotateShip, int
 Vector2 translateCursorToIndex(Rectangle *cursor, Vector2 pos, int step);
 //Returns a vector with the position relative to the cursor position
 void boardFull(int gameBoard[BLINE][BCOL], int *gamePhase, int shipSum, bool *cursorState);
-//returns the state of the board to the gamePhase;
+//returns the state of the actual board to the gamePhase;
 
 int main (){
 
@@ -80,6 +81,7 @@ int main (){
                                                                   "[R]otate\n\n"
                                                                   "R[E]set", sub.qnt, cruizer.qnt, carrier.qnt);
             DrawText(guideText, 620, 150, 20, GRAY);
+            DrawText("Place your ships: ", 220, 20, 40, MAROON);
              
             if(!cursorIsSetd) {
             cursorSetUp(startPos, step, sqSize, &cursor);
@@ -270,10 +272,6 @@ void moveCursor (Vector2 startPos, const int step, const int size, Rectangle *cu
 
     if (cursor->x < startPos.x || cursor->x > startPos.x + step * (BCOL-1)) cursor->x = cursorOld.x;
     if (cursor->y < startPos.y || cursor->y > startPos.y + step * (BLINE-1)) cursor->y = cursorOld.y;
-
-    //if (cursorOld.x != cursor->x || cursor->y != cursorOld.y){
-    //    DrawRectangleRec(cursorOld, RED);
-    //}
 }
 
 int mainMenu(){
@@ -282,14 +280,14 @@ int mainMenu(){
     int chosenGameStyle = 0;
 
     if (!gameStarted){
-        DrawText("Start playing!", 400, 20, 20, LIGHTGRAY);
+        DrawText("~* Battle-Ships *~", 100, 60, 60, MAROON);
 
-        if (GuiButton((Rectangle){400, 200, 60, 20}, "1 player") || IsKeyDown(KEY_ENTER)){
+        if (GuiButton((Rectangle){800/2 - 120/2, 600/2 - 60/2, 120, 60}, "Single player") || IsKeyDown(KEY_ENTER)){
             chosenGameStyle = 1; 
             gameStarted = true;
         }
 
-        if (GuiButton((Rectangle){400, 550, 60, 20}, "Quit") || IsKeyDown(KEY_Q)){
+        if (GuiButton((Rectangle){800/2 - 60/2, 540, 60, 20}, "Quit") || IsKeyDown(KEY_Q)){
             DrawText("Quit!", 600, 20, 40, RED);
             CloseWindow(); 
         }

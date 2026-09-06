@@ -11,17 +11,6 @@
 !_TAG_FIELD_DESCRIPTION!C++	name	/aliased names/
 !_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
 !_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
-!_TAG_KIND_DESCRIPTION!C	d,macro	/macro definitions/
-!_TAG_KIND_DESCRIPTION!C	e,enumerator	/enumerators (values inside an enumeration)/
-!_TAG_KIND_DESCRIPTION!C	f,function	/function definitions/
-!_TAG_KIND_DESCRIPTION!C	g,enum	/enumeration names/
-!_TAG_KIND_DESCRIPTION!C	h,header	/included header files/
-!_TAG_KIND_DESCRIPTION!C	m,member	/struct, and union members/
-!_TAG_KIND_DESCRIPTION!C	p,prototype	/function prototypes/
-!_TAG_KIND_DESCRIPTION!C	s,struct	/structure names/
-!_TAG_KIND_DESCRIPTION!C	t,typedef	/typedefs/
-!_TAG_KIND_DESCRIPTION!C	u,union	/union names/
-!_TAG_KIND_DESCRIPTION!C	v,variable	/variable definitions/
 !_TAG_KIND_DESCRIPTION!C++	M,module	/modules/
 !_TAG_KIND_DESCRIPTION!C++	P,partition	/partitions/
 !_TAG_KIND_DESCRIPTION!C++	c,class	/classes/
@@ -37,23 +26,30 @@
 !_TAG_KIND_DESCRIPTION!C++	t,typedef	/typedefs/
 !_TAG_KIND_DESCRIPTION!C++	u,union	/union names/
 !_TAG_KIND_DESCRIPTION!C++	v,variable	/variable definitions/
+!_TAG_KIND_DESCRIPTION!Make	I,makefile	/makefiles/
+!_TAG_KIND_DESCRIPTION!Make	m,macro	/macros/
+!_TAG_KIND_DESCRIPTION!Make	t,target	/targets/
+!_TAG_KIND_DESCRIPTION!Markdown	S,subsection	/level 2 sections/
+!_TAG_KIND_DESCRIPTION!Markdown	T,l4subsection	/level 4 sections/
+!_TAG_KIND_DESCRIPTION!Markdown	c,chapter	/chapters/
+!_TAG_KIND_DESCRIPTION!Markdown	h,hashtag	/hashtags/
+!_TAG_KIND_DESCRIPTION!Markdown	n,footnote	/footnotes/
+!_TAG_KIND_DESCRIPTION!Markdown	s,section	/sections/
+!_TAG_KIND_DESCRIPTION!Markdown	t,subsubsection	/level 3 sections/
+!_TAG_KIND_DESCRIPTION!Markdown	u,l5subsection	/level 5 sections/
 !_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
 !_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
 !_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
 !_TAG_OUTPUT_VERSION	1.1	/current.age/
-!_TAG_PARSER_VERSION!C	1.1	/current.age/
 !_TAG_PARSER_VERSION!C++	2.2	/current.age/
+!_TAG_PARSER_VERSION!Make	1.1	/current.age/
+!_TAG_PARSER_VERSION!Markdown	1.1	/current.age/
 !_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
-!_TAG_PROC_CWD	/home/rosso/Projects/rosso/algopro-ii/trabalho01/	//
+!_TAG_PROC_CWD	/home/rosso/Projects/rosso/shipbattles/	//
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
 !_TAG_PROGRAM_VERSION	6.2.1	//
-!_TAG_ROLE_DESCRIPTION!C!function	foreigndecl	/declared in foreign languages/
-!_TAG_ROLE_DESCRIPTION!C!header	local	/local header/
-!_TAG_ROLE_DESCRIPTION!C!header	system	/system header/
-!_TAG_ROLE_DESCRIPTION!C!macro	undef	/undefined/
-!_TAG_ROLE_DESCRIPTION!C!struct	foreigndecl	/declared in foreign languages/
 !_TAG_ROLE_DESCRIPTION!C++!header	exported	/exported with "exported imported ..."/
 !_TAG_ROLE_DESCRIPTION!C++!header	imported	/imported with "imported ..."/
 !_TAG_ROLE_DESCRIPTION!C++!header	local	/local header/
@@ -62,8 +58,13 @@
 !_TAG_ROLE_DESCRIPTION!C++!module	imported	/imported with "imported ..."/
 !_TAG_ROLE_DESCRIPTION!C++!module	partOwner	/used for specifying a partition/
 !_TAG_ROLE_DESCRIPTION!C++!partition	imported	/imported with "imported ..."/
+!_TAG_ROLE_DESCRIPTION!Make!makefile	included	/included/
+!_TAG_ROLE_DESCRIPTION!Make!makefile	optional	/optionally included/
 APIENTRY	include/rlgl.h	/^                    #define APIENTRY /;"	d
 APIENTRY	include/rlgl.h	/^                    #define APIENTRY$/;"	d
+ARROWS_SIZE	include/raygui.h	/^    ARROWS_SIZE = 16,           \/\/ ScrollBar arrows size$/;"	e	enum:__anon4297c77f0d03
+ARROWS_VISIBLE	include/raygui.h	/^    ARROWS_VISIBLE,             \/\/ ScrollBar arrows visible$/;"	e	enum:__anon4297c77f0d03
+ARROW_PADDING	include/raygui.h	/^    ARROW_PADDING = 16,         \/\/ DropdownBox arrow separation from border and items$/;"	e	enum:__anon4297c77f1003
 AttachAudioMixedProcessor	include/raylib.h	/^RLAPI void AttachAudioMixedProcessor(AudioCallback processor); \/\/ Attach audio stream processo/;"	p	typeref:typename:RLAPI void
 AttachAudioStreamProcessor	include/raylib.h	/^RLAPI void AttachAudioStreamProcessor(AudioStream stream, AudioCallback processor); \/\/ Attach /;"	p	typeref:typename:RLAPI void
 AudioCallback	include/raylib.h	/^typedef void (*AudioCallback)(void *bufferData, unsigned int frames);$/;"	t	typeref:typename:void (*)(void * bufferData,unsigned int frames)
@@ -73,8 +74,19 @@ AutomationEvent	include/raylib.h	/^typedef struct AutomationEvent {$/;"	s
 AutomationEvent	include/raylib.h	/^} AutomationEvent;$/;"	t	typeref:struct:AutomationEvent
 AutomationEventList	include/raylib.h	/^typedef struct AutomationEventList {$/;"	s
 AutomationEventList	include/raylib.h	/^} AutomationEventList;$/;"	t	typeref:struct:AutomationEventList
+BACKGROUND_COLOR	include/raygui.h	/^    BACKGROUND_COLOR      = 19,     \/\/ Background color$/;"	e	enum:__anon4297c77f0903
+BASE	include/raygui.h	/^typedef enum { BORDER = 0, BASE, TEXT, OTHER } GuiPropertyElement;$/;"	e	enum:__anon4297c77f1703
+BASEPROP16	include/raygui.h	/^    BASEPROP16            = 15      \/\/ Not used yet...$/;"	e	enum:__anon4297c77f0803
+BASE_COLOR_DISABLED	include/raygui.h	/^    BASE_COLOR_DISABLED   = 10,     \/\/ Control base color in STATE_DISABLED$/;"	e	enum:__anon4297c77f0803
+BASE_COLOR_FOCUSED	include/raygui.h	/^    BASE_COLOR_FOCUSED    = 4,      \/\/ Control base color in STATE_FOCUSED$/;"	e	enum:__anon4297c77f0803
+BASE_COLOR_NORMAL	include/raygui.h	/^    BASE_COLOR_NORMAL     = 1,      \/\/ Control base color in STATE_NORMAL$/;"	e	enum:__anon4297c77f0803
+BASE_COLOR_PRESSED	include/raygui.h	/^    BASE_COLOR_PRESSED    = 7,      \/\/ Control base color in STATE_PRESSED$/;"	e	enum:__anon4297c77f0803
+BCOL	main.cpp	/^#define BCOL /;"	d	file:
 BEIGE	include/raylib.h	/^#define BEIGE /;"	d
+BIT_CHECK	include/raygui.h	/^        #define BIT_CHECK(/;"	d
+BIT_CHECK	include/raygui.h	/^    #define BIT_CHECK(/;"	d
 BLACK	include/raylib.h	/^#define BLACK /;"	d
+BLANK	include/raygui.h	/^#define BLANK /;"	d
 BLANK	include/raylib.h	/^#define BLANK /;"	d
 BLEND_ADDITIVE	include/raylib.h	/^    BLEND_ADDITIVE,                 \/\/ Blend textures adding colors$/;"	e	enum:__anon42eb8fb11203
 BLEND_ADD_COLORS	include/raylib.h	/^    BLEND_ADD_COLORS,               \/\/ Blend textures adding colors (alternative)$/;"	e	enum:__anon42eb8fb11203
@@ -84,8 +96,16 @@ BLEND_CUSTOM	include/raylib.h	/^    BLEND_CUSTOM,                   \/\/ Blend t
 BLEND_CUSTOM_SEPARATE	include/raylib.h	/^    BLEND_CUSTOM_SEPARATE           \/\/ Blend textures using custom rgb\/alpha separate src\/ds/;"	e	enum:__anon42eb8fb11203
 BLEND_MULTIPLIED	include/raylib.h	/^    BLEND_MULTIPLIED,               \/\/ Blend textures multiplying colors$/;"	e	enum:__anon42eb8fb11203
 BLEND_SUBTRACT_COLORS	include/raylib.h	/^    BLEND_SUBTRACT_COLORS,          \/\/ Blend textures subtracting colors (alternative)$/;"	e	enum:__anon42eb8fb11203
+BLINE	main.cpp	/^#define BLINE /;"	d	file:
 BLUE	include/raylib.h	/^#define BLUE /;"	d
+BORDER	include/raygui.h	/^typedef enum { BORDER = 0, BASE, TEXT, OTHER } GuiPropertyElement;$/;"	e	enum:__anon4297c77f1703
+BORDER_COLOR_DISABLED	include/raygui.h	/^    BORDER_COLOR_DISABLED = 9,      \/\/ Control border color in STATE_DISABLED$/;"	e	enum:__anon4297c77f0803
+BORDER_COLOR_FOCUSED	include/raygui.h	/^    BORDER_COLOR_FOCUSED  = 3,      \/\/ Control border color in STATE_FOCUSED$/;"	e	enum:__anon4297c77f0803
+BORDER_COLOR_NORMAL	include/raygui.h	/^    BORDER_COLOR_NORMAL   = 0,      \/\/ Control border color in STATE_NORMAL$/;"	e	enum:__anon4297c77f0803
+BORDER_COLOR_PRESSED	include/raygui.h	/^    BORDER_COLOR_PRESSED  = 6,      \/\/ Control border color in STATE_PRESSED$/;"	e	enum:__anon4297c77f0803
+BORDER_WIDTH	include/raygui.h	/^    BORDER_WIDTH          = 12,     \/\/ Control border size, 0 for no border$/;"	e	enum:__anon4297c77f0803
 BROWN	include/raylib.h	/^#define BROWN /;"	d
+BUTTON	include/raygui.h	/^    BUTTON          = 2,$/;"	e	enum:__anon4297c77f0703
 BeginBlendMode	include/raylib.h	/^RLAPI void BeginBlendMode(int mode);                              \/\/ Begin blending mode (alph/;"	p	typeref:typename:RLAPI void
 BeginDrawing	include/raylib.h	/^RLAPI void BeginDrawing(void);                                    \/\/ Setup canvas (framebuffer/;"	p	typeref:typename:RLAPI void
 BeginMode2D	include/raylib.h	/^RLAPI void BeginMode2D(Camera2D camera);                          \/\/ Begin 2D mode with custom/;"	p	typeref:typename:RLAPI void
@@ -106,7 +126,15 @@ CAMERA_ORBITAL	include/raylib.h	/^    CAMERA_ORBITAL,                 \/\/ Camer
 CAMERA_ORTHOGRAPHIC	include/raylib.h	/^    CAMERA_ORTHOGRAPHIC             \/\/ Orthographic projection$/;"	e	enum:__anon42eb8fb11503
 CAMERA_PERSPECTIVE	include/raylib.h	/^    CAMERA_PERSPECTIVE = 0,         \/\/ Perspective projection$/;"	e	enum:__anon42eb8fb11503
 CAMERA_THIRD_PERSON	include/raylib.h	/^    CAMERA_THIRD_PERSON             \/\/ Camera third person$/;"	e	enum:__anon42eb8fb11403
+CHECKBOX	include/raygui.h	/^    CHECKBOX        = 6,$/;"	e	enum:__anon4297c77f0703
+CHECK_BOUNDS_ID	include/raygui.h	/^    #define CHECK_BOUNDS_ID(/;"	d
+CHECK_PADDING	include/raygui.h	/^    CHECK_PADDING = 16          \/\/ CheckBox internal check padding$/;"	e	enum:__anon4297c77f0e03
 CLITERAL	include/raylib.h	/^    #define CLITERAL(/;"	d
+COLORPICKER	include/raygui.h	/^    COLORPICKER     = 13,$/;"	e	enum:__anon4297c77f0703
+COLOR_SELECTOR_SIZE	include/raygui.h	/^    COLOR_SELECTOR_SIZE = 16,   \/\/ ColorPicker selector square size$/;"	e	enum:__anon4297c77f1503
+COMBOBOX	include/raygui.h	/^    COMBOBOX        = 7,$/;"	e	enum:__anon4297c77f0703
+COMBO_BUTTON_SPACING	include/raygui.h	/^    COMBO_BUTTON_SPACING        \/\/ ComboBox button separation$/;"	e	enum:__anon4297c77f0f03
+COMBO_BUTTON_WIDTH	include/raygui.h	/^    COMBO_BUTTON_WIDTH = 16,    \/\/ ComboBox right button width$/;"	e	enum:__anon4297c77f0f03
 CUBEMAP_LAYOUT_AUTO_DETECT	include/raylib.h	/^    CUBEMAP_LAYOUT_AUTO_DETECT = 0,         \/\/ Automatically detect layout type$/;"	e	enum:__anon42eb8fb11003
 CUBEMAP_LAYOUT_CROSS_FOUR_BY_THREE	include/raylib.h	/^    CUBEMAP_LAYOUT_CROSS_FOUR_BY_THREE     \/\/ Layout is defined by a 4x3 cross with cubemap fa/;"	e	enum:__anon42eb8fb11003
 CUBEMAP_LAYOUT_CROSS_THREE_BY_FOUR	include/raylib.h	/^    CUBEMAP_LAYOUT_CROSS_THREE_BY_FOUR,     \/\/ Layout is defined by a 3x4 cross with cubemap f/;"	e	enum:__anon42eb8fb11003
@@ -129,6 +157,8 @@ CheckCollisionLines	include/raylib.h	/^RLAPI bool CheckCollisionLines(Vector2 st
 CheckCollisionPointCircle	include/raylib.h	/^RLAPI bool CheckCollisionPointCircle(Vector2 point, Vector2 center, float radius);              /;"	p	typeref:typename:RLAPI bool
 CheckCollisionPointLine	include/raylib.h	/^RLAPI bool CheckCollisionPointLine(Vector2 point, Vector2 p1, Vector2 p2, int threshold);       /;"	p	typeref:typename:RLAPI bool
 CheckCollisionPointPoly	include/raylib.h	/^RLAPI bool CheckCollisionPointPoly(Vector2 point, const Vector2 *points, int pointCount);       /;"	p	typeref:typename:RLAPI bool
+CheckCollisionPointRec	include/raygui.h	/^static bool CheckCollisionPointRec(Vector2 point, Rectangle rec)$/;"	f	typeref:typename:bool
+CheckCollisionPointRec	include/raygui.h	/^static bool CheckCollisionPointRec(Vector2 point, Rectangle rec);   \/\/ Check if point is insid/;"	p	typeref:typename:bool
 CheckCollisionPointRec	include/raylib.h	/^RLAPI bool CheckCollisionPointRec(Vector2 point, Rectangle rec);                                /;"	p	typeref:typename:RLAPI bool
 CheckCollisionPointTriangle	include/raylib.h	/^RLAPI bool CheckCollisionPointTriangle(Vector2 point, Vector2 p1, Vector2 p2, Vector2 p3);      /;"	p	typeref:typename:RLAPI bool
 CheckCollisionRecs	include/raylib.h	/^RLAPI bool CheckCollisionRecs(Rectangle rec1, Rectangle rec2);                                  /;"	p	typeref:typename:RLAPI bool
@@ -138,7 +168,11 @@ ClearBackground	include/raylib.h	/^RLAPI void ClearBackground(Color color);     
 ClearWindowState	include/raylib.h	/^RLAPI void ClearWindowState(unsigned int flags);                  \/\/ Clear window configuratio/;"	p	typeref:typename:RLAPI void
 CloseAudioDevice	include/raylib.h	/^RLAPI void CloseAudioDevice(void);                                    \/\/ Close the audio devic/;"	p	typeref:typename:RLAPI void
 CloseWindow	include/raylib.h	/^RLAPI void CloseWindow(void);                                     \/\/ Close window and unload O/;"	p	typeref:typename:RLAPI void
+CodepointToUTF8	include/raygui.h	/^static const char *CodepointToUTF8(int codepoint, int *byteSize)$/;"	f	typeref:typename:const char *
+CodepointToUTF8	include/raygui.h	/^static const char *CodepointToUTF8(int codepoint, int *byteSize);   \/\/ Encode codepoint into U/;"	p	typeref:typename:const char *
 CodepointToUTF8	include/raylib.h	/^RLAPI const char *CodepointToUTF8(int codepoint, int *utf8Size);                            \/\//;"	p	typeref:typename:RLAPI const char *
+Color	include/raygui.h	/^    typedef struct Color {$/;"	s
+Color	include/raygui.h	/^    } Color;$/;"	t	typeref:struct:Color
 Color	include/raylib.h	/^typedef struct Color {$/;"	s
 Color	include/raylib.h	/^} Color;$/;"	t	typeref:struct:Color
 ColorAlpha	include/raylib.h	/^RLAPI Color ColorAlpha(Color color, float alpha);                           \/\/ Get color with /;"	p	typeref:typename:RLAPI Color
@@ -152,6 +186,8 @@ ColorLerp	include/raylib.h	/^RLAPI Color ColorLerp(Color color1, Color color2, f
 ColorNormalize	include/raylib.h	/^RLAPI Vector4 ColorNormalize(Color color);                                  \/\/ Get Color norma/;"	p	typeref:typename:RLAPI Vector4
 ColorTint	include/raylib.h	/^RLAPI Color ColorTint(Color color, Color tint);                             \/\/ Get color multi/;"	p	typeref:typename:RLAPI Color
 ColorToHSV	include/raylib.h	/^RLAPI Vector3 ColorToHSV(Color color);                                      \/\/ Get HSV values /;"	p	typeref:typename:RLAPI Vector3
+ColorToInt	include/raygui.h	/^static int ColorToInt(Color color)$/;"	f	typeref:typename:int
+ColorToInt	include/raygui.h	/^static int ColorToInt(Color color);                 \/\/ Returns hexadecimal value for a Color$/;"	p	typeref:typename:int
 ColorToInt	include/raylib.h	/^RLAPI int ColorToInt(Color color);                                          \/\/ Get hexadecimal/;"	p	typeref:typename:RLAPI int
 CompressData	include/raylib.h	/^RLAPI unsigned char *CompressData(const unsigned char *data, int dataSize, int *compDataSize);  /;"	p	typeref:typename:RLAPI unsigned char *
 ComputeCRC32	include/raylib.h	/^RLAPI unsigned int ComputeCRC32(unsigned char *data, int dataSize); \/\/ Compute CRC32 hash code$/;"	p	typeref:typename:RLAPI unsigned int
@@ -159,16 +195,26 @@ ComputeMD5	include/raylib.h	/^RLAPI unsigned int *ComputeMD5(unsigned char *data
 ComputeSHA1	include/raylib.h	/^RLAPI unsigned int *ComputeSHA1(unsigned char *data, int dataSize); \/\/ Compute SHA1 hash code,/;"	p	typeref:typename:RLAPI unsigned int *
 ComputeSHA256	include/raylib.h	/^RLAPI unsigned int *ComputeSHA256(unsigned char *data, int dataSize); \/\/ Compute SHA256 hash c/;"	p	typeref:typename:RLAPI unsigned int *
 ConfigFlags	include/raylib.h	/^} ConfigFlags;$/;"	t	typeref:enum:__anon42eb8fb10203
+ConvertHSVtoRGB	include/raygui.h	/^static Vector3 ConvertHSVtoRGB(Vector3 hsv)$/;"	f	typeref:typename:Vector3
+ConvertHSVtoRGB	include/raygui.h	/^static Vector3 ConvertHSVtoRGB(Vector3 hsv);                    \/\/ Convert color data from HSV/;"	p	typeref:typename:Vector3
+ConvertRGBtoHSV	include/raygui.h	/^static Vector3 ConvertRGBtoHSV(Vector3 rgb)$/;"	f	typeref:typename:Vector3
+ConvertRGBtoHSV	include/raygui.h	/^static Vector3 ConvertRGBtoHSV(Vector3 rgb);                    \/\/ Convert color data from RGB/;"	p	typeref:typename:Vector3
 CubemapLayout	include/raylib.h	/^} CubemapLayout;$/;"	t	typeref:enum:__anon42eb8fb11003
 DARKBLUE	include/raylib.h	/^#define DARKBLUE /;"	d
 DARKBROWN	include/raylib.h	/^#define DARKBROWN /;"	d
 DARKGRAY	include/raylib.h	/^#define DARKGRAY /;"	d
 DARKGREEN	include/raylib.h	/^#define DARKGREEN /;"	d
 DARKPURPLE	include/raylib.h	/^#define DARKPURPLE /;"	d
+DEFAULT	include/raygui.h	/^    DEFAULT         = 0,$/;"	e	enum:__anon4297c77f0703
 DEG2RAD	include/raylib.h	/^    #define DEG2RAD /;"	d
 DEG2RAD	include/raymath.h	/^    #define DEG2RAD /;"	d
 DEG2RAD	include/rlgl.h	/^    #define DEG2RAD /;"	d
+DROPDOWNBOX	include/raygui.h	/^    DROPDOWNBOX     = 8,$/;"	e	enum:__anon4297c77f0703
+DROPDOWN_ARROW_HIDDEN	include/raygui.h	/^    DROPDOWN_ARROW_HIDDEN,      \/\/ DropdownBox arrow hidden$/;"	e	enum:__anon4297c77f1003
+DROPDOWN_ITEMS_SPACING	include/raygui.h	/^    DROPDOWN_ITEMS_SPACING,     \/\/ DropdownBox items separation$/;"	e	enum:__anon4297c77f1003
+DROPDOWN_ROLL_UP	include/raygui.h	/^    DROPDOWN_ROLL_UP            \/\/ DropdownBox roll up flag: 0-Roll down, 1-Roll up$/;"	e	enum:__anon4297c77f1003
 DecodeDataBase64	include/raylib.h	/^RLAPI unsigned char *DecodeDataBase64(const char *text, int *outputSize);                       /;"	p	typeref:typename:RLAPI unsigned char *
+DecompressData	include/raygui.h	/^static unsigned char *DecompressData(const unsigned char *compData, int compDataSize, int *dataS/;"	p	typeref:typename:unsigned char *
 DecompressData	include/raylib.h	/^RLAPI unsigned char *DecompressData(const unsigned char *compData, int compDataSize, int *dataSi/;"	p	typeref:typename:RLAPI unsigned char *
 DetachAudioMixedProcessor	include/raylib.h	/^RLAPI void DetachAudioMixedProcessor(AudioCallback processor); \/\/ Detach audio stream processo/;"	p	typeref:typename:RLAPI void
 DetachAudioStreamProcessor	include/raylib.h	/^RLAPI void DetachAudioStreamProcessor(AudioStream stream, AudioCallback processor); \/\/ Detach /;"	p	typeref:typename:RLAPI void
@@ -224,7 +270,9 @@ DrawPoly	include/raylib.h	/^RLAPI void DrawPoly(Vector2 center, int sides, float
 DrawPolyLines	include/raylib.h	/^RLAPI void DrawPolyLines(Vector2 center, int sides, float radius, float rotation, Color color); /;"	p	typeref:typename:RLAPI void
 DrawPolyLinesEx	include/raylib.h	/^RLAPI void DrawPolyLinesEx(Vector2 center, int sides, float radius, float rotation, float lineTh/;"	p	typeref:typename:RLAPI void
 DrawRay	include/raylib.h	/^RLAPI void DrawRay(Ray ray, Color color);                                                       /;"	p	typeref:typename:RLAPI void
+DrawRectangle	include/raygui.h	/^static void DrawRectangle(int x, int y, int width, int height, Color color); \/\/ -- GuiDrawRect/;"	p	typeref:typename:void
 DrawRectangle	include/raylib.h	/^RLAPI void DrawRectangle(int posX, int posY, int width, int height, Color color);               /;"	p	typeref:typename:RLAPI void
+DrawRectangleGradientEx	include/raygui.h	/^static void DrawRectangleGradientEx(Rectangle rec, Color col1, Color col2, Color col3, Color col/;"	p	typeref:typename:void
 DrawRectangleGradientEx	include/raylib.h	/^RLAPI void DrawRectangleGradientEx(Rectangle rec, Color topLeft, Color bottomLeft, Color bottomR/;"	p	typeref:typename:RLAPI void
 DrawRectangleGradientH	include/raylib.h	/^RLAPI void DrawRectangleGradientH(int posX, int posY, int width, int height, Color left, Color r/;"	p	typeref:typename:RLAPI void
 DrawRectangleGradientV	include/raylib.h	/^RLAPI void DrawRectangleGradientV(int posX, int posY, int width, int height, Color top, Color bo/;"	p	typeref:typename:RLAPI void
@@ -269,6 +317,7 @@ DrawTriangleLines	include/raylib.h	/^RLAPI void DrawTriangleLines(Vector2 v1, Ve
 DrawTriangleStrip	include/raylib.h	/^RLAPI void DrawTriangleStrip(const Vector2 *points, int pointCount, Color color);               /;"	p	typeref:typename:RLAPI void
 DrawTriangleStrip3D	include/raylib.h	/^RLAPI void DrawTriangleStrip3D(const Vector3 *points, int pointCount, Color color);             /;"	p	typeref:typename:RLAPI void
 EPSILON	include/raymath.h	/^    #define EPSILON /;"	d
+EXTPROP08	include/raygui.h	/^    EXTPROP08             = 23      \/\/ Not used yet...$/;"	e	enum:__anon4297c77f0903
 EnableCursor	include/raylib.h	/^RLAPI void EnableCursor(void);                                    \/\/ Enables cursor (unlock cu/;"	p	typeref:typename:RLAPI void
 EnableEventWaiting	include/raylib.h	/^RLAPI void EnableEventWaiting(void);                              \/\/ Enable waiting for events/;"	p	typeref:typename:RLAPI void
 EncodeDataBase64	include/raylib.h	/^RLAPI char *EncodeDataBase64(const unsigned char *data, int dataSize, int *outputSize);         /;"	p	typeref:typename:RLAPI char *
@@ -310,6 +359,8 @@ FLAG_WINDOW_UNFOCUSED	include/raylib.h	/^    FLAG_WINDOW_UNFOCUSED   = 0x0000080
 FONT_BITMAP	include/raylib.h	/^    FONT_BITMAP,                    \/\/ Bitmap font generation, no anti-aliasing$/;"	e	enum:__anon42eb8fb11103
 FONT_DEFAULT	include/raylib.h	/^    FONT_DEFAULT = 0,               \/\/ Default font generation, anti-aliased$/;"	e	enum:__anon42eb8fb11103
 FONT_SDF	include/raylib.h	/^    FONT_SDF                        \/\/ SDF font generation, requires external shader$/;"	e	enum:__anon42eb8fb11103
+Fade	include/raygui.h	/^static Color Fade(Color color, float alpha)$/;"	f	typeref:typename:Color
+Fade	include/raygui.h	/^static Color Fade(Color color, float alpha);        \/\/ Get color with alpha applied, alpha goe/;"	p	typeref:typename:Color
 Fade	include/raylib.h	/^RLAPI Color Fade(Color color, float alpha);                                 \/\/ Get color with /;"	p	typeref:typename:RLAPI Color
 FileCopy	include/raylib.h	/^RLAPI int FileCopy(const char *srcPath, const char *dstPath);       \/\/ Copy file from one path/;"	p	typeref:typename:RLAPI int
 FileExists	include/raylib.h	/^RLAPI bool FileExists(const char *fileName);                        \/\/ Check if file exists$/;"	p	typeref:typename:RLAPI bool
@@ -321,6 +372,8 @@ FileRename	include/raylib.h	/^RLAPI int FileRename(const char *fileName, const c
 FileTextFindIndex	include/raylib.h	/^RLAPI int FileTextFindIndex(const char *fileName, const char *search); \/\/ Find text in existin/;"	p	typeref:typename:RLAPI int
 FileTextReplace	include/raylib.h	/^RLAPI int FileTextReplace(const char *fileName, const char *search, const char *replacement); \//;"	p	typeref:typename:RLAPI int
 FloatEquals	include/raymath.h	/^RMAPI int FloatEquals(float x, float y)$/;"	f	typeref:typename:RMAPI int
+Font	include/raygui.h	/^    typedef struct Font {$/;"	s
+Font	include/raygui.h	/^    } Font;$/;"	t	typeref:struct:Font
 Font	include/raylib.h	/^typedef struct Font {$/;"	s
 Font	include/raylib.h	/^} Font;$/;"	t	typeref:struct:Font
 FontType	include/raylib.h	/^} FontType;$/;"	t	typeref:enum:__anon42eb8fb11103
@@ -398,6 +451,19 @@ GRAPHICS_API_OPENGL_33	include/rlgl.h	/^    #define GRAPHICS_API_OPENGL_33$/;"	d
 GRAPHICS_API_OPENGL_ES2	include/rlgl.h	/^    #define GRAPHICS_API_OPENGL_ES2$/;"	d
 GRAY	include/raylib.h	/^#define GRAY /;"	d
 GREEN	include/raylib.h	/^#define GREEN /;"	d
+GROUP_PADDING	include/raygui.h	/^    GROUP_PADDING = 16,         \/\/ ToggleGroup separation between toggles$/;"	e	enum:__anon4297c77f0a03
+GROUP_WIDTH_FULL	include/raygui.h	/^    GROUP_WIDTH_FULL            \/\/ ToggleGroup bounds width considers all items: 0-Width per i/;"	e	enum:__anon4297c77f0a03
+GUI_BUTTON_DOWN	include/raygui.h	/^    #define GUI_BUTTON_DOWN /;"	d
+GUI_BUTTON_DOWN_ALT	include/raygui.h	/^    #define GUI_BUTTON_DOWN_ALT /;"	d
+GUI_BUTTON_PRESSED	include/raygui.h	/^    #define GUI_BUTTON_PRESSED /;"	d
+GUI_BUTTON_PRESSED_MID	include/raygui.h	/^    #define GUI_BUTTON_PRESSED_MID /;"	d
+GUI_BUTTON_RELEASED	include/raygui.h	/^    #define GUI_BUTTON_RELEASED /;"	d
+GUI_INPUT_KEY	include/raygui.h	/^    #define GUI_INPUT_KEY /;"	d
+GUI_KEY_DOWN	include/raygui.h	/^    #define GUI_KEY_DOWN(/;"	d
+GUI_KEY_PRESSED	include/raygui.h	/^    #define GUI_KEY_PRESSED(/;"	d
+GUI_POINTER_POSITION	include/raygui.h	/^    #define GUI_POINTER_POSITION /;"	d
+GUI_SCROLL_DELTA	include/raygui.h	/^        #define GUI_SCROLL_DELTA /;"	d
+GUI_SCROLL_DELTA	include/raygui.h	/^    #define GUI_SCROLL_DELTA /;"	d
 GamepadAxis	include/raylib.h	/^} GamepadAxis;$/;"	t	typeref:enum:__anon42eb8fb10803
 GamepadButton	include/raylib.h	/^} GamepadButton;$/;"	t	typeref:enum:__anon42eb8fb10703
 GenImageCellular	include/raylib.h	/^RLAPI Image GenImageCellular(int width, int height, int tileSize);                              /;"	p	typeref:typename:RLAPI Image
@@ -427,18 +493,24 @@ Gesture	include/raylib.h	/^} Gesture;$/;"	t	typeref:enum:__anon42eb8fb11303
 GetApplicationDirectory	include/raylib.h	/^RLAPI const char *GetApplicationDirectory(void);                    \/\/ Get the directory of th/;"	p	typeref:typename:RLAPI const char *
 GetCameraMatrix	include/raylib.h	/^RLAPI Matrix GetCameraMatrix(Camera camera);                            \/\/ Get camera transfor/;"	p	typeref:typename:RLAPI Matrix
 GetCameraMatrix2D	include/raylib.h	/^RLAPI Matrix GetCameraMatrix2D(Camera2D camera);                        \/\/ Get camera 2d trans/;"	p	typeref:typename:RLAPI Matrix
+GetCharPressed	include/raygui.h	/^static int GetCharPressed(void); \/\/ -- GuiTextBox(), GuiValueBox()$/;"	p	typeref:typename:int
 GetCharPressed	include/raylib.h	/^RLAPI int GetCharPressed(void);                               \/\/ Get char pressed (unicode), c/;"	p	typeref:typename:RLAPI int
 GetClipboardImage	include/raylib.h	/^RLAPI Image GetClipboardImage(void);                              \/\/ Get clipboard image conte/;"	p	typeref:typename:RLAPI Image
 GetClipboardText	include/raylib.h	/^RLAPI const char *GetClipboardText(void);                         \/\/ Get clipboard text conten/;"	p	typeref:typename:RLAPI const char *
 GetCodepoint	include/raylib.h	/^RLAPI int GetCodepoint(const char *text, int *codepointSize);                               \/\//;"	p	typeref:typename:RLAPI int
 GetCodepointCount	include/raylib.h	/^RLAPI int GetCodepointCount(const char *text);                                              \/\//;"	p	typeref:typename:RLAPI int
+GetCodepointNext	include/raygui.h	/^static int GetCodepointNext(const char *text, int *codepointSize)$/;"	f	typeref:typename:int
+GetCodepointNext	include/raygui.h	/^static int GetCodepointNext(const char *text, int *codepointSize);  \/\/ Get next codepoint in a/;"	p	typeref:typename:int
 GetCodepointNext	include/raylib.h	/^RLAPI int GetCodepointNext(const char *text, int *codepointSize);                           \/\//;"	p	typeref:typename:RLAPI int
 GetCodepointPrevious	include/raylib.h	/^RLAPI int GetCodepointPrevious(const char *text, int *codepointSize);                       \/\//;"	p	typeref:typename:RLAPI int
 GetCollisionRec	include/raylib.h	/^RLAPI Rectangle GetCollisionRec(Rectangle rec1, Rectangle rec2);                                /;"	p	typeref:typename:RLAPI Rectangle
+GetColor	include/raygui.h	/^static Color GetColor(int hexValue)$/;"	f	typeref:typename:Color
+GetColor	include/raygui.h	/^static Color GetColor(int hexValue);                \/\/ Returns a Color struct from hexadecimal/;"	p	typeref:typename:Color
 GetColor	include/raylib.h	/^RLAPI Color GetColor(unsigned int hexValue);                                \/\/ Get Color struc/;"	p	typeref:typename:RLAPI Color
 GetCurrentMonitor	include/raylib.h	/^RLAPI int GetCurrentMonitor(void);                                \/\/ Get current monitor where/;"	p	typeref:typename:RLAPI int
 GetDirectoryFileCount	include/raylib.h	/^RLAPI unsigned int GetDirectoryFileCount(const char *dirPath);      \/\/ Get the file count in a/;"	p	typeref:typename:RLAPI unsigned int
 GetDirectoryFileCountEx	include/raylib.h	/^RLAPI unsigned int GetDirectoryFileCountEx(const char *basePath, const char *filter, bool scanSu/;"	p	typeref:typename:RLAPI unsigned int
+GetDirectoryPath	include/raygui.h	/^static const char *GetDirectoryPath(const char *filePath);   \/\/ -- GuiLoadStyle(), required to/;"	p	typeref:typename:const char *
 GetDirectoryPath	include/raylib.h	/^RLAPI const char *GetDirectoryPath(const char *filePath);           \/\/ Get full path for a giv/;"	p	typeref:typename:RLAPI const char *
 GetFPS	include/raylib.h	/^RLAPI int GetFPS(void);                                 \/\/ Get current FPS$/;"	p	typeref:typename:RLAPI int
 GetFileExtension	include/raylib.h	/^RLAPI const char *GetFileExtension(const char *fileName);           \/\/ Get pointer to extensio/;"	p	typeref:typename:RLAPI const char *
@@ -446,6 +518,7 @@ GetFileLength	include/raylib.h	/^RLAPI int GetFileLength(const char *fileName); 
 GetFileModTime	include/raylib.h	/^RLAPI long GetFileModTime(const char *fileName);                    \/\/ Get file modification t/;"	p	typeref:typename:RLAPI long
 GetFileName	include/raylib.h	/^RLAPI const char *GetFileName(const char *filePath);                \/\/ Get pointer to filename/;"	p	typeref:typename:RLAPI const char *
 GetFileNameWithoutExt	include/raylib.h	/^RLAPI const char *GetFileNameWithoutExt(const char *filePath);      \/\/ Get filename string wit/;"	p	typeref:typename:RLAPI const char *
+GetFontDefault	include/raygui.h	/^static Font GetFontDefault(void);                            \/\/ -- GuiLoadStyleDefault()$/;"	p	typeref:typename:Font
 GetFontDefault	include/raylib.h	/^RLAPI Font GetFontDefault(void);                                                            \/\//;"	p	typeref:typename:RLAPI Font
 GetFrameTime	include/raylib.h	/^RLAPI float GetFrameTime(void);                         \/\/ Get time in seconds for last frame /;"	p	typeref:typename:RLAPI float
 GetGamepadAxisCount	include/raylib.h	/^RLAPI int GetGamepadAxisCount(int gamepad);                   \/\/ Get axis count for a gamepad$/;"	p	typeref:typename:RLAPI int
@@ -465,6 +538,8 @@ GetImageAlphaBorder	include/raylib.h	/^RLAPI Rectangle GetImageAlphaBorder(Image
 GetImageColor	include/raylib.h	/^RLAPI Color GetImageColor(Image image, int x, int y);                                           /;"	p	typeref:typename:RLAPI Color
 GetKeyName	include/raylib.h	/^RLAPI const char *GetKeyName(int key);                        \/\/ Get name of a QWERTY key on t/;"	p	typeref:typename:RLAPI const char *
 GetKeyPressed	include/raylib.h	/^RLAPI int GetKeyPressed(void);                                \/\/ Get key pressed (keycode), ca/;"	p	typeref:typename:RLAPI int
+GetLineWidth	include/raygui.h	/^static int GetLineWidth(const char *text)$/;"	f	typeref:typename:int
+GetLineWidth	include/raygui.h	/^static int GetLineWidth(const char *text);                      \/\/ Get text line width (stops /;"	p	typeref:typename:int
 GetMasterVolume	include/raylib.h	/^RLAPI float GetMasterVolume(void);                                    \/\/ Get master volume (li/;"	p	typeref:typename:RLAPI float
 GetMeshBoundingBox	include/raylib.h	/^RLAPI BoundingBox GetMeshBoundingBox(Mesh mesh);                                            \/\//;"	p	typeref:typename:RLAPI BoundingBox
 GetModelBoundingBox	include/raylib.h	/^RLAPI BoundingBox GetModelBoundingBox(Model model);                                         \/\//;"	p	typeref:typename:RLAPI BoundingBox
@@ -477,14 +552,17 @@ GetMonitorPosition	include/raylib.h	/^RLAPI Vector2 GetMonitorPosition(int monit
 GetMonitorRefreshRate	include/raylib.h	/^RLAPI int GetMonitorRefreshRate(int monitor);                     \/\/ Get specified monitor ref/;"	p	typeref:typename:RLAPI int
 GetMonitorWidth	include/raylib.h	/^RLAPI int GetMonitorWidth(int monitor);                           \/\/ Get specified monitor wid/;"	p	typeref:typename:RLAPI int
 GetMouseDelta	include/raylib.h	/^RLAPI Vector2 GetMouseDelta(void);                            \/\/ Get mouse delta between frame/;"	p	typeref:typename:RLAPI Vector2
+GetMousePosition	include/raygui.h	/^static Vector2 GetMousePosition(void);$/;"	p	typeref:typename:Vector2
 GetMousePosition	include/raylib.h	/^RLAPI Vector2 GetMousePosition(void);                         \/\/ Get mouse position XY$/;"	p	typeref:typename:RLAPI Vector2
 GetMouseRay	include/raylib.h	/^#define GetMouseRay /;"	d
+GetMouseWheelMove	include/raygui.h	/^static float GetMouseWheelMove(void);$/;"	p	typeref:typename:float
 GetMouseWheelMove	include/raylib.h	/^RLAPI float GetMouseWheelMove(void);                          \/\/ Get mouse wheel movement for /;"	p	typeref:typename:RLAPI float
 GetMouseWheelMoveV	include/raylib.h	/^RLAPI Vector2 GetMouseWheelMoveV(void);                       \/\/ Get mouse wheel movement for /;"	p	typeref:typename:RLAPI Vector2
 GetMouseX	include/raylib.h	/^RLAPI int GetMouseX(void);                                    \/\/ Get mouse position X$/;"	p	typeref:typename:RLAPI int
 GetMouseY	include/raylib.h	/^RLAPI int GetMouseY(void);                                    \/\/ Get mouse position Y$/;"	p	typeref:typename:RLAPI int
 GetMusicTimeLength	include/raylib.h	/^RLAPI float GetMusicTimeLength(Music music);                          \/\/ Get music time length/;"	p	typeref:typename:RLAPI float
 GetMusicTimePlayed	include/raylib.h	/^RLAPI float GetMusicTimePlayed(Music music);                          \/\/ Get current music tim/;"	p	typeref:typename:RLAPI float
+GetNextSpaceWidth	include/raygui.h	/^static float GetNextSpaceWidth(const char *text, int *nextSpaceIndex)$/;"	f	typeref:typename:float
 GetPixelColor	include/raylib.h	/^RLAPI Color GetPixelColor(void *srcPtr, int format);                        \/\/ Get Color from /;"	p	typeref:typename:RLAPI Color
 GetPixelDataSize	include/raylib.h	/^RLAPI int GetPixelDataSize(int width, int height, int format);              \/\/ Get pixel data /;"	p	typeref:typename:RLAPI int
 GetPrevDirectoryPath	include/raylib.h	/^RLAPI const char *GetPrevDirectoryPath(const char *dirPath);        \/\/ Get previous directory /;"	p	typeref:typename:RLAPI const char *
@@ -511,6 +589,11 @@ GetSplinePointBezierQuad	include/raylib.h	/^RLAPI Vector2 GetSplinePointBezierQu
 GetSplinePointCatmullRom	include/raylib.h	/^RLAPI Vector2 GetSplinePointCatmullRom(Vector2 p1, Vector2 p2, Vector2 p3, Vector2 p4, float t);/;"	p	typeref:typename:RLAPI Vector2
 GetSplinePointLinear	include/raylib.h	/^RLAPI Vector2 GetSplinePointLinear(Vector2 startPos, Vector2 endPos, float t);                  /;"	p	typeref:typename:RLAPI Vector2
 GetTextBetween	include/raylib.h	/^RLAPI char *GetTextBetween(const char *text, const char *begin, const char *end);           \/\//;"	p	typeref:typename:RLAPI char *
+GetTextBounds	include/raygui.h	/^static Rectangle GetTextBounds(int control, Rectangle bounds)$/;"	f	typeref:typename:Rectangle
+GetTextBounds	include/raygui.h	/^static Rectangle GetTextBounds(int control, Rectangle bounds);  \/\/ Get text bounds considering/;"	p	typeref:typename:Rectangle
+GetTextIcon	include/raygui.h	/^static const char *GetTextIcon(const char *text, int *iconId)$/;"	f	typeref:typename:const char *
+GetTextIcon	include/raygui.h	/^static const char *GetTextIcon(const char *text, int *iconId);  \/\/ Get text icon if provided a/;"	p	typeref:typename:const char *
+GetTextLines	include/raygui.h	/^static const char **GetTextLines(const char *text, int *count)$/;"	f	typeref:typename:const char **
 GetTime	include/raylib.h	/^RLAPI double GetTime(void);                             \/\/ Get elapsed time in seconds since I/;"	p	typeref:typename:RLAPI double
 GetTouchPointCount	include/raylib.h	/^RLAPI int GetTouchPointCount(void);                           \/\/ Get number of touch points$/;"	p	typeref:typename:RLAPI int
 GetTouchPointId	include/raylib.h	/^RLAPI int GetTouchPointId(int index);                         \/\/ Get touch point identifier fo/;"	p	typeref:typename:RLAPI int
@@ -524,9 +607,436 @@ GetWorkingDirectory	include/raylib.h	/^RLAPI const char *GetWorkingDirectory(voi
 GetWorldToScreen	include/raylib.h	/^RLAPI Vector2 GetWorldToScreen(Vector3 position, Camera camera);        \/\/ Get the screen spac/;"	p	typeref:typename:RLAPI Vector2
 GetWorldToScreen2D	include/raylib.h	/^RLAPI Vector2 GetWorldToScreen2D(Vector2 position, Camera2D camera);    \/\/ Get the screen spac/;"	p	typeref:typename:RLAPI Vector2
 GetWorldToScreenEx	include/raylib.h	/^RLAPI Vector2 GetWorldToScreenEx(Vector3 position, Camera camera, int width, int height); \/\/ G/;"	p	typeref:typename:RLAPI Vector2
+GlyphInfo	include/raygui.h	/^    typedef struct GlyphInfo {$/;"	s
+GlyphInfo	include/raygui.h	/^    } GlyphInfo;$/;"	t	typeref:struct:GlyphInfo
 GlyphInfo	include/raylib.h	/^typedef struct GlyphInfo {$/;"	s
 GlyphInfo	include/raylib.h	/^} GlyphInfo;$/;"	t	typeref:struct:GlyphInfo
+GuiButton	include/raygui.h	/^RAYGUIAPI int GuiButton(Rectangle bounds, const char *text);                                    /;"	p	typeref:typename:RAYGUIAPI int
+GuiButton	include/raygui.h	/^int GuiButton(Rectangle bounds, const char *text)$/;"	f	typeref:typename:int
+GuiCheckBox	include/raygui.h	/^RAYGUIAPI int GuiCheckBox(Rectangle bounds, const char *text, bool *checked);                   /;"	p	typeref:typename:RAYGUIAPI int
+GuiCheckBox	include/raygui.h	/^int GuiCheckBox(Rectangle bounds, const char *text, bool *checked)$/;"	f	typeref:typename:int
+GuiCheckBoxProperty	include/raygui.h	/^} GuiCheckBoxProperty;$/;"	t	typeref:enum:__anon4297c77f0e03
+GuiColorBarAlpha	include/raygui.h	/^RAYGUIAPI int GuiColorBarAlpha(Rectangle bounds, const char *text, float *alpha);               /;"	p	typeref:typename:RAYGUIAPI int
+GuiColorBarAlpha	include/raygui.h	/^int GuiColorBarAlpha(Rectangle bounds, const char *text, float *alpha)$/;"	f	typeref:typename:int
+GuiColorBarHue	include/raygui.h	/^RAYGUIAPI int GuiColorBarHue(Rectangle bounds, const char *text, float *value);                 /;"	p	typeref:typename:RAYGUIAPI int
+GuiColorBarHue	include/raygui.h	/^int GuiColorBarHue(Rectangle bounds, const char *text, float *hue)$/;"	f	typeref:typename:int
+GuiColorPanel	include/raygui.h	/^RAYGUIAPI int GuiColorPanel(Rectangle bounds, const char *text, Color *color);                  /;"	p	typeref:typename:RAYGUIAPI int
+GuiColorPanel	include/raygui.h	/^int GuiColorPanel(Rectangle bounds, const char *text, Color *color)$/;"	f	typeref:typename:int
+GuiColorPanelHSV	include/raygui.h	/^RAYGUIAPI int GuiColorPanelHSV(Rectangle bounds, const char *text, Vector3 *colorHsv);          /;"	p	typeref:typename:RAYGUIAPI int
+GuiColorPanelHSV	include/raygui.h	/^int GuiColorPanelHSV(Rectangle bounds, const char *text, Vector3 *colorHsv)$/;"	f	typeref:typename:int
+GuiColorPicker	include/raygui.h	/^RAYGUIAPI int GuiColorPicker(Rectangle bounds, const char *text, Color *color);                 /;"	p	typeref:typename:RAYGUIAPI int
+GuiColorPicker	include/raygui.h	/^int GuiColorPicker(Rectangle bounds, const char *text, Color *color)$/;"	f	typeref:typename:int
+GuiColorPickerHSV	include/raygui.h	/^RAYGUIAPI int GuiColorPickerHSV(Rectangle bounds, const char *text, Vector3 *colorHsv);         /;"	p	typeref:typename:RAYGUIAPI int
+GuiColorPickerHSV	include/raygui.h	/^int GuiColorPickerHSV(Rectangle bounds, const char *text, Vector3 *colorHsv)$/;"	f	typeref:typename:int
+GuiColorPickerProperty	include/raygui.h	/^} GuiColorPickerProperty;$/;"	t	typeref:enum:__anon4297c77f1503
+GuiComboBox	include/raygui.h	/^RAYGUIAPI int GuiComboBox(Rectangle bounds, const char *text, int *active);                     /;"	p	typeref:typename:RAYGUIAPI int
+GuiComboBox	include/raygui.h	/^int GuiComboBox(Rectangle bounds, const char *text, int *active)$/;"	f	typeref:typename:int
+GuiComboBoxProperty	include/raygui.h	/^} GuiComboBoxProperty;$/;"	t	typeref:enum:__anon4297c77f0f03
+GuiControl	include/raygui.h	/^} GuiControl;$/;"	t	typeref:enum:__anon4297c77f0703
+GuiControlProperty	include/raygui.h	/^} GuiControlProperty;$/;"	t	typeref:enum:__anon4297c77f0803
+GuiDefaultProperty	include/raygui.h	/^} GuiDefaultProperty;$/;"	t	typeref:enum:__anon4297c77f0903
+GuiDisable	include/raygui.h	/^RAYGUIAPI void GuiDisable(void);                                \/\/ Disable gui controls (globa/;"	p	typeref:typename:RAYGUIAPI void
+GuiDisable	include/raygui.h	/^void GuiDisable(void) { if (guiState == STATE_NORMAL) guiState = STATE_DISABLED; }$/;"	f	typeref:typename:void
+GuiDisableTooltip	include/raygui.h	/^RAYGUIAPI void GuiDisableTooltip(void);                         \/\/ Disable gui tooltips (globa/;"	p	typeref:typename:RAYGUIAPI void
+GuiDisableTooltip	include/raygui.h	/^void GuiDisableTooltip(void) { guiTooltip = false; }$/;"	f	typeref:typename:void
+GuiDrawIcon	include/raygui.h	/^RAYGUIAPI void GuiDrawIcon(int iconId, int posX, int posY, int pixelSize, Color color); \/\/ Dra/;"	p	typeref:typename:RAYGUIAPI void
+GuiDrawIcon	include/raygui.h	/^void GuiDrawIcon(int iconId, int posX, int posY, int pixelSize, Color color)$/;"	f	typeref:typename:void
+GuiDrawRectangle	include/raygui.h	/^static void GuiDrawRectangle(Rectangle rec, int borderWidth, Color borderColor, Color color)$/;"	f	typeref:typename:void
+GuiDrawRectangle	include/raygui.h	/^static void GuiDrawRectangle(Rectangle rec, int borderWidth, Color borderColor, Color color); \//;"	p	typeref:typename:void
+GuiDrawText	include/raygui.h	/^static void GuiDrawText(const char *text, Rectangle textBounds, int alignment, Color tint)$/;"	f	typeref:typename:void
+GuiDrawText	include/raygui.h	/^static void GuiDrawText(const char *text, Rectangle textBounds, int alignment, Color tint); \/\//;"	p	typeref:typename:void
+GuiDropdownBox	include/raygui.h	/^RAYGUIAPI int GuiDropdownBox(Rectangle bounds, const char *text, int *active, bool editMode);   /;"	p	typeref:typename:RAYGUIAPI int
+GuiDropdownBox	include/raygui.h	/^int GuiDropdownBox(Rectangle bounds, const char *text, int *active, bool editMode)$/;"	f	typeref:typename:int
+GuiDropdownBoxProperty	include/raygui.h	/^} GuiDropdownBoxProperty;$/;"	t	typeref:enum:__anon4297c77f1003
+GuiDummyRec	include/raygui.h	/^RAYGUIAPI int GuiDummyRec(Rectangle bounds, const char *text);                                  /;"	p	typeref:typename:RAYGUIAPI int
+GuiDummyRec	include/raygui.h	/^int GuiDummyRec(Rectangle bounds, const char *text)$/;"	f	typeref:typename:int
+GuiEnable	include/raygui.h	/^RAYGUIAPI void GuiEnable(void);                                 \/\/ Enable gui controls (global/;"	p	typeref:typename:RAYGUIAPI void
+GuiEnable	include/raygui.h	/^void GuiEnable(void) { if (guiState == STATE_DISABLED) guiState = STATE_NORMAL; }$/;"	f	typeref:typename:void
+GuiEnableTooltip	include/raygui.h	/^RAYGUIAPI void GuiEnableTooltip(void);                          \/\/ Enable gui tooltips (global/;"	p	typeref:typename:RAYGUIAPI void
+GuiEnableTooltip	include/raygui.h	/^void GuiEnableTooltip(void) { guiTooltip = true; }$/;"	f	typeref:typename:void
+GuiFade	include/raygui.h	/^static Color GuiFade(Color color, float alpha)$/;"	f	typeref:typename:Color
+GuiFade	include/raygui.h	/^static Color GuiFade(Color color, float alpha); \/\/ Fade color by an alpha factor$/;"	p	typeref:typename:Color
+GuiFontIconBaking	include/raygui.h	/^static int GuiFontIconBaking(Image *imFont, Font font, Rectangle *whiteRec)$/;"	f	typeref:typename:int
+GuiFontIconBaking	include/raygui.h	/^static int GuiFontIconBaking(Image *imFont, Font font, Rectangle *whiteRec); \/\/ Update font im/;"	p	typeref:typename:int
+GuiGetFont	include/raygui.h	/^Font GuiGetFont(void)$/;"	f	typeref:typename:Font
+GuiGetFont	include/raygui.h	/^RAYGUIAPI Font GuiGetFont(void);                                \/\/ Get gui custom font (global/;"	p	typeref:typename:RAYGUIAPI Font
+GuiGetIcons	include/raygui.h	/^RAYGUIAPI unsigned int *GuiGetIcons(void);                      \/\/ Get raygui icons data point/;"	p	typeref:typename:RAYGUIAPI unsigned int *
+GuiGetIcons	include/raygui.h	/^unsigned int *GuiGetIcons(void) { return guiIconsPtr; }$/;"	f	typeref:typename:unsigned int *
+GuiGetState	include/raygui.h	/^RAYGUIAPI int GuiGetState(void);                                \/\/ Get gui state (global state/;"	p	typeref:typename:RAYGUIAPI int
+GuiGetState	include/raygui.h	/^int GuiGetState(void) { return guiState; }$/;"	f	typeref:typename:int
+GuiGetStyle	include/raygui.h	/^RAYGUIAPI int GuiGetStyle(int control, int property);           \/\/ Get one style property$/;"	p	typeref:typename:RAYGUIAPI int
+GuiGetStyle	include/raygui.h	/^int GuiGetStyle(int control, int property)$/;"	f	typeref:typename:int
+GuiGetTextWidth	include/raygui.h	/^RAYGUIAPI int GuiGetTextWidth(const char *text);                \/\/ Get text width considering /;"	p	typeref:typename:RAYGUIAPI int
+GuiGetTextWidth	include/raygui.h	/^int GuiGetTextWidth(const char *text)$/;"	f	typeref:typename:int
+GuiGrid	include/raygui.h	/^RAYGUIAPI int GuiGrid(Rectangle bounds, const char *text, float spacing, int subdivs, Vector2 *m/;"	p	typeref:typename:RAYGUIAPI int
+GuiGrid	include/raygui.h	/^int GuiGrid(Rectangle bounds, const char *text, float spacing, int subdivs, Vector2 *mouseCell)$/;"	f	typeref:typename:int
+GuiGroupBox	include/raygui.h	/^RAYGUIAPI int GuiGroupBox(Rectangle bounds, const char *text);                                  /;"	p	typeref:typename:RAYGUIAPI int
+GuiGroupBox	include/raygui.h	/^int GuiGroupBox(Rectangle bounds, const char *text)$/;"	f	typeref:typename:int
+GuiIconName	include/raygui.h	/^} GuiIconName;$/;"	t	typeref:enum:__anon4297c77f1603
+GuiIconText	include/raygui.h	/^RAYGUIAPI const char *GuiIconText(int iconId, const char *text); \/\/ Get text with icon id prep/;"	p	typeref:typename:RAYGUIAPI const char *
+GuiIconText	include/raygui.h	/^const char *GuiIconText(int iconId, const char *text)$/;"	f	typeref:typename:const char *
+GuiIsLocked	include/raygui.h	/^RAYGUIAPI bool GuiIsLocked(void);                               \/\/ Check if gui is locked (glo/;"	p	typeref:typename:RAYGUIAPI bool
+GuiIsLocked	include/raygui.h	/^bool GuiIsLocked(void) { return guiLocked; }$/;"	f	typeref:typename:bool
+GuiLabel	include/raygui.h	/^RAYGUIAPI int GuiLabel(Rectangle bounds, const char *text);                                     /;"	p	typeref:typename:RAYGUIAPI int
+GuiLabel	include/raygui.h	/^int GuiLabel(Rectangle bounds, const char *text)$/;"	f	typeref:typename:int
+GuiLabelButton	include/raygui.h	/^RAYGUIAPI int GuiLabelButton(Rectangle bounds, const char *text);                               /;"	p	typeref:typename:RAYGUIAPI int
+GuiLabelButton	include/raygui.h	/^int GuiLabelButton(Rectangle bounds, const char *text)$/;"	f	typeref:typename:int
+GuiLine	include/raygui.h	/^RAYGUIAPI int GuiLine(Rectangle bounds, const char *text);                                      /;"	p	typeref:typename:RAYGUIAPI int
+GuiLine	include/raygui.h	/^int GuiLine(Rectangle bounds, const char *text)$/;"	f	typeref:typename:int
+GuiListView	include/raygui.h	/^RAYGUIAPI int GuiListView(Rectangle bounds, const char *text, int *scrollIndex, int *active);   /;"	p	typeref:typename:RAYGUIAPI int
+GuiListView	include/raygui.h	/^int GuiListView(Rectangle bounds, const char *text, int *scrollIndex, int *active)$/;"	f	typeref:typename:int
+GuiListViewEx	include/raygui.h	/^RAYGUIAPI int GuiListViewEx(Rectangle bounds, char **text, int count, int *scrollIndex, int *act/;"	p	typeref:typename:RAYGUIAPI int
+GuiListViewEx	include/raygui.h	/^int GuiListViewEx(Rectangle bounds, char **text, int count, int *scrollIndex, int *active, int */;"	f	typeref:typename:int
+GuiListViewProperty	include/raygui.h	/^} GuiListViewProperty;$/;"	t	typeref:enum:__anon4297c77f1403
+GuiLoadIcons	include/raygui.h	/^RAYGUIAPI char **GuiLoadIcons(const char *fileName, bool loadIconsName); \/\/ Load raygui icons /;"	p	typeref:typename:RAYGUIAPI char **
+GuiLoadIcons	include/raygui.h	/^char **GuiLoadIcons(const char *fileName, bool loadIconsName)$/;"	f	typeref:typename:char **
+GuiLoadIconsFromMemory	include/raygui.h	/^RAYGUIAPI char **GuiLoadIconsFromMemory(const unsigned char *fileData, int dataSize, bool loadIc/;"	p	typeref:typename:RAYGUIAPI char **
+GuiLoadIconsFromMemory	include/raygui.h	/^char **GuiLoadIconsFromMemory(const unsigned char *fileData, int dataSize, bool loadIconsName)$/;"	f	typeref:typename:char **
+GuiLoadStyle	include/raygui.h	/^RAYGUIAPI void GuiLoadStyle(const char *fileName);              \/\/ Load style file over global/;"	p	typeref:typename:RAYGUIAPI void
+GuiLoadStyle	include/raygui.h	/^void GuiLoadStyle(const char *fileName)$/;"	f	typeref:typename:void
+GuiLoadStyleDefault	include/raygui.h	/^RAYGUIAPI void GuiLoadStyleDefault(void);                       \/\/ Load style default over glo/;"	p	typeref:typename:RAYGUIAPI void
+GuiLoadStyleDefault	include/raygui.h	/^void GuiLoadStyleDefault(void)$/;"	f	typeref:typename:void
+GuiLoadStyleFromMemory	include/raygui.h	/^RAYGUIAPI void GuiLoadStyleFromMemory(const unsigned char *fileData, int dataSize); \/\/ Load st/;"	p	typeref:typename:RAYGUIAPI void
+GuiLoadStyleFromMemory	include/raygui.h	/^void GuiLoadStyleFromMemory(const unsigned char *fileData, int dataSize)$/;"	f	typeref:typename:void
+GuiLock	include/raygui.h	/^RAYGUIAPI void GuiLock(void);                                   \/\/ Lock gui controls (global s/;"	p	typeref:typename:RAYGUIAPI void
+GuiLock	include/raygui.h	/^void GuiLock(void) { guiLocked = true; }$/;"	f	typeref:typename:void
+GuiMessageBox	include/raygui.h	/^RAYGUIAPI int GuiMessageBox(Rectangle bounds, const char *title, const char *message, const char/;"	p	typeref:typename:RAYGUIAPI int
+GuiMessageBox	include/raygui.h	/^int GuiMessageBox(Rectangle bounds, const char *title, const char *message, const char *btnText,/;"	f	typeref:typename:int
+GuiPanel	include/raygui.h	/^RAYGUIAPI int GuiPanel(Rectangle bounds, const char *text);                                     /;"	p	typeref:typename:RAYGUIAPI int
+GuiPanel	include/raygui.h	/^int GuiPanel(Rectangle bounds, const char *text)$/;"	f	typeref:typename:int
+GuiProgressBar	include/raygui.h	/^RAYGUIAPI int GuiProgressBar(Rectangle bounds, const char *textLeft, const char *textRight, floa/;"	p	typeref:typename:RAYGUIAPI int
+GuiProgressBar	include/raygui.h	/^int GuiProgressBar(Rectangle bounds, const char *textLeft, const char *textRight, float *value, /;"	f	typeref:typename:int
+GuiProgressBarProperty	include/raygui.h	/^} GuiProgressBarProperty;$/;"	t	typeref:enum:__anon4297c77f0c03
+GuiPropertyElement	include/raygui.h	/^typedef enum { BORDER = 0, BASE, TEXT, OTHER } GuiPropertyElement;$/;"	t	typeref:enum:__anon4297c77f1703
+GuiResult	include/raygui.h	/^} GuiResult;$/;"	t	typeref:enum:__anon4297c77f0203
+GuiScrollBar	include/raygui.h	/^static int GuiScrollBar(Rectangle bounds, int value, int minValue, int maxValue)$/;"	f	typeref:typename:int
+GuiScrollBar	include/raygui.h	/^static int GuiScrollBar(Rectangle bounds, int value, int minValue, int maxValue); \/\/ Scroll ba/;"	p	typeref:typename:int
+GuiScrollBarProperty	include/raygui.h	/^} GuiScrollBarProperty;$/;"	t	typeref:enum:__anon4297c77f0d03
+GuiScrollPanel	include/raygui.h	/^RAYGUIAPI int GuiScrollPanel(Rectangle bounds, const char *text, Rectangle content, Vector2 *scr/;"	p	typeref:typename:RAYGUIAPI int
+GuiScrollPanel	include/raygui.h	/^int GuiScrollPanel(Rectangle bounds, const char *text, Rectangle content, Vector2 *scroll, Recta/;"	f	typeref:typename:int
+GuiSetAlpha	include/raygui.h	/^RAYGUIAPI void GuiSetAlpha(float alpha);                        \/\/ Set gui controls alpha (glo/;"	p	typeref:typename:RAYGUIAPI void
+GuiSetAlpha	include/raygui.h	/^void GuiSetAlpha(float alpha)$/;"	f	typeref:typename:void
+GuiSetFont	include/raygui.h	/^RAYGUIAPI void GuiSetFont(Font font);                           \/\/ Set gui custom font (global/;"	p	typeref:typename:RAYGUIAPI void
+GuiSetFont	include/raygui.h	/^void GuiSetFont(Font font)$/;"	f	typeref:typename:void
+GuiSetIconScale	include/raygui.h	/^RAYGUIAPI void GuiSetIconScale(int scale);                      \/\/ Set default icon drawing si/;"	p	typeref:typename:RAYGUIAPI void
+GuiSetIconScale	include/raygui.h	/^void GuiSetIconScale(int scale)$/;"	f	typeref:typename:void
+GuiSetState	include/raygui.h	/^RAYGUIAPI void GuiSetState(int state);                          \/\/ Set gui state (global state/;"	p	typeref:typename:RAYGUIAPI void
+GuiSetState	include/raygui.h	/^void GuiSetState(int state) { guiState = (GuiState)state; }$/;"	f	typeref:typename:void
+GuiSetStyle	include/raygui.h	/^RAYGUIAPI void GuiSetStyle(int control, int property, int value); \/\/ Set one style property$/;"	p	typeref:typename:RAYGUIAPI void
+GuiSetStyle	include/raygui.h	/^void GuiSetStyle(int control, int property, int value)$/;"	f	typeref:typename:void
+GuiSetTooltip	include/raygui.h	/^RAYGUIAPI void GuiSetTooltip(const char *tooltip);              \/\/ Set tooltip string$/;"	p	typeref:typename:RAYGUIAPI void
+GuiSetTooltip	include/raygui.h	/^void GuiSetTooltip(const char *tooltip) { guiTooltipPtr = tooltip; }$/;"	f	typeref:typename:void
+GuiSlider	include/raygui.h	/^RAYGUIAPI int GuiSlider(Rectangle bounds, const char *textLeft, const char *textRight, float *va/;"	p	typeref:typename:RAYGUIAPI int
+GuiSlider	include/raygui.h	/^int GuiSlider(Rectangle bounds, const char *textLeft, const char *textRight, float *value, float/;"	f	typeref:typename:int
+GuiSliderBar	include/raygui.h	/^RAYGUIAPI int GuiSliderBar(Rectangle bounds, const char *textLeft, const char *textRight, float /;"	p	typeref:typename:RAYGUIAPI int
+GuiSliderBar	include/raygui.h	/^int GuiSliderBar(Rectangle bounds, const char *textLeft, const char *textRight, float *value, fl/;"	f	typeref:typename:int
+GuiSliderProperty	include/raygui.h	/^} GuiSliderProperty;$/;"	t	typeref:enum:__anon4297c77f0b03
+GuiSpinner	include/raygui.h	/^RAYGUIAPI int GuiSpinner(Rectangle bounds, const char *text, int *value, int minValue, int maxVa/;"	p	typeref:typename:RAYGUIAPI int
+GuiSpinner	include/raygui.h	/^int GuiSpinner(Rectangle bounds, const char *text, int *value, int minValue, int maxValue, bool /;"	f	typeref:typename:int
+GuiState	include/raygui.h	/^} GuiState;$/;"	t	typeref:enum:__anon4297c77f0303
+GuiStatusBar	include/raygui.h	/^RAYGUIAPI int GuiStatusBar(Rectangle bounds, const char *text);                                 /;"	p	typeref:typename:RAYGUIAPI int
+GuiStatusBar	include/raygui.h	/^int GuiStatusBar(Rectangle bounds, const char *text)$/;"	f	typeref:typename:int
+GuiStyleProp	include/raygui.h	/^typedef struct GuiStyleProp {$/;"	s
+GuiStyleProp	include/raygui.h	/^} GuiStyleProp;$/;"	t	typeref:struct:GuiStyleProp
+GuiTabBar	include/raygui.h	/^RAYGUIAPI int GuiTabBar(Rectangle bounds, const char *text, int *hscroll, int *active);         /;"	p	typeref:typename:RAYGUIAPI int
+GuiTabBar	include/raygui.h	/^int GuiTabBar(Rectangle bounds, const char *text, int *hscroll, int *active)$/;"	f	typeref:typename:int
+GuiTabBarEx	include/raygui.h	/^RAYGUIAPI int GuiTabBarEx(Rectangle bounds, char **text, int count, int *hscroll, int *active, i/;"	p	typeref:typename:RAYGUIAPI int
+GuiTabBarEx	include/raygui.h	/^int GuiTabBarEx(Rectangle bounds, char **text, int count, int *hscroll, int *active, int *focus)$/;"	f	typeref:typename:int
+GuiTabBarProperty	include/raygui.h	/^} GuiTabBarProperty;$/;"	t	typeref:enum:__anon4297c77f1303
+GuiTextAlignment	include/raygui.h	/^} GuiTextAlignment;$/;"	t	typeref:enum:__anon4297c77f0403
+GuiTextAlignmentVertical	include/raygui.h	/^} GuiTextAlignmentVertical;$/;"	t	typeref:enum:__anon4297c77f0503
+GuiTextBox	include/raygui.h	/^RAYGUIAPI int GuiTextBox(Rectangle bounds, char *text, int textSize, bool editMode);            /;"	p	typeref:typename:RAYGUIAPI int
+GuiTextBox	include/raygui.h	/^int GuiTextBox(Rectangle bounds, char *text, int textSize, bool editMode)$/;"	f	typeref:typename:int
+GuiTextBoxProperty	include/raygui.h	/^} GuiTextBoxProperty;$/;"	t	typeref:enum:__anon4297c77f1103
+GuiTextInputBox	include/raygui.h	/^RAYGUIAPI int GuiTextInputBox(Rectangle bounds, const char *title, const char *message, char *te/;"	p	typeref:typename:RAYGUIAPI int
+GuiTextInputBox	include/raygui.h	/^int GuiTextInputBox(Rectangle bounds, const char *title, const char *message, char *text, int te/;"	f	typeref:typename:int
+GuiTextSplit	include/raygui.h	/^static char **GuiTextSplit(const char *text, char delimiter, int *count)$/;"	f	typeref:typename:char **
+GuiTextSplit	include/raygui.h	/^static char **GuiTextSplit(const char *text, char delimiter, int *count); \/\/ Split controls te/;"	p	typeref:typename:char **
+GuiTextWrapMode	include/raygui.h	/^} GuiTextWrapMode;$/;"	t	typeref:enum:__anon4297c77f0603
+GuiToggle	include/raygui.h	/^RAYGUIAPI int GuiToggle(Rectangle bounds, const char *text, bool *active);                      /;"	p	typeref:typename:RAYGUIAPI int
+GuiToggle	include/raygui.h	/^int GuiToggle(Rectangle bounds, const char *text, bool *active)$/;"	f	typeref:typename:int
+GuiToggleGroup	include/raygui.h	/^RAYGUIAPI int GuiToggleGroup(Rectangle bounds, const char *text, int *active);                  /;"	p	typeref:typename:RAYGUIAPI int
+GuiToggleGroup	include/raygui.h	/^int GuiToggleGroup(Rectangle bounds, const char *text, int *active)$/;"	f	typeref:typename:int
+GuiToggleProperty	include/raygui.h	/^} GuiToggleProperty;$/;"	t	typeref:enum:__anon4297c77f0a03
+GuiToggleSlider	include/raygui.h	/^RAYGUIAPI int GuiToggleSlider(Rectangle bounds, const char *text, int *active);                 /;"	p	typeref:typename:RAYGUIAPI int
+GuiToggleSlider	include/raygui.h	/^int GuiToggleSlider(Rectangle bounds, const char *text, int *active)$/;"	f	typeref:typename:int
+GuiTooltip	include/raygui.h	/^static void GuiTooltip(Rectangle controlRec)$/;"	f	typeref:typename:void
+GuiTooltip	include/raygui.h	/^static void GuiTooltip(Rectangle controlRec);                   \/\/ Draw tooltip using control /;"	p	typeref:typename:void
+GuiUnlock	include/raygui.h	/^RAYGUIAPI void GuiUnlock(void);                                 \/\/ Unlock gui controls (global/;"	p	typeref:typename:RAYGUIAPI void
+GuiUnlock	include/raygui.h	/^void GuiUnlock(void) { guiLocked = false; }$/;"	f	typeref:typename:void
+GuiValueBox	include/raygui.h	/^RAYGUIAPI int GuiValueBox(Rectangle bounds, const char *text, int *value, int minValue, int maxV/;"	p	typeref:typename:RAYGUIAPI int
+GuiValueBox	include/raygui.h	/^int GuiValueBox(Rectangle bounds, const char *text, int *value, int minValue, int maxValue, bool/;"	f	typeref:typename:int
+GuiValueBoxFloat	include/raygui.h	/^RAYGUIAPI int GuiValueBoxFloat(Rectangle bounds, const char *text, char *textValue, float *value/;"	p	typeref:typename:RAYGUIAPI int
+GuiValueBoxFloat	include/raygui.h	/^int GuiValueBoxFloat(Rectangle bounds, const char *text, char *textValue, float *value, bool edi/;"	f	typeref:typename:int
+GuiValueBoxProperty	include/raygui.h	/^} GuiValueBoxProperty;$/;"	t	typeref:enum:__anon4297c77f1203
+GuiWindowBox	include/raygui.h	/^RAYGUIAPI int GuiWindowBox(Rectangle bounds, const char *title);                                /;"	p	typeref:typename:RAYGUIAPI int
+GuiWindowBox	include/raygui.h	/^int GuiWindowBox(Rectangle bounds, const char *title)$/;"	f	typeref:typename:int
+HIDDEN	main.cpp	/^#define HIDDEN /;"	d	file:
+HIT	main.cpp	/^#define HIT /;"	d	file:
+HUEBAR_PADDING	include/raygui.h	/^    HUEBAR_PADDING,             \/\/ ColorPicker right hue bar separation from panel$/;"	e	enum:__anon4297c77f1503
+HUEBAR_SELECTOR_HEIGHT	include/raygui.h	/^    HUEBAR_SELECTOR_HEIGHT,     \/\/ ColorPicker right hue bar selector height$/;"	e	enum:__anon4297c77f1503
+HUEBAR_SELECTOR_OVERFLOW	include/raygui.h	/^    HUEBAR_SELECTOR_OVERFLOW    \/\/ ColorPicker right hue bar selector overflow$/;"	e	enum:__anon4297c77f1503
+HUEBAR_WIDTH	include/raygui.h	/^    HUEBAR_WIDTH,               \/\/ ColorPicker right hue bar width$/;"	e	enum:__anon4297c77f1503
 HideCursor	include/raylib.h	/^RLAPI void HideCursor(void);                                      \/\/ Hides cursor$/;"	p	typeref:typename:RLAPI void
+ICON_1UP	include/raygui.h	/^    ICON_1UP                      = 148,$/;"	e	enum:__anon4297c77f1603
+ICON_ALARM	include/raygui.h	/^    ICON_ALARM                    = 205,$/;"	e	enum:__anon4297c77f1603
+ICON_ALPHA_CLEAR	include/raygui.h	/^    ICON_ALPHA_CLEAR              = 93,$/;"	e	enum:__anon4297c77f1603
+ICON_ALPHA_MULTIPLY	include/raygui.h	/^    ICON_ALPHA_MULTIPLY           = 92,$/;"	e	enum:__anon4297c77f1603
+ICON_ARROW_DOWN	include/raygui.h	/^    ICON_ARROW_DOWN               = 116,$/;"	e	enum:__anon4297c77f1603
+ICON_ARROW_DOWN_FILL	include/raygui.h	/^    ICON_ARROW_DOWN_FILL          = 120,$/;"	e	enum:__anon4297c77f1603
+ICON_ARROW_LEFT	include/raygui.h	/^    ICON_ARROW_LEFT               = 114,$/;"	e	enum:__anon4297c77f1603
+ICON_ARROW_LEFT_FILL	include/raygui.h	/^    ICON_ARROW_LEFT_FILL          = 118,$/;"	e	enum:__anon4297c77f1603
+ICON_ARROW_RIGHT	include/raygui.h	/^    ICON_ARROW_RIGHT              = 115,$/;"	e	enum:__anon4297c77f1603
+ICON_ARROW_RIGHT_FILL	include/raygui.h	/^    ICON_ARROW_RIGHT_FILL         = 119,$/;"	e	enum:__anon4297c77f1603
+ICON_ARROW_UP	include/raygui.h	/^    ICON_ARROW_UP                 = 117,$/;"	e	enum:__anon4297c77f1603
+ICON_ARROW_UP_FILL	include/raygui.h	/^    ICON_ARROW_UP_FILL            = 121,$/;"	e	enum:__anon4297c77f1603
+ICON_AUDIO	include/raygui.h	/^    ICON_AUDIO                    = 122,$/;"	e	enum:__anon4297c77f1603
+ICON_BIN	include/raygui.h	/^    ICON_BIN                      = 143,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX	include/raygui.h	/^    ICON_BOX                      = 80,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_BOTTOM	include/raygui.h	/^    ICON_BOX_BOTTOM               = 85,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_BOTTOM_LEFT	include/raygui.h	/^    ICON_BOX_BOTTOM_LEFT          = 86,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_BOTTOM_RIGHT	include/raygui.h	/^    ICON_BOX_BOTTOM_RIGHT         = 84,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_CENTER	include/raygui.h	/^    ICON_BOX_CENTER               = 89,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_CIRCLE_MASK	include/raygui.h	/^    ICON_BOX_CIRCLE_MASK          = 90,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_CONCENTRIC	include/raygui.h	/^    ICON_BOX_CONCENTRIC           = 110,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_CORNERS_BIG	include/raygui.h	/^    ICON_BOX_CORNERS_BIG          = 99,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_CORNERS_SMALL	include/raygui.h	/^    ICON_BOX_CORNERS_SMALL        = 98,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_DOTS_BIG	include/raygui.h	/^    ICON_BOX_DOTS_BIG             = 109,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_DOTS_SMALL	include/raygui.h	/^    ICON_BOX_DOTS_SMALL           = 108,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_GRID	include/raygui.h	/^    ICON_BOX_GRID                 = 96,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_GRID_BIG	include/raygui.h	/^    ICON_BOX_GRID_BIG             = 111,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_LEFT	include/raygui.h	/^    ICON_BOX_LEFT                 = 87,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_MINUS	include/raygui.h	/^    ICON_BOX_MINUS                = 240,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_MINUS_FILL	include/raygui.h	/^    ICON_BOX_MINUS_FILL           = 241,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_MORE	include/raygui.h	/^    ICON_BOX_MORE                 = 238,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_MORE_FILL	include/raygui.h	/^    ICON_BOX_MORE_FILL            = 239,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_MULTISIZE	include/raygui.h	/^    ICON_BOX_MULTISIZE            = 102,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_RIGHT	include/raygui.h	/^    ICON_BOX_RIGHT                = 83,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_TOP	include/raygui.h	/^    ICON_BOX_TOP                  = 81,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_TOP_LEFT	include/raygui.h	/^    ICON_BOX_TOP_LEFT             = 88,$/;"	e	enum:__anon4297c77f1603
+ICON_BOX_TOP_RIGHT	include/raygui.h	/^    ICON_BOX_TOP_RIGHT            = 82,$/;"	e	enum:__anon4297c77f1603
+ICON_BREAKPOINT_OFF	include/raygui.h	/^    ICON_BREAKPOINT_OFF           = 213,$/;"	e	enum:__anon4297c77f1603
+ICON_BREAKPOINT_ON	include/raygui.h	/^    ICON_BREAKPOINT_ON            = 212,$/;"	e	enum:__anon4297c77f1603
+ICON_BRUSH_CLASSIC	include/raygui.h	/^    ICON_BRUSH_CLASSIC            = 24,$/;"	e	enum:__anon4297c77f1603
+ICON_BRUSH_PAINTER	include/raygui.h	/^    ICON_BRUSH_PAINTER            = 25,$/;"	e	enum:__anon4297c77f1603
+ICON_BURGER_MENU	include/raygui.h	/^    ICON_BURGER_MENU              = 214,$/;"	e	enum:__anon4297c77f1603
+ICON_CAMERA	include/raygui.h	/^    ICON_CAMERA                   = 169,$/;"	e	enum:__anon4297c77f1603
+ICON_CAPSULE	include/raygui.h	/^    ICON_CAPSULE                  = 249,$/;"	e	enum:__anon4297c77f1603
+ICON_CASE_SENSITIVE	include/raygui.h	/^    ICON_CASE_SENSITIVE           = 215,$/;"	e	enum:__anon4297c77f1603
+ICON_CIRCLE_ADD	include/raygui.h	/^    ICON_CIRCLE_ADD               = 234,$/;"	e	enum:__anon4297c77f1603
+ICON_CIRCLE_ADD_FILL	include/raygui.h	/^    ICON_CIRCLE_ADD_FILL          = 235,$/;"	e	enum:__anon4297c77f1603
+ICON_CIRCLE_WARNING	include/raygui.h	/^    ICON_CIRCLE_WARNING           = 236,$/;"	e	enum:__anon4297c77f1603
+ICON_CIRCLE_WARNING_FILL	include/raygui.h	/^    ICON_CIRCLE_WARNING_FILL      = 237,$/;"	e	enum:__anon4297c77f1603
+ICON_CLOCK	include/raygui.h	/^    ICON_CLOCK                    = 139,$/;"	e	enum:__anon4297c77f1603
+ICON_COIN	include/raygui.h	/^    ICON_COIN                     = 146,$/;"	e	enum:__anon4297c77f1603
+ICON_COLLISION	include/raygui.h	/^    ICON_COLLISION                = 233,$/;"	e	enum:__anon4297c77f1603
+ICON_COLOR_BUCKET	include/raygui.h	/^    ICON_COLOR_BUCKET             = 29,$/;"	e	enum:__anon4297c77f1603
+ICON_COLOR_PICKER	include/raygui.h	/^    ICON_COLOR_PICKER             = 27,$/;"	e	enum:__anon4297c77f1603
+ICON_CONE	include/raygui.h	/^    ICON_CONE                     = 247,$/;"	e	enum:__anon4297c77f1603
+ICON_CORNER	include/raygui.h	/^    ICON_CORNER                   = 187,$/;"	e	enum:__anon4297c77f1603
+ICON_CPU	include/raygui.h	/^    ICON_CPU                      = 206,$/;"	e	enum:__anon4297c77f1603
+ICON_CRACK	include/raygui.h	/^    ICON_CRACK                    = 155,$/;"	e	enum:__anon4297c77f1603
+ICON_CRACK_POINTS	include/raygui.h	/^    ICON_CRACK_POINTS             = 156,$/;"	e	enum:__anon4297c77f1603
+ICON_CROP	include/raygui.h	/^    ICON_CROP                     = 36,$/;"	e	enum:__anon4297c77f1603
+ICON_CROP_ALPHA	include/raygui.h	/^    ICON_CROP_ALPHA               = 37,$/;"	e	enum:__anon4297c77f1603
+ICON_CROSS	include/raygui.h	/^    ICON_CROSS                    = 113,$/;"	e	enum:__anon4297c77f1603
+ICON_CROSSLINE	include/raygui.h	/^    ICON_CROSSLINE                = 192,$/;"	e	enum:__anon4297c77f1603
+ICON_CROSS_SMALL	include/raygui.h	/^    ICON_CROSS_SMALL              = 128,$/;"	e	enum:__anon4297c77f1603
+ICON_CUBE	include/raygui.h	/^    ICON_CUBE                     = 162,$/;"	e	enum:__anon4297c77f1603
+ICON_CUBE_FACE_BACK	include/raygui.h	/^    ICON_CUBE_FACE_BACK           = 168,$/;"	e	enum:__anon4297c77f1603
+ICON_CUBE_FACE_BOTTOM	include/raygui.h	/^    ICON_CUBE_FACE_BOTTOM         = 166,$/;"	e	enum:__anon4297c77f1603
+ICON_CUBE_FACE_FRONT	include/raygui.h	/^    ICON_CUBE_FACE_FRONT          = 165,$/;"	e	enum:__anon4297c77f1603
+ICON_CUBE_FACE_LEFT	include/raygui.h	/^    ICON_CUBE_FACE_LEFT           = 164,$/;"	e	enum:__anon4297c77f1603
+ICON_CUBE_FACE_RIGHT	include/raygui.h	/^    ICON_CUBE_FACE_RIGHT          = 167,$/;"	e	enum:__anon4297c77f1603
+ICON_CUBE_FACE_TOP	include/raygui.h	/^    ICON_CUBE_FACE_TOP            = 163,$/;"	e	enum:__anon4297c77f1603
+ICON_CURSOR_CLASSIC	include/raygui.h	/^    ICON_CURSOR_CLASSIC           = 21,$/;"	e	enum:__anon4297c77f1603
+ICON_CURSOR_HAND	include/raygui.h	/^    ICON_CURSOR_HAND              = 19,$/;"	e	enum:__anon4297c77f1603
+ICON_CURSOR_MOVE	include/raygui.h	/^    ICON_CURSOR_MOVE              = 52,$/;"	e	enum:__anon4297c77f1603
+ICON_CURSOR_MOVE_FILL	include/raygui.h	/^    ICON_CURSOR_MOVE_FILL         = 68,$/;"	e	enum:__anon4297c77f1603
+ICON_CURSOR_POINTER	include/raygui.h	/^    ICON_CURSOR_POINTER           = 20,$/;"	e	enum:__anon4297c77f1603
+ICON_CURSOR_SCALE	include/raygui.h	/^    ICON_CURSOR_SCALE             = 53,$/;"	e	enum:__anon4297c77f1603
+ICON_CURSOR_SCALE_FILL	include/raygui.h	/^    ICON_CURSOR_SCALE_FILL        = 69,$/;"	e	enum:__anon4297c77f1603
+ICON_CURSOR_SCALE_LEFT	include/raygui.h	/^    ICON_CURSOR_SCALE_LEFT        = 55,$/;"	e	enum:__anon4297c77f1603
+ICON_CURSOR_SCALE_LEFT_FILL	include/raygui.h	/^    ICON_CURSOR_SCALE_LEFT_FILL   = 71,$/;"	e	enum:__anon4297c77f1603
+ICON_CURSOR_SCALE_RIGHT	include/raygui.h	/^    ICON_CURSOR_SCALE_RIGHT       = 54,$/;"	e	enum:__anon4297c77f1603
+ICON_CURSOR_SCALE_RIGHT_FILL	include/raygui.h	/^    ICON_CURSOR_SCALE_RIGHT_FILL  = 70,$/;"	e	enum:__anon4297c77f1603
+ICON_CYLINDER	include/raygui.h	/^    ICON_CYLINDER                 = 246,$/;"	e	enum:__anon4297c77f1603
+ICON_DEMON	include/raygui.h	/^    ICON_DEMON                    = 152,$/;"	e	enum:__anon4297c77f1603
+ICON_DIFFERENCE	include/raygui.h	/^    ICON_DIFFERENCE               = 244,$/;"	e	enum:__anon4297c77f1603
+ICON_DITHERING	include/raygui.h	/^    ICON_DITHERING                = 94,$/;"	e	enum:__anon4297c77f1603
+ICON_DOOR	include/raygui.h	/^    ICON_DOOR                     = 158,$/;"	e	enum:__anon4297c77f1603
+ICON_ELLIPSOID	include/raygui.h	/^    ICON_ELLIPSOID                = 248,$/;"	e	enum:__anon4297c77f1603
+ICON_EMPTYBOX	include/raygui.h	/^    ICON_EMPTYBOX                 = 63,$/;"	e	enum:__anon4297c77f1603
+ICON_EMPTYBOX_SMALL	include/raygui.h	/^    ICON_EMPTYBOX_SMALL           = 79,$/;"	e	enum:__anon4297c77f1603
+ICON_EXIT	include/raygui.h	/^    ICON_EXIT                     = 159,$/;"	e	enum:__anon4297c77f1603
+ICON_EXPLOSION	include/raygui.h	/^    ICON_EXPLOSION                = 147,$/;"	e	enum:__anon4297c77f1603
+ICON_EYE_OFF	include/raygui.h	/^    ICON_EYE_OFF                  = 45,$/;"	e	enum:__anon4297c77f1603
+ICON_EYE_ON	include/raygui.h	/^    ICON_EYE_ON                   = 44,$/;"	e	enum:__anon4297c77f1603
+ICON_FILE	include/raygui.h	/^    ICON_FILE                     = 218,$/;"	e	enum:__anon4297c77f1603
+ICON_FILETYPE_3D	include/raygui.h	/^    ICON_FILETYPE_3D              = 251,$/;"	e	enum:__anon4297c77f1603
+ICON_FILETYPE_ALPHA	include/raygui.h	/^    ICON_FILETYPE_ALPHA           = 194,$/;"	e	enum:__anon4297c77f1603
+ICON_FILETYPE_AUDIO	include/raygui.h	/^    ICON_FILETYPE_AUDIO           = 11,$/;"	e	enum:__anon4297c77f1603
+ICON_FILETYPE_BINARY	include/raygui.h	/^    ICON_FILETYPE_BINARY          = 200,$/;"	e	enum:__anon4297c77f1603
+ICON_FILETYPE_CODE_C	include/raygui.h	/^    ICON_FILETYPE_CODE_C          = 253,$/;"	e	enum:__anon4297c77f1603
+ICON_FILETYPE_CODE_JS	include/raygui.h	/^    ICON_FILETYPE_CODE_JS         = 255,$/;"	e	enum:__anon4297c77f1603
+ICON_FILETYPE_CODE_PYTHON	include/raygui.h	/^    ICON_FILETYPE_CODE_PYTHON     = 254,$/;"	e	enum:__anon4297c77f1603
+ICON_FILETYPE_CODE_XML	include/raygui.h	/^    ICON_FILETYPE_CODE_XML        = 252,$/;"	e	enum:__anon4297c77f1603
+ICON_FILETYPE_FONT	include/raygui.h	/^    ICON_FILETYPE_FONT            = 250,$/;"	e	enum:__anon4297c77f1603
+ICON_FILETYPE_HOME	include/raygui.h	/^    ICON_FILETYPE_HOME            = 195,$/;"	e	enum:__anon4297c77f1603
+ICON_FILETYPE_ICON	include/raygui.h	/^    ICON_FILETYPE_ICON            = 256,$/;"	e	enum:__anon4297c77f1603
+ICON_FILETYPE_IMAGE	include/raygui.h	/^    ICON_FILETYPE_IMAGE           = 12,$/;"	e	enum:__anon4297c77f1603
+ICON_FILETYPE_INFO	include/raygui.h	/^    ICON_FILETYPE_INFO            = 15,$/;"	e	enum:__anon4297c77f1603
+ICON_FILETYPE_PLAY	include/raygui.h	/^    ICON_FILETYPE_PLAY            = 13,$/;"	e	enum:__anon4297c77f1603
+ICON_FILETYPE_TEXT	include/raygui.h	/^    ICON_FILETYPE_TEXT            = 10,$/;"	e	enum:__anon4297c77f1603
+ICON_FILETYPE_VIDEO	include/raygui.h	/^    ICON_FILETYPE_VIDEO           = 14,$/;"	e	enum:__anon4297c77f1603
+ICON_FILE_ADD	include/raygui.h	/^    ICON_FILE_ADD                 = 8,$/;"	e	enum:__anon4297c77f1603
+ICON_FILE_COPY	include/raygui.h	/^    ICON_FILE_COPY                = 16,$/;"	e	enum:__anon4297c77f1603
+ICON_FILE_CUT	include/raygui.h	/^    ICON_FILE_CUT                 = 17,$/;"	e	enum:__anon4297c77f1603
+ICON_FILE_DELETE	include/raygui.h	/^    ICON_FILE_DELETE              = 9,$/;"	e	enum:__anon4297c77f1603
+ICON_FILE_EXPORT	include/raygui.h	/^    ICON_FILE_EXPORT              = 7,$/;"	e	enum:__anon4297c77f1603
+ICON_FILE_NEW	include/raygui.h	/^    ICON_FILE_NEW                 = 203,$/;"	e	enum:__anon4297c77f1603
+ICON_FILE_OPEN	include/raygui.h	/^    ICON_FILE_OPEN                = 5,$/;"	e	enum:__anon4297c77f1603
+ICON_FILE_PASTE	include/raygui.h	/^    ICON_FILE_PASTE               = 18,$/;"	e	enum:__anon4297c77f1603
+ICON_FILE_SAVE	include/raygui.h	/^    ICON_FILE_SAVE                = 6,$/;"	e	enum:__anon4297c77f1603
+ICON_FILE_SAVE_CLASSIC	include/raygui.h	/^    ICON_FILE_SAVE_CLASSIC        = 2,$/;"	e	enum:__anon4297c77f1603
+ICON_FILTER	include/raygui.h	/^    ICON_FILTER                   = 47,$/;"	e	enum:__anon4297c77f1603
+ICON_FILTER_BILINEAR	include/raygui.h	/^    ICON_FILTER_BILINEAR          = 35,$/;"	e	enum:__anon4297c77f1603
+ICON_FILTER_POINT	include/raygui.h	/^    ICON_FILTER_POINT             = 34,$/;"	e	enum:__anon4297c77f1603
+ICON_FILTER_TOP	include/raygui.h	/^    ICON_FILTER_TOP               = 46,$/;"	e	enum:__anon4297c77f1603
+ICON_FOLDER	include/raygui.h	/^    ICON_FOLDER                   = 217,$/;"	e	enum:__anon4297c77f1603
+ICON_FOLDER_ADD	include/raygui.h	/^    ICON_FOLDER_ADD               = 204,$/;"	e	enum:__anon4297c77f1603
+ICON_FOLDER_FILE_OPEN	include/raygui.h	/^    ICON_FOLDER_FILE_OPEN         = 1,$/;"	e	enum:__anon4297c77f1603
+ICON_FOLDER_OPEN	include/raygui.h	/^    ICON_FOLDER_OPEN              = 3,$/;"	e	enum:__anon4297c77f1603
+ICON_FOLDER_SAVE	include/raygui.h	/^    ICON_FOLDER_SAVE              = 4,$/;"	e	enum:__anon4297c77f1603
+ICON_FOUR_BOXES	include/raygui.h	/^    ICON_FOUR_BOXES               = 100,$/;"	e	enum:__anon4297c77f1603
+ICON_FX	include/raygui.h	/^    ICON_FX                       = 123,$/;"	e	enum:__anon4297c77f1603
+ICON_GEAR	include/raygui.h	/^    ICON_GEAR                     = 141,$/;"	e	enum:__anon4297c77f1603
+ICON_GEAR_BIG	include/raygui.h	/^    ICON_GEAR_BIG                 = 142,$/;"	e	enum:__anon4297c77f1603
+ICON_GEAR_EX	include/raygui.h	/^    ICON_GEAR_EX                  = 154,$/;"	e	enum:__anon4297c77f1603
+ICON_GRID	include/raygui.h	/^    ICON_GRID                     = 97,$/;"	e	enum:__anon4297c77f1603
+ICON_GRID_FILL	include/raygui.h	/^    ICON_GRID_FILL                = 101,$/;"	e	enum:__anon4297c77f1603
+ICON_HAND_POINTER	include/raygui.h	/^    ICON_HAND_POINTER             = 144,$/;"	e	enum:__anon4297c77f1603
+ICON_HEART	include/raygui.h	/^    ICON_HEART                    = 186,$/;"	e	enum:__anon4297c77f1603
+ICON_HELP	include/raygui.h	/^    ICON_HELP                     = 193,$/;"	e	enum:__anon4297c77f1603
+ICON_HELP_BOX	include/raygui.h	/^    ICON_HELP_BOX                 = 221,$/;"	e	enum:__anon4297c77f1603
+ICON_HEX	include/raygui.h	/^    ICON_HEX                      = 201,$/;"	e	enum:__anon4297c77f1603
+ICON_HIDPI	include/raygui.h	/^    ICON_HIDPI                    = 199,$/;"	e	enum:__anon4297c77f1603
+ICON_HOT	include/raygui.h	/^    ICON_HOT                      = 228,$/;"	e	enum:__anon4297c77f1603
+ICON_HOUSE	include/raygui.h	/^    ICON_HOUSE                    = 185,$/;"	e	enum:__anon4297c77f1603
+ICON_INFO	include/raygui.h	/^    ICON_INFO                     = 191,$/;"	e	enum:__anon4297c77f1603
+ICON_INFO_BOX	include/raygui.h	/^    ICON_INFO_BOX                 = 222,$/;"	e	enum:__anon4297c77f1603
+ICON_INTERSECTION	include/raygui.h	/^    ICON_INTERSECTION             = 243,$/;"	e	enum:__anon4297c77f1603
+ICON_KEY	include/raygui.h	/^    ICON_KEY                      = 151,$/;"	e	enum:__anon4297c77f1603
+ICON_LABEL	include/raygui.h	/^    ICON_LABEL                    = 229,$/;"	e	enum:__anon4297c77f1603
+ICON_LASER	include/raygui.h	/^    ICON_LASER                    = 145,$/;"	e	enum:__anon4297c77f1603
+ICON_LAYERS	include/raygui.h	/^    ICON_LAYERS                   = 197,$/;"	e	enum:__anon4297c77f1603
+ICON_LAYERS2	include/raygui.h	/^    ICON_LAYERS2                  = 225,$/;"	e	enum:__anon4297c77f1603
+ICON_LAYERS_ISO	include/raygui.h	/^    ICON_LAYERS_ISO               = 224,$/;"	e	enum:__anon4297c77f1603
+ICON_LAYERS_VISIBLE	include/raygui.h	/^    ICON_LAYERS_VISIBLE           = 196,$/;"	e	enum:__anon4297c77f1603
+ICON_LENS	include/raygui.h	/^    ICON_LENS                     = 42,$/;"	e	enum:__anon4297c77f1603
+ICON_LENS_BIG	include/raygui.h	/^    ICON_LENS_BIG                 = 43,$/;"	e	enum:__anon4297c77f1603
+ICON_LIFE_BARS	include/raygui.h	/^    ICON_LIFE_BARS                = 190,$/;"	e	enum:__anon4297c77f1603
+ICON_LINK	include/raygui.h	/^    ICON_LINK                     = 174,$/;"	e	enum:__anon4297c77f1603
+ICON_LINK_BOXES	include/raygui.h	/^    ICON_LINK_BOXES               = 172,$/;"	e	enum:__anon4297c77f1603
+ICON_LINK_BROKE	include/raygui.h	/^    ICON_LINK_BROKE               = 175,$/;"	e	enum:__anon4297c77f1603
+ICON_LINK_MULTI	include/raygui.h	/^    ICON_LINK_MULTI               = 173,$/;"	e	enum:__anon4297c77f1603
+ICON_LINK_NET	include/raygui.h	/^    ICON_LINK_NET                 = 171,$/;"	e	enum:__anon4297c77f1603
+ICON_LOCK_CLOSE	include/raygui.h	/^    ICON_LOCK_CLOSE               = 137,$/;"	e	enum:__anon4297c77f1603
+ICON_LOCK_OPEN	include/raygui.h	/^    ICON_LOCK_OPEN                = 138,$/;"	e	enum:__anon4297c77f1603
+ICON_MAGNET	include/raygui.h	/^    ICON_MAGNET                   = 136,$/;"	e	enum:__anon4297c77f1603
+ICON_MAILBOX	include/raygui.h	/^    ICON_MAILBOX                  = 180,$/;"	e	enum:__anon4297c77f1603
+ICON_MANUAL_CONTROL	include/raygui.h	/^    ICON_MANUAL_CONTROL           = 232,$/;"	e	enum:__anon4297c77f1603
+ICON_MAPS	include/raygui.h	/^    ICON_MAPS                     = 227,$/;"	e	enum:__anon4297c77f1603
+ICON_MIPMAPS	include/raygui.h	/^    ICON_MIPMAPS                  = 95,$/;"	e	enum:__anon4297c77f1603
+ICON_MLAYERS	include/raygui.h	/^    ICON_MLAYERS                  = 226,$/;"	e	enum:__anon4297c77f1603
+ICON_MODE_2D	include/raygui.h	/^    ICON_MODE_2D                  = 160,$/;"	e	enum:__anon4297c77f1603
+ICON_MODE_3D	include/raygui.h	/^    ICON_MODE_3D                  = 161,$/;"	e	enum:__anon4297c77f1603
+ICON_MONITOR	include/raygui.h	/^    ICON_MONITOR                  = 181,$/;"	e	enum:__anon4297c77f1603
+ICON_MUTATE	include/raygui.h	/^    ICON_MUTATE                   = 59,$/;"	e	enum:__anon4297c77f1603
+ICON_MUTATE_FILL	include/raygui.h	/^    ICON_MUTATE_FILL              = 75,$/;"	e	enum:__anon4297c77f1603
+ICON_NAME_ID	include/raygui.h	/^    ICON_NAME_ID                  = 230,$/;"	e	enum:__anon4297c77f1603
+ICON_NONE	include/raygui.h	/^    ICON_NONE                     = 0,$/;"	e	enum:__anon4297c77f1603
+ICON_NOTEBOOK	include/raygui.h	/^    ICON_NOTEBOOK                 = 177,$/;"	e	enum:__anon4297c77f1603
+ICON_OK_TICK	include/raygui.h	/^    ICON_OK_TICK                  = 112,$/;"	e	enum:__anon4297c77f1603
+ICON_PENCIL	include/raygui.h	/^    ICON_PENCIL                   = 22,$/;"	e	enum:__anon4297c77f1603
+ICON_PENCIL_BIG	include/raygui.h	/^    ICON_PENCIL_BIG               = 23,$/;"	e	enum:__anon4297c77f1603
+ICON_PHOTO_CAMERA	include/raygui.h	/^    ICON_PHOTO_CAMERA             = 183,$/;"	e	enum:__anon4297c77f1603
+ICON_PHOTO_CAMERA_FLASH	include/raygui.h	/^    ICON_PHOTO_CAMERA_FLASH       = 184,$/;"	e	enum:__anon4297c77f1603
+ICON_PLAYER	include/raygui.h	/^    ICON_PLAYER                   = 149,$/;"	e	enum:__anon4297c77f1603
+ICON_PLAYER_JUMP	include/raygui.h	/^    ICON_PLAYER_JUMP              = 150,$/;"	e	enum:__anon4297c77f1603
+ICON_PLAYER_NEXT	include/raygui.h	/^    ICON_PLAYER_NEXT              = 134,$/;"	e	enum:__anon4297c77f1603
+ICON_PLAYER_PAUSE	include/raygui.h	/^    ICON_PLAYER_PAUSE             = 132,$/;"	e	enum:__anon4297c77f1603
+ICON_PLAYER_PLAY	include/raygui.h	/^    ICON_PLAYER_PLAY              = 131,$/;"	e	enum:__anon4297c77f1603
+ICON_PLAYER_PLAY_BACK	include/raygui.h	/^    ICON_PLAYER_PLAY_BACK         = 130,$/;"	e	enum:__anon4297c77f1603
+ICON_PLAYER_PREVIOUS	include/raygui.h	/^    ICON_PLAYER_PREVIOUS          = 129,$/;"	e	enum:__anon4297c77f1603
+ICON_PLAYER_RECORD	include/raygui.h	/^    ICON_PLAYER_RECORD            = 135,$/;"	e	enum:__anon4297c77f1603
+ICON_PLAYER_STOP	include/raygui.h	/^    ICON_PLAYER_STOP              = 133,$/;"	e	enum:__anon4297c77f1603
+ICON_POT	include/raygui.h	/^    ICON_POT                      = 91,$/;"	e	enum:__anon4297c77f1603
+ICON_PRINTER	include/raygui.h	/^    ICON_PRINTER                  = 182,$/;"	e	enum:__anon4297c77f1603
+ICON_PRIORITY	include/raygui.h	/^    ICON_PRIORITY                 = 223,$/;"	e	enum:__anon4297c77f1603
+ICON_REDO	include/raygui.h	/^    ICON_REDO                     = 57,$/;"	e	enum:__anon4297c77f1603
+ICON_REDO_FILL	include/raygui.h	/^    ICON_REDO_FILL                = 73,$/;"	e	enum:__anon4297c77f1603
+ICON_REG_EXP	include/raygui.h	/^    ICON_REG_EXP                  = 216,$/;"	e	enum:__anon4297c77f1603
+ICON_REPEAT	include/raygui.h	/^    ICON_REPEAT                   = 61,$/;"	e	enum:__anon4297c77f1603
+ICON_REPEAT_FILL	include/raygui.h	/^    ICON_REPEAT_FILL              = 77,$/;"	e	enum:__anon4297c77f1603
+ICON_REREDO	include/raygui.h	/^    ICON_REREDO                   = 58,$/;"	e	enum:__anon4297c77f1603
+ICON_REREDO_FILL	include/raygui.h	/^    ICON_REREDO_FILL              = 74,$/;"	e	enum:__anon4297c77f1603
+ICON_RESIZE	include/raygui.h	/^    ICON_RESIZE                   = 33,$/;"	e	enum:__anon4297c77f1603
+ICON_RESTART	include/raygui.h	/^    ICON_RESTART                  = 211,$/;"	e	enum:__anon4297c77f1603
+ICON_ROM	include/raygui.h	/^    ICON_ROM                      = 207,$/;"	e	enum:__anon4297c77f1603
+ICON_ROTATE	include/raygui.h	/^    ICON_ROTATE                   = 60,$/;"	e	enum:__anon4297c77f1603
+ICON_ROTATE_FILL	include/raygui.h	/^    ICON_ROTATE_FILL              = 76,$/;"	e	enum:__anon4297c77f1603
+ICON_RUBBER	include/raygui.h	/^    ICON_RUBBER                   = 28,$/;"	e	enum:__anon4297c77f1603
+ICON_SAND_TIMER	include/raygui.h	/^    ICON_SAND_TIMER               = 219,$/;"	e	enum:__anon4297c77f1603
+ICON_SCALE	include/raygui.h	/^    ICON_SCALE                    = 32,$/;"	e	enum:__anon4297c77f1603
+ICON_SHIELD	include/raygui.h	/^    ICON_SHIELD                   = 202,$/;"	e	enum:__anon4297c77f1603
+ICON_SHUFFLE	include/raygui.h	/^    ICON_SHUFFLE                  = 62,$/;"	e	enum:__anon4297c77f1603
+ICON_SHUFFLE_FILL	include/raygui.h	/^    ICON_SHUFFLE_FILL             = 78,$/;"	e	enum:__anon4297c77f1603
+ICON_SLICING	include/raygui.h	/^    ICON_SLICING                  = 231,$/;"	e	enum:__anon4297c77f1603
+ICON_SPECIAL	include/raygui.h	/^    ICON_SPECIAL                  = 170,$/;"	e	enum:__anon4297c77f1603
+ICON_SPHERE	include/raygui.h	/^    ICON_SPHERE                   = 245,$/;"	e	enum:__anon4297c77f1603
+ICON_SQUARE_TOGGLE	include/raygui.h	/^    ICON_SQUARE_TOGGLE            = 38,$/;"	e	enum:__anon4297c77f1603
+ICON_STAR	include/raygui.h	/^    ICON_STAR                     = 157,$/;"	e	enum:__anon4297c77f1603
+ICON_STEP_INTO	include/raygui.h	/^    ICON_STEP_INTO                = 209,$/;"	e	enum:__anon4297c77f1603
+ICON_STEP_OUT	include/raygui.h	/^    ICON_STEP_OUT                 = 210,$/;"	e	enum:__anon4297c77f1603
+ICON_STEP_OVER	include/raygui.h	/^    ICON_STEP_OVER                = 208,$/;"	e	enum:__anon4297c77f1603
+ICON_SUITCASE	include/raygui.h	/^    ICON_SUITCASE                 = 178,$/;"	e	enum:__anon4297c77f1603
+ICON_SUITCASE_ZIP	include/raygui.h	/^    ICON_SUITCASE_ZIP             = 179,$/;"	e	enum:__anon4297c77f1603
+ICON_SYMMETRY	include/raygui.h	/^    ICON_SYMMETRY                 = 39,$/;"	e	enum:__anon4297c77f1603
+ICON_SYMMETRY_HORIZONTAL	include/raygui.h	/^    ICON_SYMMETRY_HORIZONTAL      = 40,$/;"	e	enum:__anon4297c77f1603
+ICON_SYMMETRY_VERTICAL	include/raygui.h	/^    ICON_SYMMETRY_VERTICAL        = 41,$/;"	e	enum:__anon4297c77f1603
+ICON_TARGET	include/raygui.h	/^    ICON_TARGET                   = 64,$/;"	e	enum:__anon4297c77f1603
+ICON_TARGET_BIG	include/raygui.h	/^    ICON_TARGET_BIG               = 50,$/;"	e	enum:__anon4297c77f1603
+ICON_TARGET_BIG_FILL	include/raygui.h	/^    ICON_TARGET_BIG_FILL          = 66,$/;"	e	enum:__anon4297c77f1603
+ICON_TARGET_MOVE	include/raygui.h	/^    ICON_TARGET_MOVE              = 51,$/;"	e	enum:__anon4297c77f1603
+ICON_TARGET_MOVE_FILL	include/raygui.h	/^    ICON_TARGET_MOVE_FILL         = 67,$/;"	e	enum:__anon4297c77f1603
+ICON_TARGET_POINT	include/raygui.h	/^    ICON_TARGET_POINT             = 48,$/;"	e	enum:__anon4297c77f1603
+ICON_TARGET_SMALL	include/raygui.h	/^    ICON_TARGET_SMALL             = 49,$/;"	e	enum:__anon4297c77f1603
+ICON_TARGET_SMALL_FILL	include/raygui.h	/^    ICON_TARGET_SMALL_FILL        = 65,$/;"	e	enum:__anon4297c77f1603
+ICON_TEXT_A	include/raygui.h	/^    ICON_TEXT_A                   = 31,$/;"	e	enum:__anon4297c77f1603
+ICON_TEXT_NOTES	include/raygui.h	/^    ICON_TEXT_NOTES               = 176,$/;"	e	enum:__anon4297c77f1603
+ICON_TEXT_POPUP	include/raygui.h	/^    ICON_TEXT_POPUP               = 153,$/;"	e	enum:__anon4297c77f1603
+ICON_TEXT_T	include/raygui.h	/^    ICON_TEXT_T                   = 30,$/;"	e	enum:__anon4297c77f1603
+ICON_TOOLS	include/raygui.h	/^    ICON_TOOLS                    = 140,$/;"	e	enum:__anon4297c77f1603
+ICON_UNDO	include/raygui.h	/^    ICON_UNDO                     = 56,$/;"	e	enum:__anon4297c77f1603
+ICON_UNDO_FILL	include/raygui.h	/^    ICON_UNDO_FILL                = 72,$/;"	e	enum:__anon4297c77f1603
+ICON_UNION	include/raygui.h	/^    ICON_UNION                    = 242,$/;"	e	enum:__anon4297c77f1603
+ICON_VERTICAL_BARS	include/raygui.h	/^    ICON_VERTICAL_BARS            = 188,$/;"	e	enum:__anon4297c77f1603
+ICON_VERTICAL_BARS_FILL	include/raygui.h	/^    ICON_VERTICAL_BARS_FILL       = 189,$/;"	e	enum:__anon4297c77f1603
+ICON_WARNING	include/raygui.h	/^    ICON_WARNING                  = 220,$/;"	e	enum:__anon4297c77f1603
+ICON_WATER_DROP	include/raygui.h	/^    ICON_WATER_DROP               = 26,$/;"	e	enum:__anon4297c77f1603
+ICON_WAVE	include/raygui.h	/^    ICON_WAVE                     = 124,$/;"	e	enum:__anon4297c77f1603
+ICON_WAVE_SINUS	include/raygui.h	/^    ICON_WAVE_SINUS               = 125,$/;"	e	enum:__anon4297c77f1603
+ICON_WAVE_SQUARE	include/raygui.h	/^    ICON_WAVE_SQUARE              = 126,$/;"	e	enum:__anon4297c77f1603
+ICON_WAVE_TRIANGULAR	include/raygui.h	/^    ICON_WAVE_TRIANGULAR          = 127,$/;"	e	enum:__anon4297c77f1603
+ICON_WINDOW	include/raygui.h	/^    ICON_WINDOW                   = 198,$/;"	e	enum:__anon4297c77f1603
+ICON_ZOOM_ALL	include/raygui.h	/^    ICON_ZOOM_ALL                 = 106,$/;"	e	enum:__anon4297c77f1603
+ICON_ZOOM_BIG	include/raygui.h	/^    ICON_ZOOM_BIG                 = 105,$/;"	e	enum:__anon4297c77f1603
+ICON_ZOOM_CENTER	include/raygui.h	/^    ICON_ZOOM_CENTER              = 107,$/;"	e	enum:__anon4297c77f1603
+ICON_ZOOM_MEDIUM	include/raygui.h	/^    ICON_ZOOM_MEDIUM              = 104,$/;"	e	enum:__anon4297c77f1603
+ICON_ZOOM_SMALL	include/raygui.h	/^    ICON_ZOOM_SMALL               = 103,$/;"	e	enum:__anon4297c77f1603
+Image	include/raygui.h	/^    typedef struct Image {$/;"	s
+Image	include/raygui.h	/^    } Image;$/;"	t	typeref:struct:Image
 Image	include/raylib.h	/^typedef struct Image {$/;"	s
 Image	include/raylib.h	/^} Image;$/;"	t	typeref:struct:Image
 ImageAlphaClear	include/raylib.h	/^RLAPI void ImageAlphaClear(Image *image, Color color, float threshold);                         /;"	p	typeref:typename:RLAPI void
@@ -600,7 +1110,9 @@ IsGamepadButtonReleased	include/raylib.h	/^RLAPI bool IsGamepadButtonReleased(in
 IsGamepadButtonUp	include/raylib.h	/^RLAPI bool IsGamepadButtonUp(int gamepad, int button);        \/\/ Check if a gamepad button is /;"	p	typeref:typename:RLAPI bool
 IsGestureDetected	include/raylib.h	/^RLAPI bool IsGestureDetected(unsigned int gesture);           \/\/ Check if a gesture have been /;"	p	typeref:typename:RLAPI bool
 IsImageValid	include/raylib.h	/^RLAPI bool IsImageValid(Image image);                                                           /;"	p	typeref:typename:RLAPI bool
+IsKeyDown	include/raygui.h	/^static bool IsKeyDown(int key);$/;"	p	typeref:typename:bool
 IsKeyDown	include/raylib.h	/^RLAPI bool IsKeyDown(int key);                                \/\/ Check if a key is being press/;"	p	typeref:typename:RLAPI bool
+IsKeyPressed	include/raygui.h	/^static bool IsKeyPressed(int key);$/;"	p	typeref:typename:bool
 IsKeyPressed	include/raylib.h	/^RLAPI bool IsKeyPressed(int key);                             \/\/ Check if a key has been press/;"	p	typeref:typename:RLAPI bool
 IsKeyPressedRepeat	include/raylib.h	/^RLAPI bool IsKeyPressedRepeat(int key);                       \/\/ Check if a key has been press/;"	p	typeref:typename:RLAPI bool
 IsKeyReleased	include/raylib.h	/^RLAPI bool IsKeyReleased(int key);                            \/\/ Check if a key has been relea/;"	p	typeref:typename:RLAPI bool
@@ -608,8 +1120,11 @@ IsKeyUp	include/raylib.h	/^RLAPI bool IsKeyUp(int key);                         
 IsMaterialValid	include/raylib.h	/^RLAPI bool IsMaterialValid(Material material);                                              \/\//;"	p	typeref:typename:RLAPI bool
 IsModelAnimationValid	include/raylib.h	/^RLAPI bool IsModelAnimationValid(Model model, ModelAnimation anim);                         \/\//;"	p	typeref:typename:RLAPI bool
 IsModelValid	include/raylib.h	/^RLAPI bool IsModelValid(Model model);                                                       \/\//;"	p	typeref:typename:RLAPI bool
+IsMouseButtonDown	include/raygui.h	/^static bool IsMouseButtonDown(int button);$/;"	p	typeref:typename:bool
 IsMouseButtonDown	include/raylib.h	/^RLAPI bool IsMouseButtonDown(int button);                     \/\/ Check if a mouse button is be/;"	p	typeref:typename:RLAPI bool
+IsMouseButtonPressed	include/raygui.h	/^static bool IsMouseButtonPressed(int button);$/;"	p	typeref:typename:bool
 IsMouseButtonPressed	include/raylib.h	/^RLAPI bool IsMouseButtonPressed(int button);                  \/\/ Check if a mouse button has b/;"	p	typeref:typename:RLAPI bool
+IsMouseButtonReleased	include/raygui.h	/^static bool IsMouseButtonReleased(int button);$/;"	p	typeref:typename:bool
 IsMouseButtonReleased	include/raylib.h	/^RLAPI bool IsMouseButtonReleased(int button);                 \/\/ Check if a mouse button has b/;"	p	typeref:typename:RLAPI bool
 IsMouseButtonUp	include/raylib.h	/^RLAPI bool IsMouseButtonUp(int button);                       \/\/ Check if a mouse button is NO/;"	p	typeref:typename:RLAPI bool
 IsMusicStreamPlaying	include/raylib.h	/^RLAPI bool IsMusicStreamPlaying(Music music);                         \/\/ Check if music is pla/;"	p	typeref:typename:RLAPI bool
@@ -634,16 +1149,19 @@ KEY_APOSTROPHE	include/raylib.h	/^    KEY_APOSTROPHE      = 39,       \/\/ Key: 
 KEY_B	include/raylib.h	/^    KEY_B               = 66,       \/\/ Key: B | b$/;"	e	enum:__anon42eb8fb10403
 KEY_BACK	include/raylib.h	/^    KEY_BACK            = 4,        \/\/ Key: Android back button$/;"	e	enum:__anon42eb8fb10403
 KEY_BACKSLASH	include/raylib.h	/^    KEY_BACKSLASH       = 92,       \/\/ Key: '\\'$/;"	e	enum:__anon42eb8fb10403
+KEY_BACKSPACE	include/raygui.h	/^#define KEY_BACKSPACE /;"	d
 KEY_BACKSPACE	include/raylib.h	/^    KEY_BACKSPACE       = 259,      \/\/ Key: Backspace$/;"	e	enum:__anon42eb8fb10403
 KEY_C	include/raylib.h	/^    KEY_C               = 67,       \/\/ Key: C | c$/;"	e	enum:__anon42eb8fb10403
 KEY_CAPS_LOCK	include/raylib.h	/^    KEY_CAPS_LOCK       = 280,      \/\/ Key: Caps lock$/;"	e	enum:__anon42eb8fb10403
 KEY_COMMA	include/raylib.h	/^    KEY_COMMA           = 44,       \/\/ Key: ,$/;"	e	enum:__anon42eb8fb10403
 KEY_D	include/raylib.h	/^    KEY_D               = 68,       \/\/ Key: D | d$/;"	e	enum:__anon42eb8fb10403
 KEY_DELETE	include/raylib.h	/^    KEY_DELETE          = 261,      \/\/ Key: Del$/;"	e	enum:__anon42eb8fb10403
+KEY_DOWN	include/raygui.h	/^#define KEY_DOWN /;"	d
 KEY_DOWN	include/raylib.h	/^    KEY_DOWN            = 264,      \/\/ Key: Cursor down$/;"	e	enum:__anon42eb8fb10403
 KEY_E	include/raylib.h	/^    KEY_E               = 69,       \/\/ Key: E | e$/;"	e	enum:__anon42eb8fb10403
 KEY_EIGHT	include/raylib.h	/^    KEY_EIGHT           = 56,       \/\/ Key: 8$/;"	e	enum:__anon42eb8fb10403
 KEY_END	include/raylib.h	/^    KEY_END             = 269,      \/\/ Key: End$/;"	e	enum:__anon42eb8fb10403
+KEY_ENTER	include/raygui.h	/^#define KEY_ENTER /;"	d
 KEY_ENTER	include/raylib.h	/^    KEY_ENTER           = 257,      \/\/ Key: Enter$/;"	e	enum:__anon42eb8fb10403
 KEY_EQUAL	include/raylib.h	/^    KEY_EQUAL           = 61,       \/\/ Key: =$/;"	e	enum:__anon42eb8fb10403
 KEY_ESCAPE	include/raylib.h	/^    KEY_ESCAPE          = 256,      \/\/ Key: Esc$/;"	e	enum:__anon42eb8fb10403
@@ -689,6 +1207,7 @@ KEY_KP_EQUAL	include/raylib.h	/^    KEY_KP_EQUAL        = 336,      \/\/ Key: Ke
 KEY_KP_MULTIPLY	include/raylib.h	/^    KEY_KP_MULTIPLY     = 332,      \/\/ Key: Keypad *$/;"	e	enum:__anon42eb8fb10403
 KEY_KP_SUBTRACT	include/raylib.h	/^    KEY_KP_SUBTRACT     = 333,      \/\/ Key: Keypad -$/;"	e	enum:__anon42eb8fb10403
 KEY_L	include/raylib.h	/^    KEY_L               = 76,       \/\/ Key: L | l$/;"	e	enum:__anon42eb8fb10403
+KEY_LEFT	include/raygui.h	/^#define KEY_LEFT /;"	d
 KEY_LEFT	include/raylib.h	/^    KEY_LEFT            = 263,      \/\/ Key: Cursor left$/;"	e	enum:__anon42eb8fb10403
 KEY_LEFT_ALT	include/raylib.h	/^    KEY_LEFT_ALT        = 342,      \/\/ Key: Alt left$/;"	e	enum:__anon42eb8fb10403
 KEY_LEFT_BRACKET	include/raylib.h	/^    KEY_LEFT_BRACKET    = 91,       \/\/ Key: [$/;"	e	enum:__anon42eb8fb10403
@@ -712,6 +1231,7 @@ KEY_PERIOD	include/raylib.h	/^    KEY_PERIOD          = 46,       \/\/ Key: .$/;
 KEY_PRINT_SCREEN	include/raylib.h	/^    KEY_PRINT_SCREEN    = 283,      \/\/ Key: Print screen$/;"	e	enum:__anon42eb8fb10403
 KEY_Q	include/raylib.h	/^    KEY_Q               = 81,       \/\/ Key: Q | q$/;"	e	enum:__anon42eb8fb10403
 KEY_R	include/raylib.h	/^    KEY_R               = 82,       \/\/ Key: R | r$/;"	e	enum:__anon42eb8fb10403
+KEY_RIGHT	include/raygui.h	/^#define KEY_RIGHT /;"	d
 KEY_RIGHT	include/raylib.h	/^    KEY_RIGHT           = 262,      \/\/ Key: Cursor right$/;"	e	enum:__anon42eb8fb10403
 KEY_RIGHT_ALT	include/raylib.h	/^    KEY_RIGHT_ALT       = 346,      \/\/ Key: Alt right$/;"	e	enum:__anon42eb8fb10403
 KEY_RIGHT_BRACKET	include/raylib.h	/^    KEY_RIGHT_BRACKET   = 93,       \/\/ Key: ]$/;"	e	enum:__anon42eb8fb10403
@@ -730,6 +1250,7 @@ KEY_TAB	include/raylib.h	/^    KEY_TAB             = 258,      \/\/ Key: Tab$/;"
 KEY_THREE	include/raylib.h	/^    KEY_THREE           = 51,       \/\/ Key: 3$/;"	e	enum:__anon42eb8fb10403
 KEY_TWO	include/raylib.h	/^    KEY_TWO             = 50,       \/\/ Key: 2$/;"	e	enum:__anon42eb8fb10403
 KEY_U	include/raylib.h	/^    KEY_U               = 85,       \/\/ Key: U | u$/;"	e	enum:__anon42eb8fb10403
+KEY_UP	include/raygui.h	/^#define KEY_UP /;"	d
 KEY_UP	include/raylib.h	/^    KEY_UP              = 265,      \/\/ Key: Cursor up$/;"	e	enum:__anon42eb8fb10403
 KEY_V	include/raylib.h	/^    KEY_V               = 86,       \/\/ Key: V | v$/;"	e	enum:__anon42eb8fb10403
 KEY_VOLUME_DOWN	include/raylib.h	/^    KEY_VOLUME_DOWN     = 25        \/\/ Key: Android volume down button$/;"	e	enum:__anon42eb8fb10403
@@ -740,8 +1261,15 @@ KEY_Y	include/raylib.h	/^    KEY_Y               = 89,       \/\/ Key: Y | y$/;"
 KEY_Z	include/raylib.h	/^    KEY_Z               = 90,       \/\/ Key: Z | z$/;"	e	enum:__anon42eb8fb10403
 KEY_ZERO	include/raylib.h	/^    KEY_ZERO            = 48,       \/\/ Key: 0$/;"	e	enum:__anon42eb8fb10403
 KeyboardKey	include/raylib.h	/^} KeyboardKey;$/;"	t	typeref:enum:__anon42eb8fb10403
+LABEL	include/raygui.h	/^    LABEL           = 1,        \/\/ Used also for: LABELBUTTON$/;"	e	enum:__anon4297c77f0703
 LIGHTGRAY	include/raylib.h	/^#define LIGHTGRAY /;"	d
 LIME	include/raylib.h	/^#define LIME /;"	d
+LINE_COLOR	include/raygui.h	/^    LINE_COLOR            = 18,     \/\/ Line control color$/;"	e	enum:__anon4297c77f0903
+LISTVIEW	include/raygui.h	/^    LISTVIEW        = 12,$/;"	e	enum:__anon4297c77f0703
+LIST_ITEMS_BORDER_NORMAL	include/raygui.h	/^    LIST_ITEMS_BORDER_NORMAL,   \/\/ ListView items border enabled in normal state$/;"	e	enum:__anon4297c77f1403
+LIST_ITEMS_BORDER_WIDTH	include/raygui.h	/^    LIST_ITEMS_BORDER_WIDTH     \/\/ ListView items border width$/;"	e	enum:__anon4297c77f1403
+LIST_ITEMS_HEIGHT	include/raygui.h	/^    LIST_ITEMS_HEIGHT = 16,     \/\/ ListView items height$/;"	e	enum:__anon4297c77f1403
+LIST_ITEMS_SPACING	include/raygui.h	/^    LIST_ITEMS_SPACING,         \/\/ ListView items separation$/;"	e	enum:__anon4297c77f1403
 LOG_ALL	include/raylib.h	/^    LOG_ALL = 0,        \/\/ Display all logs$/;"	e	enum:__anon42eb8fb10303
 LOG_DEBUG	include/raylib.h	/^    LOG_DEBUG,          \/\/ Debug logging, used for internal debugging, it should be disabled o/;"	e	enum:__anon42eb8fb10303
 LOG_ERROR	include/raylib.h	/^    LOG_ERROR,          \/\/ Error logging, used on unrecoverable failures$/;"	e	enum:__anon42eb8fb10303
@@ -753,16 +1281,19 @@ LOG_WARNING	include/raylib.h	/^    LOG_WARNING,        \/\/ Warning logging, use
 Lerp	include/raymath.h	/^RMAPI float Lerp(float start, float end, float amount)$/;"	f	typeref:typename:RMAPI float
 LoadAudioStream	include/raylib.h	/^RLAPI AudioStream LoadAudioStream(unsigned int sampleRate, unsigned int sampleSize, unsigned int/;"	p	typeref:typename:RLAPI AudioStream
 LoadAutomationEventList	include/raylib.h	/^RLAPI AutomationEventList LoadAutomationEventList(const char *fileName); \/\/ Load automation ev/;"	p	typeref:typename:RLAPI AutomationEventList
+LoadCodepoints	include/raygui.h	/^static int *LoadCodepoints(const char *text, int *count);    \/\/ -- GuiLoadStyle(), required to/;"	p	typeref:typename:int *
 LoadCodepoints	include/raylib.h	/^RLAPI int *LoadCodepoints(const char *text, int *count);                                    \/\//;"	p	typeref:typename:RLAPI int *
 LoadDirectoryFiles	include/raylib.h	/^RLAPI FilePathList LoadDirectoryFiles(const char *dirPath);         \/\/ Load directory filepath/;"	p	typeref:typename:RLAPI FilePathList
 LoadDirectoryFilesEx	include/raylib.h	/^RLAPI FilePathList LoadDirectoryFilesEx(const char *basePath, const char *filter, bool scanSubdi/;"	p	typeref:typename:RLAPI FilePathList
 LoadDroppedFiles	include/raylib.h	/^RLAPI FilePathList LoadDroppedFiles(void);                          \/\/ Load dropped filepaths$/;"	p	typeref:typename:RLAPI FilePathList
 LoadFileData	include/raylib.h	/^RLAPI unsigned char *LoadFileData(const char *fileName, int *dataSize); \/\/ Load file data as b/;"	p	typeref:typename:RLAPI unsigned char *
 LoadFileDataCallback	include/raylib.h	/^typedef unsigned char *(*LoadFileDataCallback)(const char *fileName, int *dataSize);    \/\/ Fil/;"	t	typeref:typename:unsigned char * (*)(const char * fileName,int * dataSize)
+LoadFileText	include/raygui.h	/^static char *LoadFileText(const char *fileName);             \/\/ -- GuiLoadStyle(), required to/;"	p	typeref:typename:char *
 LoadFileText	include/raylib.h	/^RLAPI char *LoadFileText(const char *fileName);                     \/\/ Load text data from fil/;"	p	typeref:typename:RLAPI char *
 LoadFileTextCallback	include/raylib.h	/^typedef char *(*LoadFileTextCallback)(const char *fileName);            \/\/ FileIO: Load text d/;"	t	typeref:typename:char * (*)(const char * fileName)
 LoadFont	include/raylib.h	/^RLAPI Font LoadFont(const char *fileName);                                                  \/\//;"	p	typeref:typename:RLAPI Font
 LoadFontData	include/raylib.h	/^RLAPI GlyphInfo *LoadFontData(const unsigned char *fileData, int dataSize, int fontSize, const i/;"	p	typeref:typename:RLAPI GlyphInfo *
+LoadFontEx	include/raygui.h	/^static Font LoadFontEx(const char *fileName, int fontSize, int *codepoints, int codepointCount);/;"	p	typeref:typename:Font
 LoadFontEx	include/raylib.h	/^RLAPI Font LoadFontEx(const char *fileName, int fontSize, const int *codepoints, int codepointCo/;"	p	typeref:typename:RLAPI Font
 LoadFontFromImage	include/raylib.h	/^RLAPI Font LoadFontFromImage(Image image, Color key, int firstChar);                        \/\//;"	p	typeref:typename:RLAPI Font
 LoadFontFromMemory	include/raylib.h	/^RLAPI Font LoadFontFromMemory(const char *fileType, const unsigned char *fileData, int dataSize,/;"	p	typeref:typename:RLAPI Font
@@ -792,6 +1323,7 @@ LoadSoundFromWave	include/raylib.h	/^RLAPI Sound LoadSoundFromWave(Wave wave);  
 LoadTextLines	include/raylib.h	/^RLAPI char **LoadTextLines(const char *text, int *count);                                   \/\//;"	p	typeref:typename:RLAPI char **
 LoadTexture	include/raylib.h	/^RLAPI Texture2D LoadTexture(const char *fileName);                                              /;"	p	typeref:typename:RLAPI Texture2D
 LoadTextureCubemap	include/raylib.h	/^RLAPI TextureCubemap LoadTextureCubemap(Image image, int layout);                               /;"	p	typeref:typename:RLAPI TextureCubemap
+LoadTextureFromImage	include/raygui.h	/^static Texture2D LoadTextureFromImage(Image image);          \/\/ -- GuiLoadStyle(), required to/;"	p	typeref:typename:Texture2D
 LoadTextureFromImage	include/raylib.h	/^RLAPI Texture2D LoadTextureFromImage(Image image);                                              /;"	p	typeref:typename:RLAPI Texture2D
 LoadUTF8	include/raylib.h	/^RLAPI char *LoadUTF8(const int *codepoints, int length);                                    \/\//;"	p	typeref:typename:RLAPI char *
 LoadVrStereoConfig	include/raylib.h	/^RLAPI VrStereoConfig LoadVrStereoConfig(VrDeviceInfo device);     \/\/ Load VR stereo config for/;"	p	typeref:typename:RLAPI VrStereoConfig
@@ -814,7 +1346,9 @@ MATERIAL_MAP_PREFILTER	include/raylib.h	/^    MATERIAL_MAP_PREFILTER,         \/
 MATERIAL_MAP_ROUGHNESS	include/raylib.h	/^    MATERIAL_MAP_ROUGHNESS,         \/\/ Roughness material$/;"	e	enum:__anon42eb8fb10903
 MATERIAL_MAP_SPECULAR	include/raylib.h	/^#define MATERIAL_MAP_SPECULAR /;"	d
 MAX	include/rlgl.h	/^        #define MAX(/;"	d
+MAX_LINE_BUFFER_SIZE	include/raygui.h	/^    #define MAX_LINE_BUFFER_SIZE /;"	d
 MIN	include/rlgl.h	/^        #define MIN(/;"	d
+MISS	main.cpp	/^#define MISS /;"	d	file:
 MOUSE_BUTTON_BACK	include/raylib.h	/^    MOUSE_BUTTON_BACK    = 6,       \/\/ Mouse button back (advanced mouse device)$/;"	e	enum:__anon42eb8fb10503
 MOUSE_BUTTON_EXTRA	include/raylib.h	/^    MOUSE_BUTTON_EXTRA   = 4,       \/\/ Mouse button extra (advanced mouse device)$/;"	e	enum:__anon42eb8fb10503
 MOUSE_BUTTON_FORWARD	include/raylib.h	/^    MOUSE_BUTTON_FORWARD = 5,       \/\/ Mouse button forward (advanced mouse device)$/;"	e	enum:__anon42eb8fb10503
@@ -833,6 +1367,7 @@ MOUSE_CURSOR_RESIZE_EW	include/raylib.h	/^    MOUSE_CURSOR_RESIZE_EW     = 5,   
 MOUSE_CURSOR_RESIZE_NESW	include/raylib.h	/^    MOUSE_CURSOR_RESIZE_NESW   = 8,     \/\/ The top-right to bottom-left diagonal resize\/move /;"	e	enum:__anon42eb8fb10603
 MOUSE_CURSOR_RESIZE_NS	include/raylib.h	/^    MOUSE_CURSOR_RESIZE_NS     = 6,     \/\/ Vertical resize\/move arrow shape$/;"	e	enum:__anon42eb8fb10603
 MOUSE_CURSOR_RESIZE_NWSE	include/raylib.h	/^    MOUSE_CURSOR_RESIZE_NWSE   = 7,     \/\/ Top-left to bottom-right diagonal resize\/move arro/;"	e	enum:__anon42eb8fb10603
+MOUSE_LEFT_BUTTON	include/raygui.h	/^#define MOUSE_LEFT_BUTTON /;"	d
 MOUSE_LEFT_BUTTON	include/raylib.h	/^#define MOUSE_LEFT_BUTTON /;"	d
 MOUSE_MIDDLE_BUTTON	include/raylib.h	/^#define MOUSE_MIDDLE_BUTTON /;"	d
 MOUSE_RIGHT_BUTTON	include/raylib.h	/^#define MOUSE_RIGHT_BUTTON /;"	d
@@ -877,6 +1412,7 @@ MatrixUnit	include/raymath.h	/^static constexpr Matrix MatrixUnit = { 1, 0, 0, 0
 MaximizeWindow	include/raylib.h	/^RLAPI void MaximizeWindow(void);                                  \/\/ Set window state: maximiz/;"	p	typeref:typename:RLAPI void
 MeasureText	include/raylib.h	/^RLAPI int MeasureText(const char *text, int fontSize);                                      \/\//;"	p	typeref:typename:RLAPI int
 MeasureTextCodepoints	include/raylib.h	/^RLAPI Vector2 MeasureTextCodepoints(Font font, const int *codepoints, int length, float fontSize/;"	p	typeref:typename:RLAPI Vector2
+MeasureTextEx	include/raygui.h	/^static Vector2 MeasureTextEx(Font font, const char *text, float fontSize, float spacing); \/\/ M/;"	p	typeref:typename:Vector2
 MeasureTextEx	include/raylib.h	/^RLAPI Vector2 MeasureTextEx(Font font, const char *text, float fontSize, float spacing);    \/\//;"	p	typeref:typename:RLAPI Vector2
 MemAlloc	include/raylib.h	/^RLAPI void *MemAlloc(unsigned int size);                        \/\/ Internal memory allocator$/;"	p	typeref:typename:RLAPI void *
 MemFree	include/raylib.h	/^RLAPI void MemFree(void *ptr);                                  \/\/ Internal memory free$/;"	p	typeref:typename:RLAPI void
@@ -903,6 +1439,7 @@ NPatchInfo	include/raylib.h	/^} NPatchInfo;$/;"	t	typeref:struct:NPatchInfo
 NPatchLayout	include/raylib.h	/^} NPatchLayout;$/;"	t	typeref:enum:__anon42eb8fb11603
 Normalize	include/raymath.h	/^RMAPI float Normalize(float value, float start, float end)$/;"	f	typeref:typename:RMAPI float
 ORANGE	include/raylib.h	/^#define ORANGE /;"	d
+OTHER	include/raygui.h	/^typedef enum { BORDER = 0, BASE, TEXT, OTHER } GuiPropertyElement;$/;"	e	enum:__anon4297c77f1703
 OpenURL	include/raylib.h	/^RLAPI void OpenURL(const char *url);                            \/\/ Open URL with default syste/;"	p	typeref:typename:RLAPI void
 PFNGLDRAWARRAYSINSTANCEDEXTPROC	include/rlgl.h	/^    typedef void (GL_APIENTRYP PFNGLDRAWARRAYSINSTANCEDEXTPROC) (GLenum mode, GLint start, GLsiz/;"	t	typeref:typename:void (GL_APIENTRYP)(GLenum mode,GLint start,GLsizei count,GLsizei primcount)
 PFNGLDRAWELEMENTSINSTANCEDEXTPROC	include/rlgl.h	/^    typedef void (GL_APIENTRYP PFNGLDRAWELEMENTSINSTANCEDEXTPROC) (GLenum mode, GLsizei count, G/;"	t	typeref:typename:void (GL_APIENTRYP)(GLenum mode,GLsizei count,GLenum type,const void * indices,GLsizei primcount)
@@ -935,6 +1472,9 @@ PIXELFORMAT_UNCOMPRESSED_R5G5B5A1	include/raylib.h	/^    PIXELFORMAT_UNCOMPRESSE
 PIXELFORMAT_UNCOMPRESSED_R5G6B5	include/raylib.h	/^    PIXELFORMAT_UNCOMPRESSED_R5G6B5,        \/\/ 16 bpp$/;"	e	enum:__anon42eb8fb10d03
 PIXELFORMAT_UNCOMPRESSED_R8G8B8	include/raylib.h	/^    PIXELFORMAT_UNCOMPRESSED_R8G8B8,        \/\/ 24 bpp$/;"	e	enum:__anon42eb8fb10d03
 PIXELFORMAT_UNCOMPRESSED_R8G8B8A8	include/raylib.h	/^    PIXELFORMAT_UNCOMPRESSED_R8G8B8A8,      \/\/ 32 bpp$/;"	e	enum:__anon42eb8fb10d03
+PROGRESSBAR	include/raygui.h	/^    PROGRESSBAR     = 5,$/;"	e	enum:__anon4297c77f0703
+PROGRESS_PADDING	include/raygui.h	/^    PROGRESS_PADDING = 16,      \/\/ ProgressBar internal padding$/;"	e	enum:__anon4297c77f0c03
+PROGRESS_SIDE	include/raygui.h	/^    PROGRESS_SIDE,              \/\/ ProgressBar increment side: 0-Left->Right, 1-Right->Left$/;"	e	enum:__anon4297c77f0c03
 PURPLE	include/raylib.h	/^#define PURPLE /;"	d
 PauseAudioStream	include/raylib.h	/^RLAPI void PauseAudioStream(AudioStream stream);                      \/\/ Pause audio stream$/;"	p	typeref:typename:RLAPI void
 PauseMusicStream	include/raylib.h	/^RLAPI void PauseMusicStream(Music music);                             \/\/ Pause music playing$/;"	p	typeref:typename:RLAPI void
@@ -977,6 +1517,56 @@ QuaternionZeros	include/raymath.h	/^static constexpr Quaternion QuaternionZeros 
 RAD2DEG	include/raylib.h	/^    #define RAD2DEG /;"	d
 RAD2DEG	include/raymath.h	/^    #define RAD2DEG /;"	d
 RAD2DEG	include/rlgl.h	/^    #define RAD2DEG /;"	d
+RAYGUIAPI	include/raygui.h	/^        #define RAYGUIAPI /;"	d
+RAYGUIAPI	include/raygui.h	/^    #define RAYGUIAPI /;"	d
+RAYGUI_CALLOC	include/raygui.h	/^    #define RAYGUI_CALLOC(/;"	d
+RAYGUI_CLITERAL	include/raygui.h	/^    #define RAYGUI_CLITERAL(/;"	d
+RAYGUI_COLORBARALPHA_CHECKED_SIZE	include/raygui.h	/^        #define RAYGUI_COLORBARALPHA_CHECKED_SIZE /;"	d
+RAYGUI_FREE	include/raygui.h	/^    #define RAYGUI_FREE(/;"	d
+RAYGUI_GRID_ALPHA	include/raygui.h	/^        #define RAYGUI_GRID_ALPHA /;"	d
+RAYGUI_GROUPBOX_LINE_THICK	include/raygui.h	/^        #define RAYGUI_GROUPBOX_LINE_THICK /;"	d
+RAYGUI_H	include/raygui.h	/^#define RAYGUI_H$/;"	d
+RAYGUI_ICON_DATA_ELEMENTS	include/raygui.h	/^#define RAYGUI_ICON_DATA_ELEMENTS /;"	d
+RAYGUI_ICON_FONT_ATLAS_PADDING	include/raygui.h	/^#define RAYGUI_ICON_FONT_ATLAS_PADDING /;"	d
+RAYGUI_ICON_MAX_FONT_BACKED	include/raygui.h	/^#define RAYGUI_ICON_MAX_FONT_BACKED /;"	d
+RAYGUI_ICON_MAX_ICONS	include/raygui.h	/^#define RAYGUI_ICON_MAX_ICONS /;"	d
+RAYGUI_ICON_MAX_NAME_LENGTH	include/raygui.h	/^#define RAYGUI_ICON_MAX_NAME_LENGTH /;"	d
+RAYGUI_ICON_SIZE	include/raygui.h	/^    #define RAYGUI_ICON_SIZE /;"	d
+RAYGUI_ICON_SIZE	include/raygui.h	/^#define RAYGUI_ICON_SIZE /;"	d
+RAYGUI_ICON_TEXT_PADDING	include/raygui.h	/^        #define RAYGUI_ICON_TEXT_PADDING /;"	d
+RAYGUI_ICON_TEXT_PADDING	include/raygui.h	/^    #define RAYGUI_ICON_TEXT_PADDING /;"	d
+RAYGUI_IMPLEMENTATION	main.cpp	/^#define RAYGUI_IMPLEMENTATION /;"	d	file:
+RAYGUI_LINE_MARGIN_TEXT	include/raygui.h	/^        #define RAYGUI_LINE_MARGIN_TEXT /;"	d
+RAYGUI_LINE_TEXT_PADDING	include/raygui.h	/^        #define RAYGUI_LINE_TEXT_PADDING /;"	d
+RAYGUI_LOG	include/raygui.h	/^    #define RAYGUI_LOG(/;"	d
+RAYGUI_MALLOC	include/raygui.h	/^    #define RAYGUI_MALLOC(/;"	d
+RAYGUI_MAX_CONTROLS	include/raygui.h	/^#define RAYGUI_MAX_CONTROLS /;"	d
+RAYGUI_MAX_PROPS_BASE	include/raygui.h	/^#define RAYGUI_MAX_PROPS_BASE /;"	d
+RAYGUI_MAX_PROPS_EXTENDED	include/raygui.h	/^#define RAYGUI_MAX_PROPS_EXTENDED /;"	d
+RAYGUI_MAX_TEXT_LINES	include/raygui.h	/^    #define RAYGUI_MAX_TEXT_LINES /;"	d
+RAYGUI_MESSAGEBOX_BUTTON_HEIGHT	include/raygui.h	/^        #define RAYGUI_MESSAGEBOX_BUTTON_HEIGHT /;"	d
+RAYGUI_MESSAGEBOX_BUTTON_PADDING	include/raygui.h	/^        #define RAYGUI_MESSAGEBOX_BUTTON_PADDING /;"	d
+RAYGUI_MIN_MOUSE_WHEEL_SPEED	include/raygui.h	/^    #define RAYGUI_MIN_MOUSE_WHEEL_SPEED /;"	d
+RAYGUI_MIN_SCROLLBAR_HEIGHT	include/raygui.h	/^    #define RAYGUI_MIN_SCROLLBAR_HEIGHT /;"	d
+RAYGUI_MIN_SCROLLBAR_WIDTH	include/raygui.h	/^    #define RAYGUI_MIN_SCROLLBAR_WIDTH /;"	d
+RAYGUI_PANEL_BORDER_WIDTH	include/raygui.h	/^        #define RAYGUI_PANEL_BORDER_WIDTH /;"	d
+RAYGUI_SUPPORT_LOG_INFO	include/raygui.h	/^#define RAYGUI_SUPPORT_LOG_INFO$/;"	d
+RAYGUI_TEXTBOX_AUTO_CURSOR_COOLDOWN	include/raygui.h	/^        #define RAYGUI_TEXTBOX_AUTO_CURSOR_COOLDOWN /;"	d
+RAYGUI_TEXTBOX_AUTO_CURSOR_DELAY	include/raygui.h	/^        #define RAYGUI_TEXTBOX_AUTO_CURSOR_DELAY /;"	d
+RAYGUI_TEXTFORMAT_MAX_SIZE	include/raygui.h	/^        #define RAYGUI_TEXTFORMAT_MAX_SIZE /;"	d
+RAYGUI_TEXTINPUTBOX_BUTTON_HEIGHT	include/raygui.h	/^        #define RAYGUI_TEXTINPUTBOX_BUTTON_HEIGHT /;"	d
+RAYGUI_TEXTINPUTBOX_BUTTON_PADDING	include/raygui.h	/^        #define RAYGUI_TEXTINPUTBOX_BUTTON_PADDING /;"	d
+RAYGUI_TEXTINPUTBOX_HEIGHT	include/raygui.h	/^        #define RAYGUI_TEXTINPUTBOX_HEIGHT /;"	d
+RAYGUI_TEXTSPLIT_MAX_ITEMS	include/raygui.h	/^        #define RAYGUI_TEXTSPLIT_MAX_ITEMS /;"	d
+RAYGUI_TEXTSPLIT_MAX_TEXT_SIZE	include/raygui.h	/^        #define RAYGUI_TEXTSPLIT_MAX_TEXT_SIZE /;"	d
+RAYGUI_TOGGLEGROUP_MAX_ITEM_TEXT_SIZE	include/raygui.h	/^        #define RAYGUI_TOGGLEGROUP_MAX_ITEM_TEXT_SIZE /;"	d
+RAYGUI_VALUEBOX_MAX_CHARS	include/raygui.h	/^        #define RAYGUI_VALUEBOX_MAX_CHARS /;"	d
+RAYGUI_VERSION	include/raygui.h	/^#define RAYGUI_VERSION /;"	d
+RAYGUI_VERSION_MAJOR	include/raygui.h	/^#define RAYGUI_VERSION_MAJOR /;"	d
+RAYGUI_VERSION_MINOR	include/raygui.h	/^#define RAYGUI_VERSION_MINOR /;"	d
+RAYGUI_VERSION_PATCH	include/raygui.h	/^#define RAYGUI_VERSION_PATCH /;"	d
+RAYGUI_WINDOWBOX_CLOSEBUTTON_HEIGHT	include/raygui.h	/^        #define RAYGUI_WINDOWBOX_CLOSEBUTTON_HEIGHT /;"	d
+RAYGUI_WINDOWBOX_STATUSBAR_HEIGHT	include/raygui.h	/^        #define RAYGUI_WINDOWBOX_STATUSBAR_HEIGHT /;"	d
 RAYLIB_H	include/raylib.h	/^#define RAYLIB_H$/;"	d
 RAYLIB_VERSION	include/raylib.h	/^#define RAYLIB_VERSION /;"	d
 RAYLIB_VERSION_MAJOR	include/raylib.h	/^#define RAYLIB_VERSION_MAJOR /;"	d
@@ -986,6 +1576,10 @@ RAYMATH_H	include/raymath.h	/^#define RAYMATH_H$/;"	d
 RAYMATH_SSE_ENABLED	include/raymath.h	/^        #define RAYMATH_SSE_ENABLED$/;"	d
 RAYWHITE	include/raylib.h	/^#define RAYWHITE /;"	d
 RED	include/raylib.h	/^#define RED /;"	d
+RESULT_CHANGED	include/raygui.h	/^    RESULT_CHANGED     = 2,$/;"	e	enum:__anon4297c77f0203
+RESULT_NONE	include/raygui.h	/^    RESULT_NONE        = 0,$/;"	e	enum:__anon4297c77f0203
+RESULT_PRESSED	include/raygui.h	/^    RESULT_PRESSED     = 1,$/;"	e	enum:__anon4297c77f0203
+RESULT_TAB_CLOSE	include/raygui.h	/^    RESULT_TAB_CLOSE   = 4     \/\/ GuiTabBar(), tab close request$/;"	e	enum:__anon4297c77f0203
 RLAPI	include/raylib.h	/^        #define RLAPI /;"	d
 RLAPI	include/raylib.h	/^    #define RLAPI /;"	d
 RLAPI	include/rlgl.h	/^    #define RLAPI /;"	d
@@ -1244,6 +1838,8 @@ Ray	include/raylib.h	/^typedef struct Ray {$/;"	s
 Ray	include/raylib.h	/^} Ray;$/;"	t	typeref:struct:Ray
 RayCollision	include/raylib.h	/^typedef struct RayCollision {$/;"	s
 RayCollision	include/raylib.h	/^} RayCollision;$/;"	t	typeref:struct:RayCollision
+Rectangle	include/raygui.h	/^    typedef struct Rectangle {$/;"	s
+Rectangle	include/raygui.h	/^    } Rectangle;$/;"	t	typeref:struct:Rectangle
 Rectangle	include/raylib.h	/^typedef struct Rectangle {$/;"	s
 Rectangle	include/raylib.h	/^} Rectangle;$/;"	t	typeref:struct:Rectangle
 Remap	include/raymath.h	/^RMAPI float Remap(float value, float inputStart, float inputEnd, float outputStart, float output/;"	f	typeref:typename:RMAPI float
@@ -1254,6 +1850,16 @@ RestoreWindow	include/raylib.h	/^RLAPI void RestoreWindow(void);                
 ResumeAudioStream	include/raylib.h	/^RLAPI void ResumeAudioStream(AudioStream stream);                     \/\/ Resume audio stream$/;"	p	typeref:typename:RLAPI void
 ResumeMusicStream	include/raylib.h	/^RLAPI void ResumeMusicStream(Music music);                            \/\/ Resume playing paused/;"	p	typeref:typename:RLAPI void
 ResumeSound	include/raylib.h	/^RLAPI void ResumeSound(Sound sound);                                  \/\/ Resume a paused sound$/;"	p	typeref:typename:RLAPI void
+SCROLLBAR	include/raygui.h	/^    SCROLLBAR       = 14,$/;"	e	enum:__anon4297c77f0703
+SCROLLBAR_LEFT_SIDE	include/raygui.h	/^#define SCROLLBAR_LEFT_SIDE /;"	d
+SCROLLBAR_RIGHT_SIDE	include/raygui.h	/^#define SCROLLBAR_RIGHT_SIDE /;"	d
+SCROLLBAR_SIDE	include/raygui.h	/^    SCROLLBAR_SIDE,             \/\/ ListView scrollbar side: 0-Left side, 1-Right Side$/;"	e	enum:__anon4297c77f1403
+SCROLLBAR_WIDTH	include/raygui.h	/^    SCROLLBAR_WIDTH,            \/\/ ListView scrollbar size (usually width)$/;"	e	enum:__anon4297c77f1403
+SCROLL_PADDING	include/raygui.h	/^    SCROLL_PADDING,             \/\/ ScrollBar scroll padding from arrows$/;"	e	enum:__anon4297c77f0d03
+SCROLL_SLIDER_PADDING	include/raygui.h	/^    SCROLL_SLIDER_PADDING,      \/\/ ScrollBar slider internal padding$/;"	e	enum:__anon4297c77f0d03
+SCROLL_SLIDER_SIZE	include/raygui.h	/^    SCROLL_SLIDER_SIZE,         \/\/ ScrollBar slider size$/;"	e	enum:__anon4297c77f0d03
+SCROLL_SPEED	include/raygui.h	/^    SCROLL_SPEED,               \/\/ ScrollBar scrolling speed$/;"	e	enum:__anon4297c77f0d03
+SEA	main.cpp	/^#define SEA /;"	d	file:
 SHADER_ATTRIB_FLOAT	include/raylib.h	/^    SHADER_ATTRIB_FLOAT = 0,        \/\/ Shader attribute type: float$/;"	e	enum:__anon42eb8fb10c03
 SHADER_ATTRIB_VEC2	include/raylib.h	/^    SHADER_ATTRIB_VEC2,             \/\/ Shader attribute type: vec2 (2 float)$/;"	e	enum:__anon42eb8fb10c03
 SHADER_ATTRIB_VEC3	include/raylib.h	/^    SHADER_ATTRIB_VEC3,             \/\/ Shader attribute type: vec3 (3 float)$/;"	e	enum:__anon42eb8fb10c03
@@ -1303,7 +1909,18 @@ SHADER_UNIFORM_UIVEC4	include/raylib.h	/^    SHADER_UNIFORM_UIVEC4,          \/\
 SHADER_UNIFORM_VEC2	include/raylib.h	/^    SHADER_UNIFORM_VEC2,            \/\/ Shader uniform type: vec2 (2 float)$/;"	e	enum:__anon42eb8fb10b03
 SHADER_UNIFORM_VEC3	include/raylib.h	/^    SHADER_UNIFORM_VEC3,            \/\/ Shader uniform type: vec3 (3 float)$/;"	e	enum:__anon42eb8fb10b03
 SHADER_UNIFORM_VEC4	include/raylib.h	/^    SHADER_UNIFORM_VEC4,            \/\/ Shader uniform type: vec4 (4 float)$/;"	e	enum:__anon42eb8fb10b03
+SHIP	main.cpp	/^#define SHIP /;"	d	file:
 SKYBLUE	include/raylib.h	/^#define SKYBLUE /;"	d
+SLIDER	include/raygui.h	/^    SLIDER          = 4,        \/\/ Used also for: SLIDERBAR, TOGGLESLIDER$/;"	e	enum:__anon4297c77f0703
+SLIDER_PADDING	include/raygui.h	/^    SLIDER_PADDING              \/\/ Slider\/SliderBar internal bar padding$/;"	e	enum:__anon4297c77f0b03
+SLIDER_WIDTH	include/raygui.h	/^    SLIDER_WIDTH = 16,          \/\/ Slider size of internal bar$/;"	e	enum:__anon4297c77f0b03
+SPINNER_BUTTON_SPACING	include/raygui.h	/^    SPINNER_BUTTON_SPACING,     \/\/ Spinner buttons separation$/;"	e	enum:__anon4297c77f1203
+SPINNER_BUTTON_WIDTH	include/raygui.h	/^    SPINNER_BUTTON_WIDTH = 16,  \/\/ Spinner left\/right buttons width$/;"	e	enum:__anon4297c77f1203
+STATE_DISABLED	include/raygui.h	/^    STATE_DISABLED$/;"	e	enum:__anon4297c77f0303
+STATE_FOCUSED	include/raygui.h	/^    STATE_FOCUSED,$/;"	e	enum:__anon4297c77f0303
+STATE_NORMAL	include/raygui.h	/^    STATE_NORMAL = 0,$/;"	e	enum:__anon4297c77f0303
+STATE_PRESSED	include/raygui.h	/^    STATE_PRESSED,$/;"	e	enum:__anon4297c77f0303
+STATUSBAR	include/raygui.h	/^    STATUSBAR       = 15$/;"	e	enum:__anon4297c77f0703
 SW_CALLOC	include/rlgl.h	/^        #define SW_CALLOC(/;"	d
 SW_FREE	include/rlgl.h	/^        #define SW_FREE(/;"	d
 SW_MALLOC	include/rlgl.h	/^        #define SW_MALLOC(/;"	d
@@ -1346,6 +1963,7 @@ SetShaderValue	include/raylib.h	/^RLAPI void SetShaderValue(Shader shader, int l
 SetShaderValueMatrix	include/raylib.h	/^RLAPI void SetShaderValueMatrix(Shader shader, int locIndex, Matrix mat);  \/\/ Set shader unifo/;"	p	typeref:typename:RLAPI void
 SetShaderValueTexture	include/raylib.h	/^RLAPI void SetShaderValueTexture(Shader shader, int locIndex, Texture2D texture); \/\/ Set shade/;"	p	typeref:typename:RLAPI void
 SetShaderValueV	include/raylib.h	/^RLAPI void SetShaderValueV(Shader shader, int locIndex, const void *value, int uniformType, int /;"	p	typeref:typename:RLAPI void
+SetShapesTexture	include/raygui.h	/^static void SetShapesTexture(Texture2D tex, Rectangle rec);  \/\/ -- GuiLoadStyle(), required to/;"	p	typeref:typename:void
 SetShapesTexture	include/raylib.h	/^RLAPI void SetShapesTexture(Texture2D texture, Rectangle source); \/\/ Set texture and rectangle/;"	p	typeref:typename:RLAPI void
 SetSoundPan	include/raylib.h	/^RLAPI void SetSoundPan(Sound sound, float pan);                       \/\/ Set pan for a sound (/;"	p	typeref:typename:RLAPI void
 SetSoundPitch	include/raylib.h	/^RLAPI void SetSoundPitch(Sound sound, float pitch);                   \/\/ Set pitch for a sound/;"	p	typeref:typename:RLAPI void
@@ -1372,6 +1990,7 @@ Shader	include/raylib.h	/^} Shader;$/;"	t	typeref:struct:Shader
 ShaderAttributeDataType	include/raylib.h	/^} ShaderAttributeDataType;$/;"	t	typeref:enum:__anon42eb8fb10c03
 ShaderLocationIndex	include/raylib.h	/^} ShaderLocationIndex;$/;"	t	typeref:enum:__anon42eb8fb10a03
 ShaderUniformDataType	include/raylib.h	/^} ShaderUniformDataType;$/;"	t	typeref:enum:__anon42eb8fb10b03
+Ship	main.cpp	/^}Ship;$/;"	t	typeref:struct:__anon3b5b11db0108	file:
 ShowCursor	include/raylib.h	/^RLAPI void ShowCursor(void);                                      \/\/ Shows cursor$/;"	p	typeref:typename:RLAPI void
 Sound	include/raylib.h	/^typedef struct Sound {$/;"	s
 Sound	include/raylib.h	/^} Sound;$/;"	t	typeref:struct:Sound
@@ -1382,6 +2001,12 @@ StopAutomationEventRecording	include/raylib.h	/^RLAPI void StopAutomationEventRe
 StopMusicStream	include/raylib.h	/^RLAPI void StopMusicStream(Music music);                              \/\/ Stop music playing$/;"	p	typeref:typename:RLAPI void
 StopSound	include/raylib.h	/^RLAPI void StopSound(Sound sound);                                    \/\/ Stop playing a sound$/;"	p	typeref:typename:RLAPI void
 SwapScreenBuffer	include/raylib.h	/^RLAPI void SwapScreenBuffer(void);                      \/\/ Swap back buffer with front buffer /;"	p	typeref:typename:RLAPI void
+TABBAR	include/raygui.h	/^    TABBAR          = 11,$/;"	e	enum:__anon4297c77f0703
+TAB_CLOSE_BUTTON	include/raygui.h	/^    TAB_CLOSE_BUTTON,           \/\/ TabBar tab close button: 0-Not shown, 1-Shown$/;"	e	enum:__anon4297c77f1303
+TAB_ITEMS_WIDTH	include/raygui.h	/^    TAB_ITEMS_WIDTH = 16,       \/\/ TabBar tab items width$/;"	e	enum:__anon4297c77f1303
+TAB_LINE_SIDE	include/raygui.h	/^    TAB_LINE_SIDE,              \/\/ TabBar tabs side: 0-Bottom, 1-Top$/;"	e	enum:__anon4297c77f1303
+TEXT	include/raygui.h	/^typedef enum { BORDER = 0, BASE, TEXT, OTHER } GuiPropertyElement;$/;"	e	enum:__anon4297c77f1703
+TEXTBOX	include/raygui.h	/^    TEXTBOX         = 9,        \/\/ Used also for: TEXTBOXMULTI$/;"	e	enum:__anon4297c77f0703
 TEXTURE_FILTER_ANISOTROPIC_16X	include/raylib.h	/^    TEXTURE_FILTER_ANISOTROPIC_16X,         \/\/ Anisotropic filtering 16x$/;"	e	enum:__anon42eb8fb10e03
 TEXTURE_FILTER_ANISOTROPIC_4X	include/raylib.h	/^    TEXTURE_FILTER_ANISOTROPIC_4X,          \/\/ Anisotropic filtering 4x$/;"	e	enum:__anon42eb8fb10e03
 TEXTURE_FILTER_ANISOTROPIC_8X	include/raylib.h	/^    TEXTURE_FILTER_ANISOTROPIC_8X,          \/\/ Anisotropic filtering 8x$/;"	e	enum:__anon42eb8fb10e03
@@ -1392,11 +2017,36 @@ TEXTURE_WRAP_CLAMP	include/raylib.h	/^    TEXTURE_WRAP_CLAMP,                   
 TEXTURE_WRAP_MIRROR_CLAMP	include/raylib.h	/^    TEXTURE_WRAP_MIRROR_CLAMP               \/\/ Mirrors and clamps to border the texture in til/;"	e	enum:__anon42eb8fb10f03
 TEXTURE_WRAP_MIRROR_REPEAT	include/raylib.h	/^    TEXTURE_WRAP_MIRROR_REPEAT,             \/\/ Mirrors and repeats the texture in tiled mode$/;"	e	enum:__anon42eb8fb10f03
 TEXTURE_WRAP_REPEAT	include/raylib.h	/^    TEXTURE_WRAP_REPEAT = 0,                \/\/ Repeats texture in tiled mode$/;"	e	enum:__anon42eb8fb10f03
+TEXT_ALIGNMENT	include/raygui.h	/^    TEXT_ALIGNMENT        = 14,     \/\/ Control text horizontal alignment inside control text b/;"	e	enum:__anon4297c77f0803
+TEXT_ALIGNMENT_VERTICAL	include/raygui.h	/^    TEXT_ALIGNMENT_VERTICAL = 21,   \/\/ Text vertical alignment inside text bounds (after borde/;"	e	enum:__anon4297c77f0903
+TEXT_ALIGN_BOTTOM	include/raygui.h	/^    TEXT_ALIGN_BOTTOM$/;"	e	enum:__anon4297c77f0503
+TEXT_ALIGN_CENTER	include/raygui.h	/^    TEXT_ALIGN_CENTER,$/;"	e	enum:__anon4297c77f0403
+TEXT_ALIGN_LEFT	include/raygui.h	/^    TEXT_ALIGN_LEFT = 0,$/;"	e	enum:__anon4297c77f0403
+TEXT_ALIGN_MIDDLE	include/raygui.h	/^    TEXT_ALIGN_MIDDLE,$/;"	e	enum:__anon4297c77f0503
+TEXT_ALIGN_RIGHT	include/raygui.h	/^    TEXT_ALIGN_RIGHT$/;"	e	enum:__anon4297c77f0403
+TEXT_ALIGN_TOP	include/raygui.h	/^    TEXT_ALIGN_TOP = 0,$/;"	e	enum:__anon4297c77f0503
+TEXT_COLOR_DISABLED	include/raygui.h	/^    TEXT_COLOR_DISABLED   = 11,     \/\/ Control text color in STATE_DISABLED$/;"	e	enum:__anon4297c77f0803
+TEXT_COLOR_FOCUSED	include/raygui.h	/^    TEXT_COLOR_FOCUSED    = 5,      \/\/ Control text color in STATE_FOCUSED$/;"	e	enum:__anon4297c77f0803
+TEXT_COLOR_NORMAL	include/raygui.h	/^    TEXT_COLOR_NORMAL     = 2,      \/\/ Control text color in STATE_NORMAL$/;"	e	enum:__anon4297c77f0803
+TEXT_COLOR_PRESSED	include/raygui.h	/^    TEXT_COLOR_PRESSED    = 8,      \/\/ Control text color in STATE_PRESSED$/;"	e	enum:__anon4297c77f0803
+TEXT_LINE_SPACING	include/raygui.h	/^    TEXT_LINE_SPACING     = 20,     \/\/ Text spacing between lines$/;"	e	enum:__anon4297c77f0903
+TEXT_PADDING	include/raygui.h	/^    TEXT_PADDING          = 13,     \/\/ Control text padding, not considering border$/;"	e	enum:__anon4297c77f0803
+TEXT_READONLY	include/raygui.h	/^    TEXT_READONLY = 16,         \/\/ TextBox in read-only mode: 0-Text editable, 1-Text read-onl/;"	e	enum:__anon4297c77f1103
+TEXT_SIZE	include/raygui.h	/^    TEXT_SIZE             = 16,     \/\/ Text size (glyphs max height)$/;"	e	enum:__anon4297c77f0903
+TEXT_SPACING	include/raygui.h	/^    TEXT_SPACING          = 17,     \/\/ Text spacing between glyphs$/;"	e	enum:__anon4297c77f0903
+TEXT_VALIGN_PIXEL_OFFSET	include/raygui.h	/^    #define TEXT_VALIGN_PIXEL_OFFSET(/;"	d
+TEXT_WRAP_CHAR	include/raygui.h	/^    TEXT_WRAP_CHAR,$/;"	e	enum:__anon4297c77f0603
+TEXT_WRAP_MODE	include/raygui.h	/^    TEXT_WRAP_MODE        = 22,     \/\/ Text wrap-mode inside text bounds$/;"	e	enum:__anon4297c77f0903
+TEXT_WRAP_NONE	include/raygui.h	/^    TEXT_WRAP_NONE = 0,$/;"	e	enum:__anon4297c77f0603
+TEXT_WRAP_WORD	include/raygui.h	/^    TEXT_WRAP_WORD$/;"	e	enum:__anon4297c77f0603
+TOGGLE	include/raygui.h	/^    TOGGLE          = 3,        \/\/ Used also for: TOGGLEGROUP$/;"	e	enum:__anon4297c77f0703
 TRACELOG	include/rlgl.h	/^    #define TRACELOG(/;"	d
 TakeScreenshot	include/raylib.h	/^RLAPI void TakeScreenshot(const char *fileName);                \/\/ Takes a screenshot of curre/;"	p	typeref:typename:RLAPI void
 TextAppend	include/raylib.h	/^RLAPI void TextAppend(char *text, const char *append, int *position);                       \/\//;"	p	typeref:typename:RLAPI void
 TextCopy	include/raylib.h	/^RLAPI int TextCopy(char *dst, const char *src);                                             \/\//;"	p	typeref:typename:RLAPI int
 TextFindIndex	include/raylib.h	/^RLAPI int TextFindIndex(const char *text, const char *search);                              \/\//;"	p	typeref:typename:RLAPI int
+TextFormat	include/raygui.h	/^static const char *TextFormat(const char *text, ...)$/;"	f	typeref:typename:const char *
+TextFormat	include/raygui.h	/^static const char *TextFormat(const char *text, ...);               \/\/ Formatting of text with/;"	p	typeref:typename:const char *
 TextFormat	include/raylib.h	/^RLAPI const char *TextFormat(const char *text, ...);                                        \/\//;"	p	typeref:typename:RLAPI const char *
 TextInsert	include/raylib.h	/^RLAPI char *TextInsert(const char *text, const char *insert, int position);                 \/\//;"	p	typeref:typename:RLAPI char *
 TextInsertAlloc	include/raylib.h	/^RLAPI char *TextInsertAlloc(const char *text, const char *insert, int position);            \/\//;"	p	typeref:typename:RLAPI char *
@@ -1411,14 +2061,21 @@ TextReplaceBetweenAlloc	include/raylib.h	/^RLAPI char *TextReplaceBetweenAlloc(c
 TextSplit	include/raylib.h	/^RLAPI char **TextSplit(const char *text, char delimiter, int *count);                       \/\//;"	p	typeref:typename:RLAPI char **
 TextSubtext	include/raylib.h	/^RLAPI const char *TextSubtext(const char *text, int position, int length);                  \/\//;"	p	typeref:typename:RLAPI const char *
 TextToCamel	include/raylib.h	/^RLAPI char *TextToCamel(const char *text);                                                  \/\//;"	p	typeref:typename:RLAPI char *
+TextToFloat	include/raygui.h	/^static float TextToFloat(const char *text)$/;"	f	typeref:typename:float
+TextToFloat	include/raygui.h	/^static float TextToFloat(const char *text);         \/\/ Get float value from text$/;"	p	typeref:typename:float
 TextToFloat	include/raylib.h	/^RLAPI float TextToFloat(const char *text);                                                  \/\//;"	p	typeref:typename:RLAPI float
+TextToInteger	include/raygui.h	/^static int TextToInteger(const char *text)$/;"	f	typeref:typename:int
+TextToInteger	include/raygui.h	/^static int TextToInteger(const char *text);         \/\/ Get integer value from text$/;"	p	typeref:typename:int
 TextToInteger	include/raylib.h	/^RLAPI int TextToInteger(const char *text);                                                  \/\//;"	p	typeref:typename:RLAPI int
 TextToLower	include/raylib.h	/^RLAPI char *TextToLower(const char *text);                                                  \/\//;"	p	typeref:typename:RLAPI char *
 TextToPascal	include/raylib.h	/^RLAPI char *TextToPascal(const char *text);                                                 \/\//;"	p	typeref:typename:RLAPI char *
 TextToSnake	include/raylib.h	/^RLAPI char *TextToSnake(const char *text);                                                  \/\//;"	p	typeref:typename:RLAPI char *
 TextToUpper	include/raylib.h	/^RLAPI char *TextToUpper(const char *text);                                                  \/\//;"	p	typeref:typename:RLAPI char *
+Texture	include/raygui.h	/^    typedef struct Texture {$/;"	s
+Texture	include/raygui.h	/^    } Texture;$/;"	t	typeref:struct:Texture
 Texture	include/raylib.h	/^typedef struct Texture {$/;"	s
 Texture	include/raylib.h	/^} Texture;$/;"	t	typeref:struct:Texture
+Texture2D	include/raygui.h	/^    typedef Texture Texture2D;$/;"	t	typeref:typename:Texture
 Texture2D	include/raylib.h	/^typedef Texture Texture2D;$/;"	t	typeref:typename:Texture
 TextureCubemap	include/raylib.h	/^typedef Texture TextureCubemap;$/;"	t	typeref:typename:Texture
 TextureFilter	include/raylib.h	/^} TextureFilter;$/;"	t	typeref:enum:__anon42eb8fb10e03
@@ -1432,10 +2089,12 @@ Transform	include/raylib.h	/^typedef struct Transform {$/;"	s
 Transform	include/raylib.h	/^} Transform;$/;"	t	typeref:struct:Transform
 UnloadAudioStream	include/raylib.h	/^RLAPI void UnloadAudioStream(AudioStream stream);                     \/\/ Unload audio stream a/;"	p	typeref:typename:RLAPI void
 UnloadAutomationEventList	include/raylib.h	/^RLAPI void UnloadAutomationEventList(AutomationEventList list);   \/\/ Unload automation events /;"	p	typeref:typename:RLAPI void
+UnloadCodepoints	include/raygui.h	/^static void UnloadCodepoints(int *codepoints);               \/\/ -- GuiLoadStyle(), required to/;"	p	typeref:typename:void
 UnloadCodepoints	include/raylib.h	/^RLAPI void UnloadCodepoints(int *codepoints);                                               \/\//;"	p	typeref:typename:RLAPI void
 UnloadDirectoryFiles	include/raylib.h	/^RLAPI void UnloadDirectoryFiles(FilePathList files);                \/\/ Unload filepaths$/;"	p	typeref:typename:RLAPI void
 UnloadDroppedFiles	include/raylib.h	/^RLAPI void UnloadDroppedFiles(FilePathList files);                  \/\/ Unload dropped filepath/;"	p	typeref:typename:RLAPI void
 UnloadFileData	include/raylib.h	/^RLAPI void UnloadFileData(unsigned char *data);                     \/\/ Unload file data alloca/;"	p	typeref:typename:RLAPI void
+UnloadFileText	include/raygui.h	/^static void UnloadFileText(char *text);                      \/\/ -- GuiLoadStyle(), required to/;"	p	typeref:typename:void
 UnloadFileText	include/raylib.h	/^RLAPI void UnloadFileText(char *text);                              \/\/ Unload file text data a/;"	p	typeref:typename:RLAPI void
 UnloadFont	include/raylib.h	/^RLAPI void UnloadFont(Font font);                                                           \/\//;"	p	typeref:typename:RLAPI void
 UnloadFontData	include/raylib.h	/^RLAPI void UnloadFontData(GlyphInfo *glyphs, int glyphCount);                               \/\//;"	p	typeref:typename:RLAPI void
@@ -1469,7 +2128,10 @@ UpdateSound	include/raylib.h	/^RLAPI void UpdateSound(Sound sound, const void *d
 UpdateTexture	include/raylib.h	/^RLAPI void UpdateTexture(Texture2D texture, const void *pixels);                                /;"	p	typeref:typename:RLAPI void
 UpdateTextureRec	include/raylib.h	/^RLAPI void UpdateTextureRec(Texture2D texture, Rectangle rec, const void *pixels);              /;"	p	typeref:typename:RLAPI void
 UploadMesh	include/raylib.h	/^RLAPI void UploadMesh(Mesh *mesh, bool dynamic);                                            \/\//;"	p	typeref:typename:RLAPI void
+VALUEBOX	include/raygui.h	/^    VALUEBOX        = 10,$/;"	e	enum:__anon4297c77f0703
 VIOLET	include/raylib.h	/^#define VIOLET /;"	d
+Vector2	include/raygui.h	/^    typedef struct Vector2 {$/;"	s
+Vector2	include/raygui.h	/^    } Vector2;$/;"	t	typeref:struct:Vector2
 Vector2	include/raylib.h	/^typedef struct Vector2 {$/;"	s
 Vector2	include/raylib.h	/^} Vector2;$/;"	t	typeref:struct:Vector2
 Vector2	include/raymath.h	/^typedef struct Vector2 {$/;"	s
@@ -1509,6 +2171,8 @@ Vector2UnitX	include/raymath.h	/^static constexpr Vector2 Vector2UnitX = { 1, 0 
 Vector2UnitY	include/raymath.h	/^static constexpr Vector2 Vector2UnitY = { 0, 1 };$/;"	v	typeref:typename:Vector2
 Vector2Zero	include/raymath.h	/^RMAPI Vector2 Vector2Zero(void)$/;"	f	typeref:typename:RMAPI Vector2
 Vector2Zeros	include/raymath.h	/^static constexpr Vector2 Vector2Zeros = { 0, 0 };$/;"	v	typeref:typename:Vector2
+Vector3	include/raygui.h	/^    typedef struct Vector3 {$/;"	s
+Vector3	include/raygui.h	/^    } Vector3;$/;"	t	typeref:struct:Vector3
 Vector3	include/raylib.h	/^typedef struct Vector3 {$/;"	s
 Vector3	include/raylib.h	/^} Vector3;$/;"	t	typeref:struct:Vector3
 Vector3	include/raymath.h	/^typedef struct Vector3 {$/;"	s
@@ -1605,6 +2269,32 @@ WaveFormat	include/raylib.h	/^RLAPI void WaveFormat(Wave *wave, int sampleRate, 
 WindowShouldClose	include/raylib.h	/^RLAPI bool WindowShouldClose(void);                               \/\/ Check if application shou/;"	p	typeref:typename:RLAPI bool
 Wrap	include/raymath.h	/^RMAPI float Wrap(float value, float min, float max)$/;"	f	typeref:typename:RMAPI float
 YELLOW	include/raylib.h	/^#define YELLOW /;"	d
+_CRT_SECURE_NO_WARNINGS	include/raygui.h	/^        #define _CRT_SECURE_NO_WARNINGS /;"	d
+__anon3b5b11db0108	main.cpp	/^typedef struct{$/;"	s	file:
+__anon4297c77f0103	include/raygui.h	/^            typedef enum { false, true } bool;$/;"	g
+__anon4297c77f0103	include/raygui.h	/^            typedef enum { false, true } bool;$/;"	t	typeref:enum:bool
+__anon4297c77f0203	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f0303	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f0403	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f0503	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f0603	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f0703	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f0803	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f0903	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f0a03	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f0b03	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f0c03	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f0d03	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f0e03	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f0f03	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f1003	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f1103	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f1203	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f1303	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f1403	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f1503	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f1603	include/raygui.h	/^typedef enum {$/;"	g
+__anon4297c77f1703	include/raygui.h	/^typedef enum { BORDER = 0, BASE, TEXT, OTHER } GuiPropertyElement;$/;"	g
 __anon42eb8fb10103	include/raylib.h	/^    typedef enum bool { false = 0, true = !false } bool;$/;"	g
 __anon42eb8fb10103	include/raylib.h	/^    typedef enum bool { false = 0, true = !false } bool;$/;"	t	typeref:enum:bool
 __anon42eb8fb10203	include/raylib.h	/^typedef enum {$/;"	g
@@ -1644,14 +2334,21 @@ __anon68f09dbf0c03	include/rlgl.h	/^typedef enum {$/;"	g
 __anon68f09dbf0d08	include/rlgl.h	/^    struct {$/;"	s	struct:rlglData
 __anon68f09dbf0e08	include/rlgl.h	/^    struct {$/;"	s	struct:rlglData
 __declspec	include/raylib.h	/^        #define __declspec(/;"	d
+a	include/raygui.h	/^        unsigned char a;$/;"	m	struct:Color	typeref:typename:unsigned char
 a	include/raylib.h	/^    unsigned char a;        \/\/ Color alpha value$/;"	m	struct:Color	typeref:typename:unsigned char
 activeTextureId	include/rlgl.h	/^        unsigned int activeTextureId[RL_DEFAULT_BATCH_MAX_TEXTURE_UNITS];    \/\/ Active texture/;"	m	struct:rlglData::__anon68f09dbf0d08	typeref:typename:unsigned int[]
+advanceX	include/raygui.h	/^        int advanceX;           \/\/ Character advance position X$/;"	m	struct:GlyphInfo	typeref:typename:int
 advanceX	include/raylib.h	/^    int advanceX;           \/\/ Character advance position X$/;"	m	struct:GlyphInfo	typeref:typename:int
 animNormals	include/raylib.h	/^    float *animNormals;     \/\/ Animated normals (after bones transformations)$/;"	m	struct:Mesh	typeref:typename:float *
 animVertices	include/raylib.h	/^    float *animVertices;    \/\/ Animated vertex positions (after bones transformations)$/;"	m	struct:Mesh	typeref:typename:float *
+autoCursorCounter	include/raygui.h	/^static int autoCursorCounter = 0;               \/\/ Frame counter for automatic repeated cursor/;"	v	typeref:typename:int
+b	include/raygui.h	/^        unsigned char b;$/;"	m	struct:Color	typeref:typename:unsigned char
 b	include/raylib.h	/^    unsigned char b;        \/\/ Color blue value$/;"	m	struct:Color	typeref:typename:unsigned char
+baseSize	include/raygui.h	/^        int baseSize;           \/\/ Base size (default chars height)$/;"	m	struct:Font	typeref:typename:int
 baseSize	include/raylib.h	/^    int baseSize;           \/\/ Base size (default chars height)$/;"	m	struct:Font	typeref:typename:int
 bindPose	include/raylib.h	/^    ModelAnimPose bindPose; \/\/ Bones base transformation (Transform[])$/;"	m	struct:ModelSkeleton	typeref:typename:ModelAnimPose
+boardFull	main.cpp	/^void boardFull(int gameBoard[BLINE][BCOL], int *gamePhase, int shipSum, bool *cursorState);$/;"	p	typeref:typename:void	file:
+boardFull	main.cpp	/^void boardFull(int gameBoard[BLINE][BCOL], int *gamePhase, int shipSum, bool *cursorState){$/;"	f	typeref:typename:void
 boneCount	include/raylib.h	/^    int boneCount;          \/\/ Number of bones (MAX: 256 bones)$/;"	m	struct:Mesh	typeref:typename:int
 boneCount	include/raylib.h	/^    int boneCount;          \/\/ Number of bones (per pose)$/;"	m	struct:ModelAnimation	typeref:typename:int
 boneCount	include/raylib.h	/^    int boneCount;          \/\/ Number of bones$/;"	m	struct:ModelSkeleton	typeref:typename:int
@@ -1665,6 +2362,8 @@ bufferCount	include/rlgl.h	/^    int bufferCount;            \/\/ Number of vert
 capacity	include/raylib.h	/^    unsigned int capacity;          \/\/ Events max entries (MAX_AUTOMATION_EVENTS)$/;"	m	struct:AutomationEventList	typeref:typename:unsigned int
 channels	include/raylib.h	/^    unsigned int channels;      \/\/ Number of channels (1-mono, 2-stereo, ...)$/;"	m	struct:AudioStream	typeref:typename:unsigned int
 channels	include/raylib.h	/^    unsigned int channels;      \/\/ Number of channels (1-mono, 2-stereo, ...)$/;"	m	struct:Wave	typeref:typename:unsigned int
+checkPlace	main.cpp	/^bool checkPlace(Ship *ship, Vector2 pos, Rectangle *cursor, bool rotateShip, int step, int gameB/;"	f	typeref:typename:bool
+checkPlace	main.cpp	/^bool checkPlace(Ship *ship, Vector2 pos, Rectangle *cursor, bool rotateShip, int step, int gameB/;"	p	typeref:typename:bool	file:
 chromaAbCorrection	include/raylib.h	/^    float chromaAbCorrection[4];    \/\/ Chromatic aberration correction parameters$/;"	m	struct:VrDeviceInfo	typeref:typename:float[4]
 color	include/raylib.h	/^    Color color;            \/\/ Material map color$/;"	m	struct:MaterialMap	typeref:typename:Color
 colora	include/rlgl.h	/^        unsigned char colorr, colorg, colorb, colora;   \/\/ Current active color (added on glVe/;"	m	struct:rlglData::__anon68f09dbf0d08	typeref:typename:unsigned char
@@ -1674,6 +2373,7 @@ colorr	include/rlgl.h	/^        unsigned char colorr, colorg, colorb, colora;   
 colors	include/raylib.h	/^    unsigned char *colors;  \/\/ Vertex colors (RGBA - 4 components per vertex) (shader-location/;"	m	struct:Mesh	typeref:typename:unsigned char *
 colors	include/rlgl.h	/^    unsigned char *colors;      \/\/ Vertex colors (RGBA - 4 components per vertex) (shader-loca/;"	m	struct:rlVertexBuffer	typeref:typename:unsigned char *
 computeShader	include/rlgl.h	/^        bool computeShader;                 \/\/ Compute shaders support (GL_ARB_compute_shader)$/;"	m	struct:rlglData::__anon68f09dbf0e08	typeref:typename:bool
+controlId	include/raygui.h	/^    unsigned short controlId;   \/\/ Control identifier$/;"	m	struct:GuiStyleProp	typeref:typename:unsigned short
 count	include/raylib.h	/^    unsigned int count;             \/\/ Events entries count$/;"	m	struct:AutomationEventList	typeref:typename:unsigned int
 count	include/raylib.h	/^    unsigned int count;             \/\/ Filepaths entries count$/;"	m	struct:FilePathList	typeref:typename:unsigned int
 ctxData	include/raylib.h	/^    void *ctxData;              \/\/ Audio context data, depends on type$/;"	m	struct:Music	typeref:typename:void *
@@ -1688,6 +2388,9 @@ currentPose	include/raylib.h	/^    ModelAnimPose currentPose; \/\/ Current anima
 currentShaderId	include/rlgl.h	/^        unsigned int currentShaderId;       \/\/ Current shader id to be used on rendering (by d/;"	m	struct:rlglData::__anon68f09dbf0d08	typeref:typename:unsigned int
 currentShaderLocs	include/rlgl.h	/^        int *currentShaderLocs;             \/\/ Current shader locations pointer to be used on /;"	m	struct:rlglData::__anon68f09dbf0d08	typeref:typename:int *
 currentTextureId	include/rlgl.h	/^        unsigned int currentTextureId;      \/\/ Current texture id to be used on glBegin$/;"	m	struct:rlglData::__anon68f09dbf0d08	typeref:typename:unsigned int
+cursorSetUp	main.cpp	/^void cursorSetUp (Vector2 startPos, int step, int size, Rectangle *cursor);$/;"	p	typeref:typename:void	file:
+cursorSetUp	main.cpp	/^void cursorSetUp (Vector2 startPos, int step, int size, Rectangle *cursor){$/;"	f	typeref:typename:void
+data	include/raygui.h	/^        void *data;             \/\/ Image raw data$/;"	m	struct:Image	typeref:typename:void *
 data	include/raylib.h	/^    void *data;                 \/\/ Buffer data pointer$/;"	m	struct:Wave	typeref:typename:void *
 data	include/raylib.h	/^    void *data;             \/\/ Image raw data$/;"	m	struct:Image	typeref:typename:void *
 defaultBatch	include/rlgl.h	/^    rlRenderBatch defaultBatch;             \/\/ Default internal render batch$/;"	m	struct:rlglData	typeref:typename:rlRenderBatch
@@ -1708,6 +2411,8 @@ float16	include/raymath.h	/^typedef struct float16 {$/;"	s
 float16	include/raymath.h	/^} float16;$/;"	t	typeref:struct:float16
 float3	include/raymath.h	/^typedef struct float3 {$/;"	s
 float3	include/raymath.h	/^} float3;$/;"	t	typeref:struct:float3
+format	include/raygui.h	/^        int format;             \/\/ Data format (PixelFormat type)$/;"	m	struct:Image	typeref:typename:int
+format	include/raygui.h	/^        int format;             \/\/ Data format (PixelFormat type)$/;"	m	struct:Texture	typeref:typename:int
 format	include/raylib.h	/^    int format;             \/\/ Data format (PixelFormat type)$/;"	m	struct:Image	typeref:typename:int
 format	include/raylib.h	/^    int format;             \/\/ Data format (PixelFormat type)$/;"	m	struct:Texture	typeref:typename:int
 fovy	include/raylib.h	/^    float fovy;             \/\/ Camera field-of-view aperture in Y (degrees) in perspective, us/;"	m	struct:Camera3D	typeref:typename:float
@@ -1717,6 +2422,7 @@ frameCount	include/raylib.h	/^    unsigned int frameCount;    \/\/ Total number 
 frameCount	include/raylib.h	/^    unsigned int frameCount;    \/\/ Total number of frames (considering channels)$/;"	m	struct:Wave	typeref:typename:unsigned int
 framebufferHeight	include/rlgl.h	/^        int framebufferHeight;              \/\/ Current framebuffer height$/;"	m	struct:rlglData::__anon68f09dbf0d08	typeref:typename:int
 framebufferWidth	include/rlgl.h	/^        int framebufferWidth;               \/\/ Current framebuffer width$/;"	m	struct:rlglData::__anon68f09dbf0d08	typeref:typename:int
+g	include/raygui.h	/^        unsigned char g;$/;"	m	struct:Color	typeref:typename:unsigned char
 g	include/raylib.h	/^    unsigned char g;        \/\/ Color green value$/;"	m	struct:Color	typeref:typename:unsigned char
 glBindVertexArray	include/rlgl.h	/^static PFNGLBINDVERTEXARRAYOESPROC glBindVertexArray = NULL;$/;"	v	typeref:typename:PFNGLBINDVERTEXARRAYOESPROC
 glBlendDestFactorAlpha	include/rlgl.h	/^        int glBlendDestFactorAlpha;         \/\/ Blending destination alpha factor$/;"	m	struct:rlglData::__anon68f09dbf0d08	typeref:typename:int
@@ -1735,18 +2441,41 @@ glDrawArraysInstanced	include/rlgl.h	/^static PFNGLDRAWARRAYSINSTANCEDEXTPROC gl
 glDrawElementsInstanced	include/rlgl.h	/^static PFNGLDRAWELEMENTSINSTANCEDEXTPROC glDrawElementsInstanced = NULL;$/;"	v	typeref:typename:PFNGLDRAWELEMENTSINSTANCEDEXTPROC
 glGenVertexArrays	include/rlgl.h	/^static PFNGLGENVERTEXARRAYSOESPROC glGenVertexArrays = NULL;$/;"	v	typeref:typename:PFNGLGENVERTEXARRAYSOESPROC
 glVertexAttribDivisor	include/rlgl.h	/^static PFNGLVERTEXATTRIBDIVISOREXTPROC glVertexAttribDivisor = NULL;$/;"	v	typeref:typename:PFNGLVERTEXATTRIBDIVISOREXTPROC
+glyphCount	include/raygui.h	/^        int glyphCount;         \/\/ Number of glyph characters$/;"	m	struct:Font	typeref:typename:int
 glyphCount	include/raylib.h	/^    int glyphCount;         \/\/ Number of glyph characters$/;"	m	struct:Font	typeref:typename:int
+glyphPadding	include/raygui.h	/^        int glyphPadding;       \/\/ Padding around the glyph characters$/;"	m	struct:Font	typeref:typename:int
 glyphPadding	include/raylib.h	/^    int glyphPadding;       \/\/ Padding around the glyph characters$/;"	m	struct:Font	typeref:typename:int
+glyphs	include/raygui.h	/^        GlyphInfo *glyphs;      \/\/ Glyphs info data$/;"	m	struct:Font	typeref:typename:GlyphInfo *
 glyphs	include/raylib.h	/^    GlyphInfo *glyphs;      \/\/ Glyphs info data$/;"	m	struct:Font	typeref:typename:GlyphInfo *
+guiAlpha	include/raygui.h	/^static float guiAlpha = 1.0f;                   \/\/ Gui controls transparency$/;"	v	typeref:typename:float
+guiControlExclusiveMode	include/raygui.h	/^static bool guiControlExclusiveMode = false;    \/\/ Gui control exclusive mode (no inputs proce/;"	v	typeref:typename:bool
+guiControlExclusiveRec	include/raygui.h	/^static Rectangle guiControlExclusiveRec = { 0 }; \/\/ Gui control exclusive bounds rectangle, us/;"	v	typeref:typename:Rectangle
+guiFont	include/raygui.h	/^static Font guiFont = { 0 };                    \/\/ Gui current font (WARNING: highly coupled t/;"	v	typeref:typename:Font
+guiFontName	include/raygui.h	/^static char guiFontName[32] = { 0 };            \/\/ Gui font filename, can be loaded from .rgs /;"	v	typeref:typename:char[32]
+guiIconFontOffsetY	include/raygui.h	/^static unsigned int guiIconFontOffsetY = 0;     \/\/ Gui icon font atlas offset (if icons backed/;"	v	typeref:typename:unsigned int
+guiIconScale	include/raygui.h	/^static unsigned int guiIconScale = 1;           \/\/ Gui icon default scale (if icons enabled)$/;"	v	typeref:typename:unsigned int
+guiIcons	include/raygui.h	/^static unsigned int guiIcons[RAYGUI_ICON_MAX_ICONS*RAYGUI_ICON_DATA_ELEMENTS] = {$/;"	v	typeref:typename:unsigned int[]
+guiIconsPtr	include/raygui.h	/^static unsigned int *guiIconsPtr = guiIcons;$/;"	v	typeref:typename:unsigned int *
+guiLocked	include/raygui.h	/^static bool guiLocked = false;                  \/\/ Gui lock state (no inputs processed)$/;"	v	typeref:typename:bool
+guiState	include/raygui.h	/^static GuiState guiState = STATE_NORMAL;        \/\/ Gui global state, if !STATE_NORMAL, forces /;"	v	typeref:typename:GuiState
+guiStyle	include/raygui.h	/^static unsigned int guiStyle[RAYGUI_MAX_CONTROLS*(RAYGUI_MAX_PROPS_BASE + RAYGUI_MAX_PROPS_EXTEN/;"	v	typeref:typename:unsigned int[]
+guiStyleLoaded	include/raygui.h	/^static bool guiStyleLoaded = false;         \/\/ Style loaded flag for lazy style initialization$/;"	v	typeref:typename:bool
+guiTooltip	include/raygui.h	/^static bool guiTooltip = false;                 \/\/ Tooltip enabled\/disabled$/;"	v	typeref:typename:bool
+guiTooltipPtr	include/raygui.h	/^static const char *guiTooltipPtr = NULL;        \/\/ Tooltip string pointer (string provided by /;"	v	typeref:typename:const char *
 hResolution	include/raylib.h	/^    int hResolution;                \/\/ Horizontal resolution in pixels$/;"	m	struct:VrDeviceInfo	typeref:typename:int
 hScreenSize	include/raylib.h	/^    float hScreenSize;              \/\/ Horizontal size in meters$/;"	m	struct:VrDeviceInfo	typeref:typename:float
+height	include/raygui.h	/^        float height;$/;"	m	struct:Rectangle	typeref:typename:float
+height	include/raygui.h	/^        int height;             \/\/ Image base height$/;"	m	struct:Image	typeref:typename:int
+height	include/raygui.h	/^        int height;             \/\/ Texture base height$/;"	m	struct:Texture	typeref:typename:int
 height	include/raylib.h	/^    float height;           \/\/ Rectangle height$/;"	m	struct:Rectangle	typeref:typename:float
 height	include/raylib.h	/^    int height;             \/\/ Image base height$/;"	m	struct:Image	typeref:typename:int
 height	include/raylib.h	/^    int height;             \/\/ Texture base height$/;"	m	struct:Texture	typeref:typename:int
 hit	include/raylib.h	/^    bool hit;               \/\/ Did the ray hit something?$/;"	m	struct:RayCollision	typeref:typename:bool
+id	include/raygui.h	/^        unsigned int id;        \/\/ OpenGL texture id$/;"	m	struct:Texture	typeref:typename:unsigned int
 id	include/raylib.h	/^    unsigned int id;        \/\/ OpenGL framebuffer object id$/;"	m	struct:RenderTexture	typeref:typename:unsigned int
 id	include/raylib.h	/^    unsigned int id;        \/\/ OpenGL texture id$/;"	m	struct:Texture	typeref:typename:unsigned int
 id	include/raylib.h	/^    unsigned int id;        \/\/ Shader program id$/;"	m	struct:Shader	typeref:typename:unsigned int
+image	include/raygui.h	/^        Image image;            \/\/ Character image data$/;"	m	struct:GlyphInfo	typeref:typename:Image
 image	include/raylib.h	/^    Image image;            \/\/ Character image data$/;"	m	struct:GlyphInfo	typeref:typename:Image
 indices	include/raylib.h	/^    unsigned short *indices; \/\/ Vertex indices (in case vertex data comes indexed)$/;"	m	struct:Mesh	typeref:typename:unsigned short *
 indices	include/rlgl.h	/^    unsigned int *indices;      \/\/ Vertex indices (in case vertex data comes indexed) (6 indic/;"	m	struct:rlVertexBuffer	typeref:typename:unsigned int *
@@ -1813,7 +2542,10 @@ m8	include/rlgl.h	/^    float m0, m4, m8, m12;      \/\/ Matrix first row (4 com
 m9	include/raylib.h	/^    float m1, m5, m9, m13;  \/\/ Matrix second row (4 components)$/;"	m	struct:Matrix	typeref:typename:float
 m9	include/raymath.h	/^    float m1, m5, m9, m13;      \/\/ Matrix second row (4 components)$/;"	m	struct:Matrix	typeref:typename:float
 m9	include/rlgl.h	/^    float m1, m5, m9, m13;      \/\/ Matrix second row (4 components)$/;"	m	struct:Matrix	typeref:typename:float
-main	main.c	/^int main (){$/;"	f	typeref:typename:int
+main	Makefile	/^main:main.cpp$/;"	t
+main	main.cpp	/^int main (){$/;"	f	typeref:typename:int
+mainMenu	main.cpp	/^int mainMenu();$/;"	p	typeref:typename:int	file:
+mainMenu	main.cpp	/^int mainMenu(){$/;"	f	typeref:typename:int
 maps	include/raylib.h	/^    MaterialMap *maps;      \/\/ Material maps array (MAX_MATERIAL_MAPS)$/;"	m	struct:Material	typeref:typename:MaterialMap *
 materialCount	include/raylib.h	/^    int materialCount;      \/\/ Number of materials$/;"	m	struct:Model	typeref:typename:int
 materials	include/raylib.h	/^    Material *materials;    \/\/ Materials array$/;"	m	struct:Model	typeref:typename:Material *
@@ -1824,10 +2556,14 @@ meshCount	include/raylib.h	/^    int meshCount;          \/\/ Number of meshes$/
 meshMaterial	include/raylib.h	/^    int *meshMaterial;      \/\/ Mesh material number$/;"	m	struct:Model	typeref:typename:int *
 meshes	include/raylib.h	/^    Mesh *meshes;           \/\/ Meshes array$/;"	m	struct:Model	typeref:typename:Mesh *
 min	include/raylib.h	/^    Vector3 min;            \/\/ Minimum vertex box-corner$/;"	m	struct:BoundingBox	typeref:typename:Vector3
+mipmaps	include/raygui.h	/^        int mipmaps;            \/\/ Mipmap levels, 1 by default$/;"	m	struct:Image	typeref:typename:int
+mipmaps	include/raygui.h	/^        int mipmaps;            \/\/ Mipmap levels, 1 by default$/;"	m	struct:Texture	typeref:typename:int
 mipmaps	include/raylib.h	/^    int mipmaps;            \/\/ Mipmap levels, 1 by default$/;"	m	struct:Image	typeref:typename:int
 mipmaps	include/raylib.h	/^    int mipmaps;            \/\/ Mipmap levels, 1 by default$/;"	m	struct:Texture	typeref:typename:int
 mode	include/rlgl.h	/^    int mode;                   \/\/ Drawing mode: LINES, TRIANGLES, QUADS$/;"	m	struct:rlDrawCall	typeref:typename:int
 modelview	include/rlgl.h	/^        Matrix modelview;                   \/\/ Default modelview matrix$/;"	m	struct:rlglData::__anon68f09dbf0d08	typeref:typename:Matrix
+moveCursor	main.cpp	/^void moveCursor (Vector2 startPos, const int step, const int size, Rectangle *cursor){$/;"	f	typeref:typename:void
+moveCursor	main.cpp	/^void moveCursor (Vector2 startPos, int step, int size, Rectangle *cursor);$/;"	p	typeref:typename:void	file:
 name	include/raylib.h	/^    char name[32];          \/\/ Animation name$/;"	m	struct:ModelAnimation	typeref:typename:char[32]
 name	include/raylib.h	/^    char name[32];          \/\/ Bone name$/;"	m	struct:BoneInfo	typeref:typename:char[32]
 normal	include/raylib.h	/^    Vector3 normal;         \/\/ Surface normal of hit$/;"	m	struct:RayCollision	typeref:typename:Vector3
@@ -1837,7 +2573,9 @@ normalx	include/rlgl.h	/^        float normalx, normaly, normalz;    \/\/ Curren
 normaly	include/rlgl.h	/^        float normalx, normaly, normalz;    \/\/ Current active normal (added on glVertex*())$/;"	m	struct:rlglData::__anon68f09dbf0d08	typeref:typename:float
 normalz	include/rlgl.h	/^        float normalx, normaly, normalz;    \/\/ Current active normal (added on glVertex*())$/;"	m	struct:rlglData::__anon68f09dbf0d08	typeref:typename:float
 offset	include/raylib.h	/^    Vector2 offset;         \/\/ Camera offset (screen space offset from window origin)$/;"	m	struct:Camera2D	typeref:typename:Vector2
+offsetX	include/raygui.h	/^        int offsetX;            \/\/ Character offset X when drawing$/;"	m	struct:GlyphInfo	typeref:typename:int
 offsetX	include/raylib.h	/^    int offsetX;            \/\/ Character offset X when drawing$/;"	m	struct:GlyphInfo	typeref:typename:int
+offsetY	include/raygui.h	/^        int offsetY;            \/\/ Character offset Y when drawing$/;"	m	struct:GlyphInfo	typeref:typename:int
 offsetY	include/raylib.h	/^    int offsetY;            \/\/ Character offset Y when drawing$/;"	m	struct:GlyphInfo	typeref:typename:int
 operator !=	include/raymath.h	/^inline bool operator != (const Vector2& lhs, const Vector2& rhs)$/;"	f	typeref:typename:bool
 operator !=	include/raymath.h	/^inline bool operator != (const Vector3& lhs, const Vector3& rhs)$/;"	f	typeref:typename:bool
@@ -1903,17 +2641,26 @@ params	include/raylib.h	/^    float params[4];        \/\/ Material generic para
 params	include/raylib.h	/^    int params[4];                  \/\/ Event parameters (if required)$/;"	m	struct:AutomationEvent	typeref:typename:int[4]
 parent	include/raylib.h	/^    int parent;             \/\/ Bone parent$/;"	m	struct:BoneInfo	typeref:typename:int
 paths	include/raylib.h	/^    char **paths;                   \/\/ Filepaths entries$/;"	m	struct:FilePathList	typeref:typename:char **
+placeShip	main.cpp	/^void placeShip (Ship *ship, Vector2 startPos, int sqSize, int step, bool rotateShip, Rectangle */;"	f	typeref:typename:void
+placeShip	main.cpp	/^void placeShip (Ship *ship, Vector2 startPos, int sqSize, int step, bool rotateShip, Rectangle */;"	p	typeref:typename:void	file:
 point	include/raylib.h	/^    Vector3 point;          \/\/ Point of the nearest hit$/;"	m	struct:RayCollision	typeref:typename:Vector3
 position	include/raylib.h	/^    Vector3 position;       \/\/ Camera position$/;"	m	struct:Camera3D	typeref:typename:Vector3
 position	include/raylib.h	/^    Vector3 position;       \/\/ Ray position (origin)$/;"	m	struct:Ray	typeref:typename:Vector3
+printBoard	main.cpp	/^void printBoard (int gamePhase, int gameBoard[BLINE][BCOL], Rectangle visualBoard[BLINE][BCOL], /;"	f	typeref:typename:void
+printBoard	main.cpp	/^void printBoard (int gamePhase, int gameBoard[BLINE][BCOL], Rectangle visualBoard[BLINE][BCOL], /;"	p	typeref:typename:void	file:
 processor	include/raylib.h	/^    rAudioProcessor *processor; \/\/ Pointer to internal data processor, useful for audio effect/;"	m	struct:AudioStream	typeref:typename:rAudioProcessor *
 projection	include/raylib.h	/^    Matrix projection[2];           \/\/ VR projection matrices (per eye)$/;"	m	struct:VrStereoConfig	typeref:typename:Matrix[2]
 projection	include/raylib.h	/^    int projection;         \/\/ Camera projection: CAMERA_PERSPECTIVE or CAMERA_ORTHOGRAPHIC$/;"	m	struct:Camera3D	typeref:typename:int
 projection	include/rlgl.h	/^        Matrix projection;                  \/\/ Default projection matrix$/;"	m	struct:rlglData::__anon68f09dbf0d08	typeref:typename:Matrix
 projectionStereo	include/rlgl.h	/^        Matrix projectionStereo[2];         \/\/ VR stereo rendering eyes projection matrices$/;"	m	struct:rlglData::__anon68f09dbf0d08	typeref:typename:Matrix[2]
+propertyId	include/raygui.h	/^    unsigned short propertyId;  \/\/ Property identifier$/;"	m	struct:GuiStyleProp	typeref:typename:unsigned short
+propertyValue	include/raygui.h	/^    int propertyValue;          \/\/ Property value$/;"	m	struct:GuiStyleProp	typeref:typename:int
+qnt	main.cpp	/^    int qnt;$/;"	m	struct:__anon3b5b11db0108	typeref:typename:int	file:
+r	include/raygui.h	/^        unsigned char r;$/;"	m	struct:Color	typeref:typename:unsigned char
 r	include/raylib.h	/^    unsigned char r;        \/\/ Color red value$/;"	m	struct:Color	typeref:typename:unsigned char
 rAudioBuffer	include/raylib.h	/^typedef struct rAudioBuffer rAudioBuffer;$/;"	t	typeref:struct:rAudioBuffer
 rAudioProcessor	include/raylib.h	/^typedef struct rAudioProcessor rAudioProcessor;$/;"	t	typeref:struct:rAudioProcessor
+recs	include/raygui.h	/^        Rectangle *recs;        \/\/ Rectangles in texture for the glyphs$/;"	m	struct:Font	typeref:typename:Rectangle *
 recs	include/raylib.h	/^    Rectangle *recs;        \/\/ Rectangles in texture for the glyphs$/;"	m	struct:Font	typeref:typename:Rectangle *
 right	include/raylib.h	/^    int right;              \/\/ Right border offset$/;"	m	struct:NPatchInfo	typeref:typename:int
 rightLensCenter	include/raylib.h	/^    float rightLensCenter[2];       \/\/ VR right lens center$/;"	m	struct:VrStereoConfig	typeref:typename:float[2]
@@ -2314,6 +3061,7 @@ scale	include/raylib.h	/^    Vector3 scale;          \/\/ Scale$/;"	m	struct:Tra
 scale	include/raylib.h	/^    float scale[2];                 \/\/ VR distortion scale$/;"	m	struct:VrStereoConfig	typeref:typename:float[2]
 scaleIn	include/raylib.h	/^    float scaleIn[2];               \/\/ VR distortion scale in$/;"	m	struct:VrStereoConfig	typeref:typename:float[2]
 shader	include/raylib.h	/^    Shader shader;          \/\/ Material shader$/;"	m	struct:Material	typeref:typename:Shader
+size	main.cpp	/^    int size;$/;"	m	struct:__anon3b5b11db0108	typeref:typename:int	file:
 skeleton	include/raylib.h	/^    ModelSkeleton skeleton; \/\/ Skeleton for animation$/;"	m	struct:Model	typeref:typename:ModelSkeleton
 source	include/raylib.h	/^    Rectangle source;       \/\/ Texture source rectangle$/;"	m	struct:NPatchInfo	typeref:typename:Rectangle
 ssbo	include/rlgl.h	/^        bool ssbo;                          \/\/ Shader storage buffer object support (GL_ARB_sh/;"	m	struct:rlglData::__anon68f09dbf0e08	typeref:typename:bool
@@ -2342,14 +3090,19 @@ texcoords	include/rlgl.h	/^    float *texcoords;           \/\/ Vertex texture c
 texcoords2	include/raylib.h	/^    float *texcoords2;      \/\/ Vertex texture second coordinates (UV - 2 components per vertex/;"	m	struct:Mesh	typeref:typename:float *
 texcoordx	include/rlgl.h	/^        float texcoordx, texcoordy;         \/\/ Current active texture coordinate (added on glV/;"	m	struct:rlglData::__anon68f09dbf0d08	typeref:typename:float
 texcoordy	include/rlgl.h	/^        float texcoordx, texcoordy;         \/\/ Current active texture coordinate (added on glV/;"	m	struct:rlglData::__anon68f09dbf0d08	typeref:typename:float
+textBoxCursorIndex	include/raygui.h	/^static int textBoxCursorIndex = 0;              \/\/ Cursor index, shared by all GuiTextBox*()$/;"	v	typeref:typename:int
+texture	include/raygui.h	/^        Texture2D texture;      \/\/ Texture atlas containing the glyphs$/;"	m	struct:Font	typeref:typename:Texture2D
 texture	include/raylib.h	/^    Texture texture;        \/\/ Color buffer attachment texture$/;"	m	struct:RenderTexture	typeref:typename:Texture
 texture	include/raylib.h	/^    Texture2D texture;      \/\/ Material map texture$/;"	m	struct:MaterialMap	typeref:typename:Texture2D
 texture	include/raylib.h	/^    Texture2D texture;      \/\/ Texture atlas containing the glyphs$/;"	m	struct:Font	typeref:typename:Texture2D
 textureId	include/rlgl.h	/^    unsigned int textureId;     \/\/ Texture id to be used on the draw -> Use to create new draw/;"	m	struct:rlDrawCall	typeref:typename:unsigned int
+toggle	main.cpp	/^    bool toggle;$/;"	m	struct:__anon3b5b11db0108	typeref:typename:bool	file:
 top	include/raylib.h	/^    int top;                \/\/ Top border offset$/;"	m	struct:NPatchInfo	typeref:typename:int
 transform	include/raylib.h	/^    Matrix transform;       \/\/ Local transform matrix$/;"	m	struct:Model	typeref:typename:Matrix
 transform	include/rlgl.h	/^        Matrix transform;                   \/\/ Transform matrix to be used with rlTranslate, r/;"	m	struct:rlglData::__anon68f09dbf0d08	typeref:typename:Matrix
 transformRequired	include/rlgl.h	/^        bool transformRequired;             \/\/ Require transform matrix application to current/;"	m	struct:rlglData::__anon68f09dbf0d08	typeref:typename:bool
+translateCursorToIndex	main.cpp	/^Vector2 translateCursorToIndex(Rectangle *cursor, Vector2 pos, int step);$/;"	p	typeref:typename:Vector2	file:
+translateCursorToIndex	main.cpp	/^Vector2 translateCursorToIndex(Rectangle *cursor, Vector2 pos, int step){$/;"	f	typeref:typename:Vector2
 translation	include/raylib.h	/^    Vector3 translation;    \/\/ Translation$/;"	m	struct:Transform	typeref:typename:Vector3
 triangleCount	include/raylib.h	/^    int triangleCount;      \/\/ Number of triangles stored (indexed or not)$/;"	m	struct:Mesh	typeref:typename:int
 type	include/raylib.h	/^    unsigned int type;              \/\/ Event type (AutomationEventType)$/;"	m	struct:AutomationEvent	typeref:typename:unsigned int
@@ -2359,6 +3112,7 @@ v	include/raymath.h	/^    float v[3];$/;"	m	struct:float3	typeref:typename:float
 v	include/rlgl.h	/^typedef struct rl_float16 { float v[16]; } rl_float16;$/;"	m	struct:rl_float16	typeref:typename:float[16]
 vResolution	include/raylib.h	/^    int vResolution;                \/\/ Vertical resolution in pixels$/;"	m	struct:VrDeviceInfo	typeref:typename:int
 vScreenSize	include/raylib.h	/^    float vScreenSize;              \/\/ Vertical size in meters$/;"	m	struct:VrDeviceInfo	typeref:typename:float
+value	include/raygui.h	/^        int value;              \/\/ Character value (Unicode)$/;"	m	struct:GlyphInfo	typeref:typename:int
 value	include/raylib.h	/^    float value;            \/\/ Material map value$/;"	m	struct:MaterialMap	typeref:typename:float
 value	include/raylib.h	/^    int value;              \/\/ Character value (Unicode)$/;"	m	struct:GlyphInfo	typeref:typename:int
 vao	include/rlgl.h	/^        bool vao;                           \/\/ VAO support (OpenGL ES2 could not support VAO e/;"	m	struct:rlglData::__anon68f09dbf0e08	typeref:typename:bool
@@ -2377,9 +3131,15 @@ viewOffset	include/raylib.h	/^    Matrix viewOffset[2];           \/\/ VR view o
 viewOffsetStereo	include/rlgl.h	/^        Matrix viewOffsetStereo[2];         \/\/ VR stereo rendering eyes view offset matrices$/;"	m	struct:rlglData::__anon68f09dbf0d08	typeref:typename:Matrix[2]
 w	include/raylib.h	/^    float w;                \/\/ Vector w component$/;"	m	struct:Vector4	typeref:typename:float
 w	include/raymath.h	/^    float w;$/;"	m	struct:Vector4	typeref:typename:float
+width	include/raygui.h	/^        float width;$/;"	m	struct:Rectangle	typeref:typename:float
+width	include/raygui.h	/^        int width;              \/\/ Image base width$/;"	m	struct:Image	typeref:typename:int
+width	include/raygui.h	/^        int width;              \/\/ Texture base width$/;"	m	struct:Texture	typeref:typename:int
 width	include/raylib.h	/^    float width;            \/\/ Rectangle width$/;"	m	struct:Rectangle	typeref:typename:float
 width	include/raylib.h	/^    int width;              \/\/ Image base width$/;"	m	struct:Image	typeref:typename:int
 width	include/raylib.h	/^    int width;              \/\/ Texture base width$/;"	m	struct:Texture	typeref:typename:int
+x	include/raygui.h	/^        float x;$/;"	m	struct:Rectangle	typeref:typename:float
+x	include/raygui.h	/^        float x;$/;"	m	struct:Vector2	typeref:typename:float
+x	include/raygui.h	/^        float x;$/;"	m	struct:Vector3	typeref:typename:float
 x	include/raylib.h	/^    float x;                \/\/ Rectangle top-left corner position x$/;"	m	struct:Rectangle	typeref:typename:float
 x	include/raylib.h	/^    float x;                \/\/ Vector x component$/;"	m	struct:Vector2	typeref:typename:float
 x	include/raylib.h	/^    float x;                \/\/ Vector x component$/;"	m	struct:Vector3	typeref:typename:float
@@ -2387,6 +3147,9 @@ x	include/raylib.h	/^    float x;                \/\/ Vector x component$/;"	m	s
 x	include/raymath.h	/^    float x;$/;"	m	struct:Vector2	typeref:typename:float
 x	include/raymath.h	/^    float x;$/;"	m	struct:Vector3	typeref:typename:float
 x	include/raymath.h	/^    float x;$/;"	m	struct:Vector4	typeref:typename:float
+y	include/raygui.h	/^        float y;$/;"	m	struct:Rectangle	typeref:typename:float
+y	include/raygui.h	/^        float y;$/;"	m	struct:Vector2	typeref:typename:float
+y	include/raygui.h	/^        float y;$/;"	m	struct:Vector3	typeref:typename:float
 y	include/raylib.h	/^    float y;                \/\/ Rectangle top-left corner position y$/;"	m	struct:Rectangle	typeref:typename:float
 y	include/raylib.h	/^    float y;                \/\/ Vector y component$/;"	m	struct:Vector2	typeref:typename:float
 y	include/raylib.h	/^    float y;                \/\/ Vector y component$/;"	m	struct:Vector3	typeref:typename:float
@@ -2394,6 +3157,7 @@ y	include/raylib.h	/^    float y;                \/\/ Vector y component$/;"	m	s
 y	include/raymath.h	/^    float y;$/;"	m	struct:Vector2	typeref:typename:float
 y	include/raymath.h	/^    float y;$/;"	m	struct:Vector3	typeref:typename:float
 y	include/raymath.h	/^    float y;$/;"	m	struct:Vector4	typeref:typename:float
+z	include/raygui.h	/^        float z;$/;"	m	struct:Vector3	typeref:typename:float
 z	include/raylib.h	/^    float z;                \/\/ Vector z component$/;"	m	struct:Vector3	typeref:typename:float
 z	include/raylib.h	/^    float z;                \/\/ Vector z component$/;"	m	struct:Vector4	typeref:typename:float
 z	include/raymath.h	/^    float z;$/;"	m	struct:Vector3	typeref:typename:float
