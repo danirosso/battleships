@@ -6,6 +6,8 @@ using namespace std;
 #define RAYGUI_IMPLEMENTATION 
 #include <raygui.h>
 
+#include "salute.h" 
+
 #define BLINE 12
 #define BCOL 12
 
@@ -55,6 +57,17 @@ int main (){
 
     InitWindow(800, 600, "Batalha");
     SetTargetFPS(60);
+
+    Image salute = {
+        .data = MagickImage, //thanks ImageMagick!
+        .width = 150,
+        .height = 300,
+        .mipmaps = 1,
+        .format = PIXELFORMAT_UNCOMPRESSED_R8G8B8,
+    };
+     
+    Texture2D saluteTexture = LoadTextureFromImage(salute);
+
 
     int gamePhase = 0; 
 
@@ -107,6 +120,10 @@ int main (){
 
         if(gamePhase == 1){ 
             printBoard(gamePhase, p1gameBoard, visualBoard, startPos, step, sqSize);
+            DrawTexture(saluteTexture, 10, 310, WHITE);
+            DrawRectangle(10, 310, 20, 20, BLACK); //This gets rid of a little corner in the image
+                                                   //it's better than messing with the rgb values
+             
             char guideText[110];
             snprintf(guideText, (sizeof(guideText)/sizeof(char)), "[S]ubmarines: %d \n\nCrui[Z]ers: %d \n\n[C]arriers: %d\n\n\n"
                     "   ^\n"
