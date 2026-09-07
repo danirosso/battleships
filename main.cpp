@@ -24,7 +24,7 @@ typedef struct{
     bool toggle;
 }Ship;
 
-int mainMenu();
+int mainMenu(void);
 //Returns a number which represents the type of game that will be played;
 void cursorSetUp (Vector2 startPos, int step, int size, Rectangle *cursor);
 //Initializes the cursor;
@@ -45,6 +45,11 @@ void hackerText(int gameBoard[BLINE][BCOL], int step, Vector2 pos);
 bool autoPopulate(int gameBoard[BLINE][BCOL], Ship *ship);
 //Tries to place a ship into the gameBoard, returns true when it's done
 bool playerShoot(Rectangle *cursor, Vector2 pos, int gameBoard[BLINE][BCOL], int step, char msg[SHOOTMSG]);
+//Calculates and shoots where the cursor is, returns false if the shot is invalid
+void generateShot(Vector2 *shot);
+//Generates a random number limited by the axis of the gameBoard
+bool checkBotShot(Vector2 *shot, int gameBoard[BLINE][BCOL]);
+//Companion to generateShot, checks if the coordinates are valid
 
 int main (){
 
@@ -87,9 +92,10 @@ int main (){
     bool cursorIsSetd = false;
     Rectangle cursor;
 
-    bool hacker = true;
+    bool hacker = false;
 
     char msg[SHOOTMSG] = "\0";
+    bool msgSetd = false;
 
     while(!WindowShouldClose()){
         BeginDrawing();
@@ -155,14 +161,14 @@ int main (){
             ClearBackground(BLACK);
             DrawText("Placing carriers...", 200, 280, 40, MAROON);
             EndDrawing(); 
-            // for (int i = 0; i < p2carrier.qnt;)
-            //     if(autoPopulate(p2gameBoard, &carrier)) i++;
+             for (int i = 0; i < p2carrier.qnt;)
+                 if(autoPopulate(p2gameBoard, &carrier)) i++;
 
             ClearBackground(BLACK);
             DrawText("Placing cruizers...", 200, 280, 40, MAROON);
             EndDrawing(); 
-            // for (int i = 0; i < p2cruizer.qnt;)
-            //     if(autoPopulate(p2gameBoard, &cruizer)) i++;
+             for (int i = 0; i < p2cruizer.qnt;)
+                 if(autoPopulate(p2gameBoard, &cruizer)) i++;
 
             ClearBackground(BLACK);
             DrawText("Placing Submarines...", 200, 280, 40, MAROON);
@@ -176,7 +182,7 @@ int main (){
 
         if (gamePhase == 3){
             step = 30; sqSize = 28;
-            Vector2 leftPos = {step, step};
+            Vector2 leftPos = {step, step * 3};
             printBoard(gamePhase, p1gameBoard, visualBoard, leftPos, step, sqSize);
 
             Vector2 rightPos = {20 + (BCOL * step) + step, leftPos.y};
@@ -194,10 +200,19 @@ int main (){
 
             if (p1turn){ 
                 if(IsKeyPressed(KEY_S)) {
-                    if(playerShoot(&cursor, rightPos, p2gameBoard, step, msg)) p1turn = true;
+                    if(playerShoot(&cursor, rightPos, p2gameBoard, step, msg)) p1turn = false;
+                    msgSetd = true;
                 }
-
-                DrawText(msg, 410, 400, 30, ORANGE); 
+                if(msgSetd)DrawText(msg, 410, 460, 30, ORANGE); 
+            }
+            if(!p1turn){
+                Vector2 botShot;
+                do{
+                    DrawText("Calculating Shot", 30, 450, 20, MAROON);
+                    EndDrawing();
+                    generateShot(&botShot);
+                }while(!checkBotShot(&botShot, p1gameBoard));
+                p1turn = true;
             }
         }
         EndDrawing(); 
@@ -205,27 +220,45 @@ int main (){
     CloseWindow(); 
 }
 
+bool checkBotShot(Vector2 *shot, int gameBoard[BLINE][BCOL]){
+
+    if (gameBoard[(int)shot->x][(int)shot->y] == SHIP){
+        gameBoard[(int)shot->x][(int)shot->y] = HIT;
+        return true;
+    }
+
+    if (gameBoard[(int)shot->x][(int)shot->y] == SEA){
+        gameBoard[(int)shot->x][(int)shot->y] = MISS;
+        return true;
+    }
+     
+    return false;
+}
+
+void generateShot (Vector2 *shot){
+    SetRandomSeed(GetTime());
+    shot->x = GetRandomValue(0, BLINE);
+    shot->y = GetRandomValue(0, BCOL);
+}                 
+
 bool playerShoot(Rectangle *cursor, Vector2 pos, int gameBoard[BLINE][BCOL], int step, char msg[SHOOTMSG]){
     Vector2 shootPos = translateCursorToIndex(cursor, pos, step);
-    bool validShot = false;
-
-    if(gameBoard[(int)shootPos.x][(int)shootPos.y] == MISS || gameBoard[(int)shootPos.x][(int)shootPos.y] == HIT){
-        snprintf(msg, SHOOTMSG, "You already shot there!");
-    }
 
     if(gameBoard[(int)shootPos.x][(int)shootPos.y] == HIDDEN){
         snprintf(msg, SHOOTMSG, "That's a hit!");
         gameBoard[(int)shootPos.x][(int)shootPos.y] = HIT;
-        validShot = true;
+        return true;
     }
 
     if(gameBoard[(int)shootPos.x][(int)shootPos.y] == P2SEA){
         snprintf(msg, SHOOTMSG, "You missed!");
         gameBoard[(int)shootPos.x][(int)shootPos.y] = MISS;
-        validShot = true;
+        return true;
     }
 
-    return validShot;
+    snprintf(msg, SHOOTMSG, "You already shot there!");
+    return false;
+
 }
 
 bool autoPopulate(int gameBoard[BLINE][BCOL], Ship *ship){
@@ -284,7 +317,7 @@ void boardFull(int gameBoard[BLINE][BCOL], int *gamePhase, int shipSum, bool *cu
         for(int j = 0; j < BCOL; j++)
             sum += gameBoard[i][j];
     //TODO 
-    if (sum != shipSum) {
+    if (sum == shipSum) {
         DrawText("Board's ready! Press [ENTER] to continue.", 180, 530, 20, GRAY);
         if (IsKeyPressed(KEY_ENTER) || IsKeyPressed(KEY_KP_ENTER)){
             *cursorState = false;
@@ -382,11 +415,11 @@ void printBoard (int gamePhase, int gameBoard[BLINE][BCOL], Rectangle visualBoar
     for (int i = 0; i < BCOL; i++){
         for (int j = 0; j < BLINE; j++){
             if (gameBoard[i][j] == SEA) DrawRectangleRec(visualBoard[i][j], BLUE);
-            if (gameBoard[i][j] == SHIP) DrawRectangleRec(visualBoard[i][j], DARKGRAY);
-            if (gameBoard[i][j] == HIT) DrawRectangleRec(visualBoard[i][j], MAROON);
+            if (gameBoard[i][j] == SHIP) DrawRectangleRec(visualBoard[i][j], LIGHTGRAY);
+            if (gameBoard[i][j] == HIT) DrawRectangleRec(visualBoard[i][j], DARKBROWN);
             if (gameBoard[i][j] == MISS) DrawRectangleRec(visualBoard[i][j], SKYBLUE);
             if (gameBoard[i][j] == P2SEA) DrawRectangleRec(visualBoard[i][j], DARKBLUE);
-            if (gameBoard[i][j] == HIDDEN) DrawRectangleRec(visualBoard[i][j], PINK);
+            if (gameBoard[i][j] == HIDDEN) DrawRectangleRec(visualBoard[i][j], DARKBLUE);
         }
     }
 }
