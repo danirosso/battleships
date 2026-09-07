@@ -16,6 +16,8 @@ using namespace std;
 #define HIDDEN 4
 #define P2SEA 5
 
+#define SHOOTMSG 30
+
 typedef struct{
     int size;
     int qnt;
@@ -41,6 +43,8 @@ void boardFull(int gameBoard[BLINE][BCOL], int *gamePhase, int shipSum, bool *cu
 void hackerText(int gameBoard[BLINE][BCOL], int step, Vector2 pos);
 //Debugging tool, prints the actual value of the gameBoard over the visualBoard, useful for cheaters too!
 bool autoPopulate(int gameBoard[BLINE][BCOL], Ship *ship);
+//Tries to place a ship into the gameBoard, returns true when it's done
+bool playerShoot(Rectangle *cursor, Vector2 pos, int gameBoard[BLINE][BCOL], int step, char msg[SHOOTMSG]);
 
 int main (){
 
@@ -84,6 +88,8 @@ int main (){
     Rectangle cursor;
 
     bool hacker = true;
+
+    char msg[SHOOTMSG] = "\0";
 
     while(!WindowShouldClose()){
         BeginDrawing();
@@ -144,15 +150,23 @@ int main (){
         }
 
         if(gamePhase == 2){
-            for (int i = 0; i < p2carrier.qnt;){
-            DrawText("Placing carriers", 400, 300, 50, MAROON);
-                if(autoPopulate(p2gameBoard, &carrier)) i++;
-            }
-            DrawText("Placing cruizers", 400, 300, 50, MAROON);
-            for (int i = 0; i < p2cruizer.qnt;)
-                if(autoPopulate(p2gameBoard, &cruizer)) i++;
 
-            DrawText("Placing Submarines", 200, 300, 20, MAROON);
+            EndDrawing(); 
+            ClearBackground(BLACK);
+            DrawText("Placing carriers...", 200, 280, 40, MAROON);
+            EndDrawing(); 
+            // for (int i = 0; i < p2carrier.qnt;)
+            //     if(autoPopulate(p2gameBoard, &carrier)) i++;
+
+            ClearBackground(BLACK);
+            DrawText("Placing cruizers...", 200, 280, 40, MAROON);
+            EndDrawing(); 
+            // for (int i = 0; i < p2cruizer.qnt;)
+            //     if(autoPopulate(p2gameBoard, &cruizer)) i++;
+
+            ClearBackground(BLACK);
+            DrawText("Placing Submarines...", 200, 280, 40, MAROON);
+            EndDrawing(); 
             for (int i = 0; i < p2sub.qnt;)
                 if(autoPopulate(p2gameBoard, &sub)) i++;
 
@@ -178,10 +192,40 @@ int main (){
             if (IsKeyPressed(KEY_HOME)) hacker = !hacker;
             if (hacker) hackerText(p2gameBoard, step, rightPos);
 
+            if (p1turn){ 
+                if(IsKeyPressed(KEY_S)) {
+                    if(playerShoot(&cursor, rightPos, p2gameBoard, step, msg)) p1turn = true;
+                }
+
+                DrawText(msg, 410, 400, 30, ORANGE); 
+            }
         }
         EndDrawing(); 
     }
     CloseWindow(); 
+}
+
+bool playerShoot(Rectangle *cursor, Vector2 pos, int gameBoard[BLINE][BCOL], int step, char msg[SHOOTMSG]){
+    Vector2 shootPos = translateCursorToIndex(cursor, pos, step);
+    bool validShot = false;
+
+    if(gameBoard[(int)shootPos.x][(int)shootPos.y] == MISS || gameBoard[(int)shootPos.x][(int)shootPos.y] == HIT){
+        snprintf(msg, SHOOTMSG, "You already shot there!");
+    }
+
+    if(gameBoard[(int)shootPos.x][(int)shootPos.y] == HIDDEN){
+        snprintf(msg, SHOOTMSG, "That's a hit!");
+        gameBoard[(int)shootPos.x][(int)shootPos.y] = HIT;
+        validShot = true;
+    }
+
+    if(gameBoard[(int)shootPos.x][(int)shootPos.y] == P2SEA){
+        snprintf(msg, SHOOTMSG, "You missed!");
+        gameBoard[(int)shootPos.x][(int)shootPos.y] = MISS;
+        validShot = true;
+    }
+
+    return validShot;
 }
 
 bool autoPopulate(int gameBoard[BLINE][BCOL], Ship *ship){
@@ -226,11 +270,11 @@ bool autoPopulate(int gameBoard[BLINE][BCOL], Ship *ship){
 }
 
 void hackerText(int gameBoard[BLINE][BCOL], int step, Vector2 pos){
-    for (int i = 0; i < 12; i++)
-        for (int j = 0; j < 12; j++){
+    for (int i = 0; i < BLINE; i++)
+        for (int j = 0; j < BCOL; j++){
             char ch[6];
             snprintf(ch, 6, "%d",gameBoard[i][j]);
-            DrawText(ch, 20 + (12 * step) + step + (step * i+1), pos.y + (step *j), 10, RED);
+            DrawText(ch, 20 + (BLINE * step) + step + (step * i+1), pos.y + (step *j), 10, RED);
         }
 }
 
