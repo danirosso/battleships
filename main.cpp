@@ -2,14 +2,16 @@
 using namespace std;
 
 #include "raylib.h"
-
 #define RAYGUI_IMPLEMENTATION 
 #include <raygui.h>
 
-#include "salute.h" 
+#include "salute.h"
 
 #define BLINE 12
 #define BCOL 12
+ 
+#define SEACOLOR {00,85,119,255}  
+#define SHIPCOLOR {192,192,192,255}
 
 #define SEA 0 
 #define SHIP 1
@@ -17,6 +19,13 @@ using namespace std;
 #define MISS 3
 #define HIDDEN 4
 #define P2SEA 5
+
+#define MENU_PHASE 0
+#define PLACE_PHASE_P1 1
+#define PLACE_PHASE_BOT 2
+#define GAMEPLAY_BOT 3
+#define P1_WON_BOT 4
+#define BOT_WON 5
 
 #define SHOOTMSG 30
 
@@ -49,9 +58,12 @@ bool autoPopulate(int gameBoard[BLINE][BCOL], Ship *ship);
 bool playerShoot(Rectangle *cursor, Vector2 pos, int gameBoard[BLINE][BCOL], int step, char msg[SHOOTMSG]);
 //Calculates and shoots where the cursor is, returns false if the shot is invalid
 void generateShot(Vector2 *shot);
-//Generates a random number limited by the axis of the gameBoard
+//Generates a random number limited by BCOL and BLINE
 bool checkBotShot(Vector2 *shot, int gameBoard[BLINE][BCOL]);
 //Companion to generateShot, checks if the coordinates are valid
+bool checkWin(int gameBoard[BLINE][BCOL]);
+//returns true if there are no SHIP or HIDDEN on the board
+
 
 int main (){
 
@@ -59,15 +71,14 @@ int main (){
     SetTargetFPS(60);
 
     Image salute = {
-        .data = MagickImage, //thanks ImageMagick!
+        .data = salutePixelData, //thanks ImageMagick!
         .width = 150,
         .height = 300,
         .mipmaps = 1,
         .format = PIXELFORMAT_UNCOMPRESSED_R8G8B8,
     };
-     
-    Texture2D saluteTexture = LoadTextureFromImage(salute);
 
+    Texture2D saluteTexture = LoadTextureFromImage(salute);
 
     int gamePhase = 0; 
 
@@ -87,6 +98,7 @@ int main (){
     Ship carrier = {4, 3, false};
     bool rotateShip = false;
     int shipSum = sub.size * sub.qnt + cruizer.size * cruizer.qnt + carrier.size * carrier.qnt;
+    bool p1win = false;
     bool p1turn = true;
 
     int p2gameBoard[BLINE][BCOL];
@@ -99,8 +111,9 @@ int main (){
     Ship p2carrier = {4, 3, false};
     bool p2rotateShip = false;
     int p2shipSum = p2sub.size * p2sub.qnt + p2cruizer.size * p2cruizer.qnt + p2carrier.size * p2carrier.qnt;
-    bool p2isBot2 = true;
+    bool p2isBot = true;
     bool p2turn = false;
+    bool p2win = false;
 
     bool cursorIsSetd = false;
     Rectangle cursor;
@@ -123,9 +136,12 @@ int main (){
             DrawTexture(saluteTexture, 10, 310, WHITE);
             DrawRectangle(10, 310, 20, 20, BLACK); //This gets rid of a little corner in the image
                                                    //it's better than messing with the rgb values
-             
+
             char guideText[110];
-            snprintf(guideText, (sizeof(guideText)/sizeof(char)), "[S]ubmarines: %d \n\nCrui[Z]ers: %d \n\n[C]arriers: %d\n\n\n"
+            snprintf(guideText, (sizeof(guideText)/sizeof(char)), 
+                    "[S]ubmarines: %d \n\n"
+                    "Crui[Z]ers: %d \n\n"
+                    "[C]arriers: %d\n\n\n"
                     "   ^\n"
                     " <   > Move\n"
                     "   v\n\n"
@@ -178,14 +194,14 @@ int main (){
             ClearBackground(BLACK);
             DrawText("Placing carriers...", 200, 280, 40, MAROON);
             EndDrawing(); 
-             for (int i = 0; i < p2carrier.qnt;)
-                 if(autoPopulate(p2gameBoard, &carrier)) i++;
+            for (int i = 0; i < p2carrier.qnt;)
+                if(autoPopulate(p2gameBoard, &carrier)) i++;
 
             ClearBackground(BLACK);
             DrawText("Placing cruizers...", 200, 280, 40, MAROON);
             EndDrawing(); 
-             for (int i = 0; i < p2cruizer.qnt;)
-                 if(autoPopulate(p2gameBoard, &cruizer)) i++;
+            for (int i = 0; i < p2cruizer.qnt;)
+                if(autoPopulate(p2gameBoard, &cruizer)) i++;
 
             ClearBackground(BLACK);
             DrawText("Placing Submarines...", 200, 280, 40, MAROON);
@@ -215,26 +231,51 @@ int main (){
             if (IsKeyPressed(KEY_HOME)) hacker = !hacker;
             if (hacker) hackerText(p2gameBoard, step, rightPos);
 
-            if (p1turn){ 
+            char guideText3[70];
+            snprintf(guideText3, 70,
+                    "              ^\n"
+                    "[S]hoot   <   > Move\n"
+                    "              v\n\n");
+            DrawText(guideText3, 440, 500, 20, GRAY);
+
+            char teams[35];
+            snprintf(teams, 40, "Good Guys\t\t\t\t\t  Bad Guys");
+            DrawText(teams, leftPos.x, leftPos.y - step*2, 40, DARKGREEN);
+
+            if(p1turn && !p2win){ 
                 if(IsKeyPressed(KEY_S)) {
                     if(playerShoot(&cursor, rightPos, p2gameBoard, step, msg)) p1turn = false;
                     msgSetd = true;
+                    bool p1win = checkWin(p2gameBoard);
+                    if(p1win) gamePhase = 4;
                 }
                 if(msgSetd)DrawText(msg, 410, 460, 30, ORANGE); 
             }
-            if(!p1turn){
+            if(!p1turn && !p1win){
                 Vector2 botShot;
                 do{
                     DrawText("Calculating Shot", 30, 450, 20, MAROON);
                     EndDrawing();
                     generateShot(&botShot);
                 }while(!checkBotShot(&botShot, p1gameBoard));
-                p1turn = true;
+                    p2win = checkWin(p2gameBoard);
+                    if(p2win) gamePhase = 5;
+
+                if(checkWin(p2gameBoard)) gamePhase = 5;
+                else p1turn = true;
             }
         }
         EndDrawing(); 
     }
     CloseWindow(); 
+}
+
+bool checkWin(int gameBoard[BLINE][BCOL]){
+    for(int i = 0; i < BLINE; i++)
+        for(int j = 0; j < BCOL; j++)
+            if(gameBoard[i][j] == SHIP || gameBoard[i][j] == HIDDEN) return false;
+
+    return true;
 }
 
 bool checkBotShot(Vector2 *shot, int gameBoard[BLINE][BCOL]){
@@ -248,7 +289,7 @@ bool checkBotShot(Vector2 *shot, int gameBoard[BLINE][BCOL]){
         gameBoard[(int)shot->x][(int)shot->y] = MISS;
         return true;
     }
-     
+
     return false;
 }
 
@@ -324,7 +365,8 @@ void hackerText(int gameBoard[BLINE][BCOL], int step, Vector2 pos){
         for (int j = 0; j < BCOL; j++){
             char ch[6];
             snprintf(ch, 6, "%d",gameBoard[i][j]);
-            DrawText(ch, 20 + (BLINE * step) + step + (step * i+1), pos.y + (step *j), 10, RED);
+            if (gameBoard[i][j] == HIDDEN) DrawText(ch, 20 + (BLINE * step) + step + (step * i+1), pos.y + (step *j), 10, YELLOW);
+            else DrawText(ch, 20 + (BLINE * step) + step + (step * i+1), pos.y + (step *j), 10, RED);
         }
 }
 
@@ -412,7 +454,8 @@ void placeShip (Ship *ship, Vector2 startPos, int sqSize, int step, bool rotateS
     }
 
     char posInfos[20];
-    snprintf(posInfos, (sizeof(posInfos)/sizeof(char)), "X: %d\n"
+    snprintf(posInfos, (sizeof(posInfos)/sizeof(char)),
+            "X: %d\n"
             "Y: %d\n", (int)(cursor->x - startPos.x)/step, (int)(cursor->y - startPos.y)/step);
     DrawText(posInfos, 100, 130, 30, GRAY);
 
@@ -431,8 +474,8 @@ void printBoard (int gamePhase, int gameBoard[BLINE][BCOL], Rectangle visualBoar
 
     for (int i = 0; i < BCOL; i++){
         for (int j = 0; j < BLINE; j++){
-            if (gameBoard[i][j] == SEA) DrawRectangleRec(visualBoard[i][j], BLUE);
-            if (gameBoard[i][j] == SHIP) DrawRectangleRec(visualBoard[i][j], LIGHTGRAY);
+            if (gameBoard[i][j] == SEA) DrawRectangleRec(visualBoard[i][j], SEACOLOR);
+            if (gameBoard[i][j] == SHIP) DrawRectangleRec(visualBoard[i][j], SHIPCOLOR);
             if (gameBoard[i][j] == HIT) DrawRectangleRec(visualBoard[i][j], DARKBROWN);
             if (gameBoard[i][j] == MISS) DrawRectangleRec(visualBoard[i][j], SKYBLUE);
             if (gameBoard[i][j] == P2SEA) DrawRectangleRec(visualBoard[i][j], DARKBLUE);
