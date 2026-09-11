@@ -257,24 +257,20 @@ int main (){
                     generateShot(&botShot);
                 }while(!checkBotShot(&botShot, p1gameBoard));
                 p2win = checkWin(p2gameBoard);
-                if(checkWin(p2gameBoard)) gamePhase = BOT_WON;
+                if(checkWin(p1gameBoard)) gamePhase = BOT_WON;
                 else p1turn = true;
             }
+        }
 
-            if(P1_WON_BOT){
-                EndDrawing();
-                ClearBackground(BLACK);
+            if(gamePhase == P1_WON_BOT){
                 DrawText("~* YOU WON!!! *~", 100, 60, 60, MAROON);
             }
              
-            if(BOT_WON){
-                EndDrawing();
-                ClearBackground(BLACK);
+            if(gamePhase == BOT_WON){
                 DrawText("~* YOU LOST! *~", 100, 60, 60, MAROON);
             }
 
 
-        }
         EndDrawing(); 
     }
     CloseWindow(); 
@@ -544,6 +540,7 @@ int mainMenu(){
 
     if (!gameStarted){
         DrawText("~* Battle-Ships *~", 100, 60, 60, MAROON);
+        drawFireworks();
 
         if (GuiButton((Rectangle){800/2 - 120/2, 600/2 - 60/2, 120, 60}, "Single player") || IsKeyDown(KEY_ENTER)){
             chosenGameStyle = 1; 
