@@ -9,7 +9,7 @@ using namespace std;
 
 #define BLINE 12
 #define BCOL 12
- 
+
 #define SEACOLOR {00,85,119,255}  
 #define SHIPCOLOR {192,192,192,255}
 
@@ -80,7 +80,7 @@ int main (){
 
     Texture2D saluteTexture = LoadTextureFromImage(salute);
 
-    int gamePhase = 0; 
+    int gamePhase = MENU_PHASE; 
 
     Rectangle visualBoard[BLINE][BCOL];
 
@@ -127,15 +127,13 @@ int main (){
         BeginDrawing();
         ClearBackground(BLACK);
 
-        if(gamePhase == 0){ 
+        if(gamePhase == MENU_PHASE){ 
             gamePhase = mainMenu();
         }
 
-        if(gamePhase == 1){ 
+        if(gamePhase == PLACE_PHASE_P1){ 
             printBoard(gamePhase, p1gameBoard, visualBoard, startPos, step, sqSize);
             DrawTexture(saluteTexture, 10, 310, WHITE);
-            DrawRectangle(10, 310, 20, 20, BLACK); //This gets rid of a little corner in the image
-                                                   //it's better than messing with the rgb values
 
             char guideText[110];
             snprintf(guideText, (sizeof(guideText)/sizeof(char)), 
@@ -188,7 +186,7 @@ int main (){
             boardFull(p1gameBoard, &gamePhase, shipSum, &cursorIsSetd);
         }
 
-        if(gamePhase == 2){
+        if(gamePhase == PLACE_PHASE_BOT){
 
             EndDrawing(); 
             ClearBackground(BLACK);
@@ -213,7 +211,7 @@ int main (){
         }
 
 
-        if (gamePhase == 3){
+        if (gamePhase == GAMEPLAY_BOT){
             step = 30; sqSize = 28;
             Vector2 leftPos = {step, step * 3};
             printBoard(gamePhase, p1gameBoard, visualBoard, leftPos, step, sqSize);
@@ -239,7 +237,7 @@ int main (){
             DrawText(guideText3, 440, 500, 20, GRAY);
 
             char teams[35];
-            snprintf(teams, 40, "Good Guys\t\t\t\t\t  Bad Guys");
+            snprintf(teams, 35, "Good Guys\t\t\t\t\t  Bad Guys");
             DrawText(teams, leftPos.x, leftPos.y - step*2, 40, DARKGREEN);
 
             if(p1turn && !p2win){ 
@@ -247,7 +245,7 @@ int main (){
                     if(playerShoot(&cursor, rightPos, p2gameBoard, step, msg)) p1turn = false;
                     msgSetd = true;
                     bool p1win = checkWin(p2gameBoard);
-                    if(p1win) gamePhase = 4;
+                    if(p1win) gamePhase = P1_WON_BOT;
                 }
                 if(msgSetd)DrawText(msg, 410, 460, 30, ORANGE); 
             }
@@ -258,16 +256,50 @@ int main (){
                     EndDrawing();
                     generateShot(&botShot);
                 }while(!checkBotShot(&botShot, p1gameBoard));
-                    p2win = checkWin(p2gameBoard);
-                    if(p2win) gamePhase = 5;
-
-                if(checkWin(p2gameBoard)) gamePhase = 5;
+                p2win = checkWin(p2gameBoard);
+                if(checkWin(p2gameBoard)) gamePhase = BOT_WON;
                 else p1turn = true;
             }
+
+            if(P1_WON_BOT){
+                EndDrawing();
+                ClearBackground(BLACK);
+                DrawText("~* YOU WON!!! *~", 100, 60, 60, MAROON);
+            }
+             
+            if(BOT_WON){
+                EndDrawing();
+                ClearBackground(BLACK);
+                DrawText("~* YOU LOST! *~", 100, 60, 60, MAROON);
+            }
+
+
         }
         EndDrawing(); 
     }
     CloseWindow(); 
+}
+
+void drawFireworks(){
+
+    double radius = 20;
+    double angleBetween = PI/6;
+    int fireWorkQnt = (2*PI)/angleBetween; /* Yes, I just finished a trig studyng session */
+    double t[fireWorkQnt];                 /* how did you notice? */
+
+    for (int i = 0; i <= fireWorkQnt; i++)
+        t[i] = angleBetween * i;
+
+    double frameTime = GetFrameTime();
+    if (frameTime > 1.0f) frameTime = 0.0f;
+
+    Vector2 circle;
+    for (int i = 0; i <= fireWorkQnt; i++) {
+    circle.x = (radius/frameTime) * cos(t[i]);
+    circle.y = (radius/frameTime) * sin(t[i]);
+    DrawLine(400, 300, circle.x, circle.y, WHITE);
+    }
+
 }
 
 bool checkWin(int gameBoard[BLINE][BCOL]){
