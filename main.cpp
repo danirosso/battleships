@@ -59,11 +59,10 @@ bool playerShoot(Rectangle *cursor, Vector2 pos, int gameBoard[BLINE][BCOL], int
 //Calculates and shoots where the cursor is, returns false if the shot is invalid
 void generateShot(Vector2 *shot);
 //Generates a random number limited by BCOL and BLINE
-bool checkBotShot(Vector2 *shot, int gameBoard[BLINE][BCOL]);
+bool checkBotShot(Vector2 *shot, int gameBoard[BLINE][BCOL], char msg[SHOOTMSG]);
 //Companion to generateShot, checks if the coordinates are valid
 bool checkWin(int gameBoard[BLINE][BCOL]);
 //returns true if there are no SHIP or HIDDEN on the board
-
 
 int main (){
 
@@ -121,11 +120,12 @@ int main (){
     bool hacker = false;
 
     char msg[SHOOTMSG] = "\0";
-    bool msgSetd = false;
+    char botMsg[SHOOTMSG] = "\0";
 
     while(!WindowShouldClose()){
         BeginDrawing();
         ClearBackground(BLACK);
+        DrawText("[ESC] to quit.", 720, 580, 10, GRAY);  
 
         if(gamePhase == MENU_PHASE){ 
             gamePhase = mainMenu();
@@ -149,23 +149,39 @@ int main (){
             DrawText(guideText, 620, 150, 20, GRAY);
             DrawText("Place your ships: ", 220, 20, 40, MAROON);
 
+            if (IsKeyPressed(KEY_R)) rotateShip = !rotateShip;
+
+            if (IsKeyPressed(KEY_E)){ 
+                sub = {1, 4, false};
+                cruizer = {2, 3, false};
+                carrier = {4, 3, false};
+                for (int i = 0; i < BLINE; i++)
+                    for(int j = 0; j < BCOL; j++)
+                        p1gameBoard[i][j] = SEA;
+            }
+             
+            if (p1win || p2win){
+                startPos = {190, 90};
+                step = 35;
+                sqSize = 30;
+                 
+                sub = {1, 4, false};
+                cruizer = {2, 3, false};
+                carrier = {4, 3, false};
+                 
+                for (int i = 0; i < BLINE; i++)
+                    for(int j = 0; j < BCOL; j++)
+                        p1gameBoard[i][j] = SEA;
+                p1win = p2win = false;
+            }
+             
             if(!cursorIsSetd) {
                 cursorSetUp(startPos, step, sqSize, &cursor);
                 cursorIsSetd = true;
             }
+             
             moveCursor(startPos, step, sqSize, &cursor);
             DrawRectangleRec(cursor,VIOLET);
-
-            if (IsKeyPressed(KEY_R)) rotateShip = !rotateShip;
-
-            if (IsKeyPressed(KEY_E)){ 
-                for (int i = 0; i < BLINE; i++)
-                    for(int j = 0; j < BCOL; j++)
-                        p1gameBoard[i][j] = SEA;
-                sub = {1, 4, false};
-                cruizer = {2, 3, false};
-                carrier = {4, 3, false};
-            }
 
             if (IsKeyPressed(KEY_C)) carrier.toggle = !carrier.toggle;
             if (carrier.toggle){
@@ -187,6 +203,10 @@ int main (){
         }
 
         if(gamePhase == PLACE_PHASE_BOT){
+
+            for(int i = 0; i < BLINE; i++)
+                for(int j = 0; j < BCOL; j++)
+                    p2gameBoard[i][j] = P2SEA;
 
             EndDrawing(); 
             ClearBackground(BLACK);
@@ -243,59 +263,43 @@ int main (){
             if(p1turn && !p2win){ 
                 if(IsKeyPressed(KEY_S)) {
                     if(playerShoot(&cursor, rightPos, p2gameBoard, step, msg)) p1turn = false;
-                    msgSetd = true;
-                    bool p1win = checkWin(p2gameBoard);
+                    p1win = checkWin(p2gameBoard);
                     if(p1win) gamePhase = P1_WON_BOT;
                 }
-                if(msgSetd)DrawText(msg, 410, 460, 30, ORANGE); 
+                DrawText(msg, 410, 460, 30, ORANGE); 
+                DrawText(botMsg, 30, 460, 30, MAROON); 
             }
             if(!p1turn && !p1win){
                 Vector2 botShot;
                 do{
-                    DrawText("Calculating Shot", 30, 450, 20, MAROON);
-                    EndDrawing();
+                    DrawText("Calculating Shot", 30, 490, 20, MAROON);
+                    EndDrawing(); 
                     generateShot(&botShot);
-                }while(!checkBotShot(&botShot, p1gameBoard));
-                p2win = checkWin(p2gameBoard);
-                if(checkWin(p1gameBoard)) gamePhase = BOT_WON;
+                }while(!checkBotShot(&botShot, p1gameBoard, botMsg));
+                p2win = checkWin(p1gameBoard);
+                if(p2win) gamePhase = BOT_WON;
                 else p1turn = true;
             }
         }
 
-            if(gamePhase == P1_WON_BOT){
-                DrawText("~* YOU WON!!! *~", 100, 60, 60, MAROON);
-            }
-             
-            if(gamePhase == BOT_WON){
-                DrawText("~* YOU LOST! *~", 100, 60, 60, MAROON);
-            }
+        if(gamePhase == P1_WON_BOT){
+            DrawText("~* YOU WON!!! *~\n\n", 150, 60, 60, MAROON);
+            DrawText("Press [ENTER] to play again!", 100, 160, 40, MAROON);
+            cursorIsSetd = false;
+            if (IsKeyPressed(KEY_ENTER) || IsKeyPressed(KEY_KP_ENTER)) gamePhase = MENU_PHASE;
+        }
+
+        if(gamePhase == BOT_WON){
+            DrawText("~* YOU LOST! *~\n\n", 150, 60, 60, MAROON);
+            DrawText("Press [ENTER] to play again!", 100, 160, 40, MAROON);
+            cursorIsSetd = false;
+            if (IsKeyPressed(KEY_ENTER) || IsKeyPressed(KEY_KP_ENTER)) gamePhase = MENU_PHASE;
+        }
 
 
         EndDrawing(); 
     }
     CloseWindow(); 
-}
-
-void drawFireworks(){
-
-    double radius = 20;
-    double angleBetween = PI/6;
-    int fireWorkQnt = (2*PI)/angleBetween; /* Yes, I just finished a trig studyng session */
-    double t[fireWorkQnt];                 /* how did you notice? */
-
-    for (int i = 0; i <= fireWorkQnt; i++)
-        t[i] = angleBetween * i;
-
-    double frameTime = GetFrameTime();
-    if (frameTime > 1.0f) frameTime = 0.0f;
-
-    Vector2 circle;
-    for (int i = 0; i <= fireWorkQnt; i++) {
-    circle.x = (radius/frameTime) * cos(t[i]);
-    circle.y = (radius/frameTime) * sin(t[i]);
-    DrawLine(400, 300, circle.x, circle.y, WHITE);
-    }
-
 }
 
 bool checkWin(int gameBoard[BLINE][BCOL]){
@@ -306,15 +310,17 @@ bool checkWin(int gameBoard[BLINE][BCOL]){
     return true;
 }
 
-bool checkBotShot(Vector2 *shot, int gameBoard[BLINE][BCOL]){
+bool checkBotShot(Vector2 *shot, int gameBoard[BLINE][BCOL], char msg[SHOOTMSG]){
 
     if (gameBoard[(int)shot->x][(int)shot->y] == SHIP){
         gameBoard[(int)shot->x][(int)shot->y] = HIT;
+        snprintf(msg, SHOOTMSG, "The enemy found a ship!");
         return true;
     }
 
     if (gameBoard[(int)shot->x][(int)shot->y] == SEA){
         gameBoard[(int)shot->x][(int)shot->y] = MISS;
+        snprintf(msg, SHOOTMSG, "The enemy missed!");
         return true;
     }
 
@@ -351,7 +357,6 @@ bool autoPopulate(int gameBoard[BLINE][BCOL], Ship *ship){
 
     SetRandomSeed(GetTime());
     bool rotate = GetRandomValue(0,1);
-    bool canPlace = true;
     Vector2 randomPlace;
 
     if(!rotate){
@@ -403,7 +408,7 @@ void boardFull(int gameBoard[BLINE][BCOL], int *gamePhase, int shipSum, bool *cu
     for(int i = 0; i < BLINE; i++)
         for(int j = 0; j < BCOL; j++)
             sum += gameBoard[i][j];
-    //TODO 
+
     if (sum == shipSum) {
         DrawText("Board's ready! Press [ENTER] to continue.", 180, 530, 20, GRAY);
         if (IsKeyPressed(KEY_ENTER) || IsKeyPressed(KEY_KP_ENTER)){
@@ -535,22 +540,17 @@ void moveCursor (Vector2 startPos, const int step, const int size, Rectangle *cu
 
 int mainMenu(){
 
-    bool gameStarted = false; 
-    int chosenGameStyle = 0;
+    DrawText("~* Battle-Ships *~", 100, 60, 60, MAROON);
 
-    if (!gameStarted){
-        DrawText("~* Battle-Ships *~", 100, 60, 60, MAROON);
-        drawFireworks();
-
-        if (GuiButton((Rectangle){800/2 - 120/2, 600/2 - 60/2, 120, 60}, "Single player") || IsKeyDown(KEY_ENTER)){
-            chosenGameStyle = 1; 
-            gameStarted = true;
-        }
-
-        if (GuiButton((Rectangle){800/2 - 60/2, 540, 60, 20}, "Quit") || IsKeyDown(KEY_Q)){
-            DrawText("Quit!", 600, 20, 40, RED);
-            CloseWindow(); 
-        }
+    if (GuiButton((Rectangle){800/2 - 120/2, 600/2 - 60/2, 120, 60}, "Single player") || IsKeyDown(KEY_ENTER)){
+        return PLACE_PHASE_P1; 
     }
-    return chosenGameStyle;
+
+
+    if (GuiButton((Rectangle){800/2 - 60/2, 540, 60, 20}, "Quit") || IsKeyDown(KEY_Q)){
+        DrawText("Quit!", 600, 20, 40, RED);
+        CloseWindow(); 
+    }
+
+    return MENU_PHASE;
 }
